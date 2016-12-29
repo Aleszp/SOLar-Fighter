@@ -10,8 +10,8 @@
 #include "star.hpp"
 #include "degree.hpp"
 
-#define RESX 1920
-#define RESY 1080
+#define RESX 640
+#define RESY 360
 
 /** 
 * @mainpage
@@ -57,14 +57,12 @@ int main(void)
 	int klawisz = 0;
 	clear_keybuf ();
 	//Camera cam(0, 0, 0, 0, 0, 0, 90, 70, 1000, screen, 1920, 1080);
-	Camera cam(0, 0, 0, 0, 0, 0, deg2rad(180), deg2rad(180), 1000, screen, RESX, RESY);
+	Camera cam(0, 0, 0, 0, 0, 0, deg2rad(70), deg2rad(50), 1000, screen, RESX, RESY);
 	std::vector<Star*> test_stars;
 	test_stars.reserve(8192);
 	for(int i=0;i<8192;i++)
 	{
-		//test_stars.push_back(new Star(std::rand()%360-180,std::rand()%360-180, makecol(std::rand()%128+128,std::rand()%128+128,std::rand()%128+128)));
-		test_stars.push_back(new Star(2*rnd0_1()*PI-PI,2*rnd0_1()*PI-PI, makecol(std::rand()%128+128,std::rand()%128+128,std::rand()%128+128)));
-		//test_stars.push_back(new Star(PI/20,PI/20, makecol(std::rand()%128+128,std::rand()%128+128,std::rand()%128+128)));
+		test_stars.push_back(new Star(2*rnd0_1()*PI-PI,2*rnd0_1()*PI-PI, std::rand()%64+64,std::rand()%64+64,std::rand()%64+64));
 	}
 	allegro_gl_set_allegro_mode();
 	render(&cam,&test_stars);
@@ -73,16 +71,17 @@ int main(void)
 	{
 		klawisz = readkey ();
 		if((klawisz >> 8)==KEY_UP)
-		{
-			cam.rotate_pitch(deg2rad(-0.5));
-			cam.rotate_yaw(deg2rad(-0.5));
-		}
+			cam.rotate_pitch(deg2rad(-0.5));	
 		if((klawisz >> 8)==KEY_DOWN)
 			cam.rotate_pitch(deg2rad(0.5));
 		if((klawisz >> 8)==KEY_LEFT)
 			cam.rotate_yaw(deg2rad(-0.5));	
 		if((klawisz >> 8)==KEY_RIGHT)
 			cam.rotate_yaw(deg2rad(0.5));
+		if((klawisz >> 8)==KEY_A)
+			cam.rotate_roll(deg2rad(-0.5));	
+		if((klawisz >> 8)==KEY_D)
+			cam.rotate_roll(deg2rad(0.5));
 		render(&cam,&test_stars);	
 	}
 	allegro_gl_unset_allegro_mode();
@@ -96,7 +95,7 @@ void render(Camera* cam_, std::vector<Star*>* star_)
 	clear_bitmap(screen);
 	
 	for(std::vector<Star*>::const_iterator it = star_->begin();it != star_->end(); ++it)
-		//if(it[0]->is_visible(cam_))
+		if(it[0]->is_visible(cam_))
 			it[0]->render(cam_);
 		
 	allegro_gl_flip();	

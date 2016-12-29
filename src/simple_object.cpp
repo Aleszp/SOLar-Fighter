@@ -29,6 +29,7 @@ void SimpleObject::rotate_roll(double Droll)
 {
 	roll_+=Droll;
 	overflow(&roll_);
+	fprintf(stderr, "Roll = %lf \n",roll_);
 }
 
 double calculate_distance(const SimpleObject* o1,const SimpleObject* o2)
