@@ -1,5 +1,5 @@
-#ifndef _DEGREE_HPP_
-#define _DEGREE_HPP
+#ifndef _MATH_HPP_
+#define _MATH_HPP
 
 #include <cstdlib>
 

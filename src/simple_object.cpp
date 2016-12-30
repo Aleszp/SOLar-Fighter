@@ -2,7 +2,7 @@
 
 #include "simple_object.hpp"
 #include "object.hpp"
-#include "degree.hpp"
+#include "math.hpp"
 
 
 SimpleObject::SimpleObject(double x, double y, double z, double yaw=0.0,double pitch=0.0,double roll=0.0)

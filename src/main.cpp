@@ -8,17 +8,17 @@
 #include "object.hpp"
 #include "camera.hpp"
 #include "star.hpp"
-#include "degree.hpp"
+#include "math.hpp"
 
-#define RESX 640
-#define RESY 360
+#define RESX 1024
+#define RESY 576
 
 /** 
 * @mainpage
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.0
+* @version pre-alfa 1.0.2
 */
 
 void render(Camera* cam_, std::vector<Star*>* star_);
@@ -36,7 +36,7 @@ int main(void)
 	}
 	set_color_depth (32);
 	allegro_gl_set(AGL_DOUBLEBUFFER, 1);
-	allegro_gl_set(AGL_WINDOWED, false);
+	allegro_gl_set(AGL_WINDOWED, true);
 	allegro_gl_set(AGL_COLOR_DEPTH, 32);
 	allegro_gl_set(AGL_SUGGEST, AGL_DOUBLEBUFFER | AGL_WINDOWED | AGL_COLOR_DEPTH);
 
@@ -46,17 +46,12 @@ int main(void)
 		std::cerr << "Blad inicjowania trybu graficznego!";
 		return 1;
 	}
-	/*set_color_depth (32);
-	if (set_gfx_mode (GFX_AUTODETECT, RESX, RESY, 0, 0) != 0)
-	{
-		std::cerr << "Blad inicjowania trybu graficznego!"<<std::endl;
-		return 1;
-	}*/
+	
 	set_window_title ("Tytul okna"); // ustawia tytuł okna
 	
 	int klawisz = 0;
 	clear_keybuf ();
-	//Camera cam(0, 0, 0, 0, 0, 0, 90, 70, 1000, screen, 1920, 1080);
+	
 	Camera cam(0, 0, 0, 0, 0, 0, deg2rad(70), deg2rad(50), 1000, screen, RESX, RESY);
 	std::vector<Star*> test_stars;
 	test_stars.reserve(8192);
