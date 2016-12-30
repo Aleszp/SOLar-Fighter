@@ -8,7 +8,7 @@ class Star;
 
 class SimpleObject: public Renderable	//prosty obiekt - punkt w przestrzeni kartezjańskiej - trzy współrzędne xyz i kąty w trzech osiach
 {
-	private:
+	protected:
 		double x_;		//współrzędna x
 		double y_;		//współrzędna y
 		double z_;		//współrzędna z
@@ -19,8 +19,10 @@ class SimpleObject: public Renderable	//prosty obiekt - punkt w przestrzeni kart
 		SimpleObject(double x, double y, double z, double yaw, double pitch, double roll);
 		SimpleObject(Object* object);
 		virtual ~SimpleObject(){}
-		virtual void render(const Camera* camera){};
+		
 		virtual bool is_visible(const Camera* camera){return false;}
+		virtual void render(const Camera* camera){};
+		
 		virtual void rotate_yaw(double Dyaw);
 		virtual void rotate_pitch(double Dpitch);
 		virtual void rotate_roll(double Droll);

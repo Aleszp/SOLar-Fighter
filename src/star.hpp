@@ -8,7 +8,7 @@ class simple_object;
 
 class Star: public Renderable
 {
-	private:
+	protected:
 		double alfa_;
 		double beta_;
 		uint_fast8_t r_;

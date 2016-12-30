@@ -15,21 +15,21 @@ void SimpleObject::rotate_yaw(double Dyaw)
 {
 	yaw_+=Dyaw;
 	overflow(&yaw_);
-	fprintf(stderr, "Yaw = %lf \n",yaw_);
+	//fprintf(stderr, "Yaw = %lf \n",yaw_);
 }
 
 void SimpleObject::rotate_pitch(double Dpitch)
 {
 	pitch_+=Dpitch;
 	overflow(&pitch_);
-	fprintf(stderr, "Pitch = %lf \n",pitch_);
+	//fprintf(stderr, "Pitch = %lf \n",pitch_);
 }
 
 void SimpleObject::rotate_roll(double Droll)
 {
 	roll_+=Droll;
 	overflow(&roll_);
-	fprintf(stderr, "Roll = %lf \n",roll_);
+	//fprintf(stderr, "Roll = %lf \n",roll_);
 }
 
 double calculate_distance(const SimpleObject* o1,const SimpleObject* o2)

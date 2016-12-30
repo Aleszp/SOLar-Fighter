@@ -9,7 +9,7 @@ class Star;
 
 class Camera: public SimpleObject
 {
-	private:
+	protected:
 		double fov_x2_;	
 		double fov_y2_;	
 		double render_dist_;

@@ -1,10 +1,10 @@
 .SILENT:
 
 #nagłówki
-_DEPS = object.hpp simple_object.hpp renderable.hpp star.hpp camera.hpp math.hpp
+_DEPS = object.hpp simple_object.hpp renderable.hpp star.hpp camera.hpp math.hpp orb.hpp mobile_object.hpp
 
 #pliki obiektowe (nazwa jak dla źródłowych .cpp)
-_OBJ = main.o  object.o simple_object.o star.o camera.o math.o
+_OBJ = main.o  object.o simple_object.o star.o camera.o math.o orb.o mobile_object.o
 
 #bibiloteki
 LIBS=`allegro-config --libs` -lm -lalleggl
