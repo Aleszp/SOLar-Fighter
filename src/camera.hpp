@@ -27,6 +27,8 @@ class Camera: public SimpleObject
 		inline double get_render_dist() const {return render_dist_;}
 		inline unsigned get_res_x() const {return res_x_;}
 		inline unsigned get_res_y() const {return res_y_;}
+		inline double get_fov_x2_() const {return fov_x2_;}
+		inline double get_fov_y2_() const {return fov_y2_;}
 				
 		friend Object;
 		friend Star;

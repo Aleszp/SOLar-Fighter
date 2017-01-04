@@ -28,7 +28,7 @@ class Orb: public Renderable
 		double vroll_; 	//obrót w osi x - pochylenie w "lewo/prawo"
 		
 	public:
-		Orb(double m, double radius_, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0);
+		Orb(double m, double radius, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0);
 		Orb(const Orb &src);
 		virtual ~Orb(){}
 		

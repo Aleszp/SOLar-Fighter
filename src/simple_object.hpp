@@ -31,6 +31,10 @@ class SimpleObject: public Renderable	//prosty obiekt - punkt w przestrzeni kart
 		inline double get_y() const {return y_;}
 		inline double get_z() const {return z_;}
 		
+		inline double get_yaw()  const {return yaw_;}
+		inline double get_pitch()const {return pitch_;}
+		inline double get_roll() const {return roll_;}
+		
 	friend double calculate_distance(const SimpleObject* o1,const SimpleObject* o2);
 	friend Star;
 };

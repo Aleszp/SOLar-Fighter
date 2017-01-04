@@ -27,13 +27,18 @@ void Star::render(const Camera* camera)
 	double theta=atan2(y,x);
 	unsigned xx=round(r*cos(theta+camera->roll_)+camera->res_x_/2);
 	unsigned yy=round(r*sin(theta+camera->roll_)+camera->res_y_/2);
-
+	uint_fast8_t col_r,col_g,col_b;
+	col_r=r_+std::rand()%64;
+	col_g=g_+std::rand()%64;
+	col_b=b_+std::rand()%64;
 	if(xx>=camera->res_x_||yy>=camera->res_y_||xx<0||yy<0)
 		return;
-	/*putpixel(camera->scr_,xx,yy,makecol(r_+std::rand()%64,g_+std::rand()%64,b_+std::rand()%64));
-	putpixel(camera->scr_,xx+1,yy,makecol(r_>>1,g_>>1,b_>>1));
-	putpixel(camera->scr_,xx-1,yy,makecol(r_>>1,g_>>1,b_>>1));
-	putpixel(camera->scr_,xx,yy+1,makecol(r_>>1,g_>>1,b_>>1));
-	putpixel(camera->scr_,xx,yy-1,makecol(r_>>1,g_>>1,b_>>1));*/
-	ellipsefill(camera->scr_,xx,yy,1, 1, makecol(r_+std::rand()%64,g_+std::rand()%64,b_+std::rand()%64));
+	putpixel(camera->scr_,xx,yy,makecol(col_r,col_g,col_b));
+	putpixel(camera->scr_,xx+1,yy,makecol(col_r>>1,col_g>>1,col_b>>1));
+	putpixel(camera->scr_,xx-1,yy,makecol(col_r>>1,col_g>>1,col_b>>1));
+	putpixel(camera->scr_,xx,yy+1,makecol(col_r>>1,col_g>>1,col_b>>1));
+	putpixel(camera->scr_,xx,yy-1,makecol(col_r>>1,col_g>>1,col_b>>1));
+	//ellipsefill(camera->scr_,xx,yy,1.5, 1.5, makecol(std::rand()%256,std::rand()%256,std::rand()%256));
+	//ellipsefill(camera->scr_,xx,yy,1.8, 1.8, makecol(r_+std::rand()%64,g_+std::rand()%64,b_+std::rand()%64));
+
 }

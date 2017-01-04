@@ -11,15 +11,15 @@
 #include "math.hpp"
 #include "orb.hpp"
 
-#define RESX 640
-#define RESY 360
+#define RESX 1920
+#define RESY 800
 
 /** 
 * @mainpage
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.0.4
+* @version pre-alfa 1.1.0
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
@@ -37,7 +37,7 @@ int main(void)
 	}
 	set_color_depth (32);
 	allegro_gl_set(AGL_DOUBLEBUFFER, 1);
-	allegro_gl_set(AGL_WINDOWED, false);
+	allegro_gl_set(AGL_WINDOWED, true);
 	allegro_gl_set(AGL_COLOR_DEPTH, 32);
 	allegro_gl_set(AGL_SUGGEST, AGL_DOUBLEBUFFER | AGL_WINDOWED | AGL_COLOR_DEPTH);
 
@@ -52,19 +52,20 @@ int main(void)
 	
 	clear_keybuf ();
 	
-	Camera cam(1000, 100000, -500, 0, 0, 0, deg2rad(70), deg2rad(50), 1000, screen, RESX, RESY);
+	Camera cam(1000, 1000, 0, 0, 0, 0, deg2rad(70), deg2rad(50), 3000.0, screen, RESX, RESY);
 	std::vector<Renderable*> renderables;
 	renderables.reserve(2*8192);
-	for(int i=0;i<2*8192;i++)
+	for(int i=0;i<2*8191;i++)
 	{
 		renderables.push_back(new Star(2*rnd0_1()*PI-PI,2*rnd0_1()*PI-PI, std::rand()%64+64,std::rand()%64+64,std::rand()%64+64));
 	}
-	//test_stars.push_back(new Orb(1000.0, 500.0));
+	renderables.push_back(new Orb(1000.0, 300.0));
 	
 	allegro_gl_set_allegro_mode();
 	render(&cam,&renderables);
 	while (!key[KEY_ESC])
 	{
+		readkey();
 		if(key[KEY_UP])
 			cam.rotate_pitch(deg2rad(-0.5));	
 		if(key[KEY_DOWN])

@@ -7,6 +7,6 @@ Camera::Camera(double x, double y, double z, double yaw, double pitch, double ro
 {
 	x_sin_fov_const_=res_x_/2.0/sin(fov_x2_);
 	y_sin_fov_const_=res_y_/2.0/sin(fov_y2_);
-	fprintf(stderr,"fov consts: %lf %lf\n",x_sin_fov_const_,y_sin_fov_const_);
+	//fprintf(stderr,"fov consts: %lf %lf\n",x_sin_fov_const_,y_sin_fov_const_);
 }
 
