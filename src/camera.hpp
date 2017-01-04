@@ -6,6 +6,7 @@
 
 class Object;
 class Star;
+class Orb;
 
 class Camera: public SimpleObject
 {
@@ -23,9 +24,12 @@ class Camera: public SimpleObject
 		virtual ~Camera(){}
 		inline double get_x_sin_fov_const()const {return x_sin_fov_const_;}
 		inline double get_y_sin_fov_const()const {return y_sin_fov_const_;}
+		inline double get_render_dist() const {return render_dist_;}
+		inline unsigned get_res_x() const {return res_x_;}
+		inline unsigned get_res_y() const {return res_y_;}
 				
 		friend Object;
 		friend Star;
-		
+		friend Orb;
 };
 #endif

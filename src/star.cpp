@@ -30,5 +30,10 @@ void Star::render(const Camera* camera)
 
 	if(xx>=camera->res_x_||yy>=camera->res_y_||xx<0||yy<0)
 		return;
-	putpixel(camera->scr_,xx,yy,makecol(r_+std::rand()%64,g_+std::rand()%64,b_+std::rand()%64));
+	/*putpixel(camera->scr_,xx,yy,makecol(r_+std::rand()%64,g_+std::rand()%64,b_+std::rand()%64));
+	putpixel(camera->scr_,xx+1,yy,makecol(r_>>1,g_>>1,b_>>1));
+	putpixel(camera->scr_,xx-1,yy,makecol(r_>>1,g_>>1,b_>>1));
+	putpixel(camera->scr_,xx,yy+1,makecol(r_>>1,g_>>1,b_>>1));
+	putpixel(camera->scr_,xx,yy-1,makecol(r_>>1,g_>>1,b_>>1));*/
+	ellipsefill(camera->scr_,xx,yy,1, 1, makecol(r_+std::rand()%64,g_+std::rand()%64,b_+std::rand()%64));
 }

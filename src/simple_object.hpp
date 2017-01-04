@@ -27,6 +27,10 @@ class SimpleObject: public Renderable	//prosty obiekt - punkt w przestrzeni kart
 		virtual void rotate_pitch(double Dpitch);
 		virtual void rotate_roll(double Droll);
 		
+		inline double get_x() const {return x_;}
+		inline double get_y() const {return y_;}
+		inline double get_z() const {return z_;}
+		
 	friend double calculate_distance(const SimpleObject* o1,const SimpleObject* o2);
 	friend Star;
 };
