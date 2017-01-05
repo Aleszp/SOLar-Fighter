@@ -27,8 +27,9 @@ bool Orb::is_visible(const Camera* camera)
 	double yy=xx*sin(alfa_);
 	xx-=camera->get_x();
 	yy-=camera->get_y();
+	double zz=z_-camera->get_z();
 	
-	double dist=sqrt(xx*xx+yy*yy);
+	double dist=sqrt(xx*xx+yy*yy+zz*zz);
 	if(dist<camera->get_render_dist())
 		return true;
 	
@@ -37,27 +38,50 @@ bool Orb::is_visible(const Camera* camera)
 
 void Orb::render(const Camera* camera)
 {
-	double dx=r_*cos(alfa_)-camera->get_x();
-	double dy=r_*sin(alfa_)-camera->get_y();
-	double dz=z_-camera->get_z();
+	double x=r_*cos(alfa_)-camera->get_x();
+	double y=r_*sin(alfa_)-camera->get_y();
+	double z=z_-camera->get_z();
 
-	double r=sqrt(dx*dx+dy*dy);
-	double R=sqrt(r*r+dz*dz);
+	double r=sqrt(x*x+y*y);
+	double R=sqrt(r*r+z*z);
 	
-	double alfa=atan2(dy,dx)-camera->get_yaw();
-	double beta=atan2(r,dz)-camera->get_pitch();
+	double alfa=atan2(y,x)-camera->get_yaw();
+	double beta=atan2(r,z)-camera->get_pitch();
 	
-	int xx=round(R*sin(beta)*sin(alfa)+camera->res_x_/2);
-	int yy=round(R*cos(beta)+camera->res_y_/2);
+	x=camera->get_x_sin_fov_const()*sin(alfa-camera->get_yaw());
+	y=camera->get_y_sin_fov_const()*sin(beta-camera->get_pitch());
 
-	//fprintf(stderr,"%lf %lf %lf\n",dx,dy,r);
-	//fprintf(stderr,"%i %i\n",xx,yy);
-	fprintf(stderr,"%lf %lf\n",rad2deg(alfa), rad2deg(beta));
-	double rad_x=radius_, rad_y=radius_;
+	r=sqrt(x*x+y*y);
+	double theta=atan2(y,x);
 	
-	if(xx-rad_x>=camera->res_x_||yy-rad_y>=camera->res_y_||xx<-rad_x||yy<-rad_y)
+	x=r*cos(theta+camera->get_roll());
+	y=r*sin(theta+camera->get_roll());
+	
+	int xx=round(x+camera->get_res_x()/2);
+	int yy=round(y+camera->get_res_y()/2);
+	
+	//int xx=round(R*sin(beta)*sin(alfa)+camera->get_res_x()/2);
+	//int yy=round(R*cos(beta)+camera->get_res_y()/2);
+
+	fprintf(stderr,"(%lf,%lf)   ",x,y);
+	fprintf(stderr,"(%i,%i) ",xx,yy);
+	//fprintf(stderr,"(%lf,%lf)    ",rad2deg(alfa), rad2deg(beta));
+	
+	double sigma=atan2(radius_,R);
+	if(!((abs(overflow(alfa))<=camera->get_fov_x2())&&(abs(overflow(beta))<=camera->get_fov_y2())))
+	{	
+		fprintf(stderr,"\n");
 		return;
-	ellipsefill(camera->scr_,xx,yy,rad_x, rad_y, makecol(0xFF,0xFF,0x00));
+	}
+	double rad_x=sigma*camera->get_res_x()/camera->get_fov_x2() *cos(x/camera->get_res_x()*camera->get_fov_x2());
+	double rad_y=sigma*camera->get_res_y()/camera->get_fov_y2() *cos(y/camera->get_res_y()*camera->get_fov_y2());
+	
+	fprintf(stderr,"(%lf,%lf)\n",rad_x, rad_y);
+	
+	if(xx-rad_x>=camera->get_res_x()||yy-rad_y>=camera->get_res_y()||xx<-rad_x||yy<-rad_y)
+	//if(abs((xx-camera->get_res_x()/2)+rad_x>camera->get_res_x()/2)||abs((yy-camera->get_res_y()/2)+rad_y>camera->get_res_y()/2))
+		return;
+	camera->ellipsefill(xx,yy,rad_x, rad_y, makecol(0xFF,0xFF,0x00));
 	
 	//pewnie się przyda 
 	//void masked_stretch_blit(BITMAP *source, BITMAP *dest, int source_x, source_y, source_w, source_h, int dest_x, dest_y, dest_w, dest_h);

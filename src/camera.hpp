@@ -4,10 +4,6 @@
 #include <allegro.h>
 #include "simple_object.hpp"
 
-class Object;
-class Star;
-class Orb;
-
 class Camera: public SimpleObject
 {
 	protected:
@@ -27,11 +23,9 @@ class Camera: public SimpleObject
 		inline double get_render_dist() const {return render_dist_;}
 		inline unsigned get_res_x() const {return res_x_;}
 		inline unsigned get_res_y() const {return res_y_;}
-		inline double get_fov_x2_() const {return fov_x2_;}
-		inline double get_fov_y2_() const {return fov_y2_;}
-				
-		friend Object;
-		friend Star;
-		friend Orb;
+		inline double get_fov_x2() const {return fov_x2_;}
+		inline double get_fov_y2() const {return fov_y2_;}
+		inline void putpixel(int xx, int yy, int col) const {::putpixel(scr_,xx,yy,col);}
+		inline void ellipsefill(int xx,int yy,int rad_x, int rad_y, int col) const {::ellipsefill(scr_,xx,yy,rad_x, rad_y, col);}
 };
 #endif

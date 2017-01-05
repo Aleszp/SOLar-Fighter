@@ -19,7 +19,7 @@
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.1.0
+* @version pre-alfa 1.1.1
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
@@ -52,20 +52,20 @@ int main(void)
 	
 	clear_keybuf ();
 	
-	Camera cam(1000, 1000, 0, 0, 0, 0, deg2rad(70), deg2rad(50), 3000.0, screen, RESX, RESY);
+	Camera cam(5392000, 0.0, 0.0, 0, 0, 0, deg2rad(180), deg2rad(180), 5906423131.0, screen, RESX, RESY);
 	std::vector<Renderable*> renderables;
 	renderables.reserve(2*8192);
 	for(int i=0;i<2*8191;i++)
 	{
-		renderables.push_back(new Star(2*rnd0_1()*PI-PI,2*rnd0_1()*PI-PI, std::rand()%64+64,std::rand()%64+64,std::rand()%64+64));
+		renderables.push_back(new Star(2*rnd0_1()*PI-PI,rnd0_1()*PI-PI05, std::rand()%64+64,std::rand()%64+64,std::rand()%64+64));
 	}
-	renderables.push_back(new Orb(1000.0, 300.0));
+	//renderables.push_back(new Orb(1989100000, 1392000.0));
 	
 	allegro_gl_set_allegro_mode();
 	render(&cam,&renderables);
-	while (!key[KEY_ESC])
+	while (!key[KEY_ESC]&&!key[KEY_Q])
 	{
-		readkey();
+		//readkey();
 		if(key[KEY_UP])
 			cam.rotate_pitch(deg2rad(-0.5));	
 		if(key[KEY_DOWN])

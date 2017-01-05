@@ -6,7 +6,7 @@ Object::Object(double x, double y, double z, double yaw=0.0,double pitch=0.0,dou
 bool Object::is_visible(const Camera* camera) //double fov_x, double fov_y, double render_dist
 {
 	double dist=calculate_distance(camera, (SimpleObject*)this);	//policz odległość
-	if(dist>camera->render_dist_)											//jeśli jest poza zasięgiem rysowania
+	if(dist>camera->get_render_dist())											//jeśli jest poza zasięgiem rysowania
 		return false;												//to nie jest widoczne
 	//if(dist	
 	return true;
