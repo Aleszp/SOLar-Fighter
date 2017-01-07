@@ -16,15 +16,13 @@ void SimpleObject::rotate_yaw(double Dyaw)
 	yaw_+=Dyaw;
 	overflow(&yaw_);
 	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
-	//fprintf(stderr, "Yaw = %lf \n",rad2deg(yaw_));
 }
 
 void SimpleObject::rotate_pitch(double Dpitch)
 {
 	pitch_+=Dpitch;
-	overflow2(&pitch_,&roll_);
+	overflow2(&pitch_,&roll_, &yaw_);
 	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
-	//fprintf(stderr, "Pitch = %lf \n",rad2deg(pitch_));
 }
 
 void SimpleObject::rotate_roll(double Droll)
@@ -32,7 +30,6 @@ void SimpleObject::rotate_roll(double Droll)
 	roll_+=Droll;
 	overflow(&roll_);
 	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
-	//fprintf(stderr, "Roll = %lf \n",rad2deg(roll_));
 }
 
 double calculate_distance(const SimpleObject* o1,const SimpleObject* o2)

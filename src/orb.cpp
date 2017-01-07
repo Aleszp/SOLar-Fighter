@@ -63,20 +63,20 @@ void Orb::render(const Camera* camera)
 	//int xx=round(R*sin(beta)*sin(alfa)+camera->get_res_x()/2);
 	//int yy=round(R*cos(beta)+camera->get_res_y()/2);
 
-	fprintf(stderr,"(%lf,%lf)   ",x,y);
-	fprintf(stderr,"(%i,%i) ",xx,yy);
+	//fprintf(stderr,"(%lf,%lf)   ",x,y);
+	//fprintf(stderr,"(%i,%i) ",xx,yy);
 	//fprintf(stderr,"(%lf,%lf)    ",rad2deg(alfa), rad2deg(beta));
 	
 	double sigma=atan2(radius_,R);
 	if(!((abs(overflow(alfa))<=camera->get_fov_x2())&&(abs(overflow(beta))<=camera->get_fov_y2())))
 	{	
-		fprintf(stderr,"\n");
+		//fprintf(stderr,"\n");
 		return;
 	}
 	double rad_x=sigma*camera->get_res_x()/camera->get_fov_x2() *cos(x/camera->get_res_x()*camera->get_fov_x2());
 	double rad_y=sigma*camera->get_res_y()/camera->get_fov_y2() *cos(y/camera->get_res_y()*camera->get_fov_y2());
 	
-	fprintf(stderr,"(%lf,%lf)\n",rad_x, rad_y);
+	//fprintf(stderr,"(%lf,%lf)\n",rad_x, rad_y);
 	
 	if(xx-rad_x>=camera->get_res_x()||yy-rad_y>=camera->get_res_y()||xx<-rad_x||yy<-rad_y)
 	//if(abs((xx-camera->get_res_x()/2)+rad_x>camera->get_res_x()/2)||abs((yy-camera->get_res_y()/2)+rad_y>camera->get_res_y()/2))
