@@ -17,7 +17,7 @@
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.1.3
+* @version pre-alfa 1.1.4
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
@@ -37,14 +37,14 @@ int main(void)
 	
 	int res_x=1920;
 	int res_y=1080;
-	bool windowed=false;
+	bool windowed=true;
 	bool dbl_buff=1;
 	int_fast8_t depth=32;
 	
 	double fov_x=deg2rad(90);
 	double fov_y=deg2rad(59);
 	
-	if ((depth = desktop_color_depth())!=0) 
+	if ((depth = desktop_color_depth())==0) 
     {
 		depth=8;
 		std::cerr << "Nie można wykryć głębi koloru, ładowanie ustawień zgodnościowych."<<std::endl;
@@ -87,6 +87,9 @@ int main(void)
 	
 	allegro_gl_set_allegro_mode();
 	render(&cam,&renderables);
+	
+	double tmp=0;
+	
 	while (!key[KEY_ESC]&&!key[KEY_Q])
 	{
 		//readkey();
@@ -114,6 +117,14 @@ int main(void)
 			cam.rotate_roll(deg2rad(-0.5));	
 		if(key[KEY_D]||key[KEY_9_PAD])
 			cam.rotate_roll(deg2rad(0.5));
+		if(key[KEY_SPACE]||key[KEY_5_PAD])
+		{
+			tmp=1e5*sin(cam.get_pitch());
+			cam.move_x(tmp*cos(cam.get_yaw()));
+			cam.move_y(tmp*sin(cam.get_yaw()));
+			cam.move_z(1e5*cos(cam.get_pitch()));
+			fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
+		}
 		render(&cam,&renderables);	
 	}
 	allegro_gl_unset_allegro_mode();

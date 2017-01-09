@@ -31,6 +31,10 @@ class SimpleObject: public Renderable	//prosty obiekt - punkt w przestrzeni kart
 		inline double get_y() const {return y_;}
 		inline double get_z() const {return z_;}
 		
+		inline void move_x(double dx) {x_+=dx;}
+		inline void move_y(double dy) {y_+=dy;}
+		inline void move_z(double dz) {z_+=dz;}
+		
 		inline double get_yaw()  const {return yaw_;}
 		inline double get_pitch()const {return pitch_;}
 		inline double get_roll() const {return roll_;}

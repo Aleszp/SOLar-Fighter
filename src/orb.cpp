@@ -71,16 +71,16 @@ void Orb::render(const Camera* camera)
 	if(!((abs(overflow(alfa))<=camera->get_fov_x2())&&(abs(overflow(beta))<=camera->get_fov_y2())))
 	{	
 		//fprintf(stderr,"\n");
-		return;
+		//return;
 	}
 	double rad_x=sigma*camera->get_res_x()/camera->get_fov_x2() *cos(x/camera->get_res_x()*camera->get_fov_x2());
 	double rad_y=sigma*camera->get_res_y()/camera->get_fov_y2() *cos(y/camera->get_res_y()*camera->get_fov_y2());
 	
 	//fprintf(stderr,"(%lf,%lf)\n",rad_x, rad_y);
 	
-	if(xx-rad_x>=camera->get_res_x()||yy-rad_y>=camera->get_res_y()||xx<-rad_x||yy<-rad_y)
+	//if(xx-rad_x>=camera->get_res_x()||yy-rad_y>=camera->get_res_y()||xx<-rad_x||yy<-rad_y)
 	//if(abs((xx-camera->get_res_x()/2)+rad_x>camera->get_res_x()/2)||abs((yy-camera->get_res_y()/2)+rad_y>camera->get_res_y()/2))
-		return;
+		//return;
 	camera->ellipsefill(xx,yy,rad_x, rad_y, makecol(0xFF,0xFF,0x00));
 	
 	//pewnie się przyda 
