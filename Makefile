@@ -11,7 +11,7 @@ LIBS=`allegro-config --libs` -lm -lalleggl
 
 IDIR =src
 CXX=g++
-CFLAGS=-I$(IDIR) -O2 -Wall -pedantic -std=c++11
+CFLAGS=-I$(IDIR) -O3 -Wall -pedantic -std=c++11 -mtune=native -march=native
 
 #katalog na tymczasowe pliki obiektowe
 ODIR=obj

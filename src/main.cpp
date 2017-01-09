@@ -12,15 +12,12 @@
 #include "math.hpp"
 #include "orb.hpp"
 
-#define RESX 1920
-#define RESY 800
-
 /** 
 * @mainpage
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.1.2
+* @version pre-alfa 1.1.3
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
@@ -34,31 +31,57 @@ int main(void)
 	
 	if (install_allegro_gl() != 0) 
 	{
+		std::cerr << "Blad inicjowania biblioteki alleggl!"<<std::endl;
 		return 1;
 	}
-	set_color_depth (32);
-	allegro_gl_set(AGL_DOUBLEBUFFER, 1);
-	allegro_gl_set(AGL_WINDOWED, true);
-	allegro_gl_set(AGL_COLOR_DEPTH, 32);
+	
+	int res_x=1920;
+	int res_y=1080;
+	bool windowed=false;
+	bool dbl_buff=1;
+	int_fast8_t depth=32;
+	
+	double fov_x=deg2rad(90);
+	double fov_y=deg2rad(59);
+	
+	if ((depth = desktop_color_depth())!=0) 
+    {
+		depth=8;
+		std::cerr << "Nie można wykryć głębi koloru, ładowanie ustawień zgodnościowych."<<std::endl;
+	}
+	
+	if (get_desktop_resolution(&res_x, &res_y) != 0) 
+	{
+        res_x=640;
+        res_y=480;
+        windowed=true;
+        fov_x=deg2rad(70);
+		fov_y=deg2rad(56);
+        std::cerr << "Nie można wykryć rozdzielczości pulpitu, ładowanie ustawień zgodnościowych."<<std::endl;
+    }
+	
+	set_color_depth (depth);
+	allegro_gl_set(AGL_DOUBLEBUFFER, dbl_buff);
+	allegro_gl_set(AGL_WINDOWED, windowed);
+	allegro_gl_set(AGL_COLOR_DEPTH, depth);
 	allegro_gl_set(AGL_SUGGEST, AGL_DOUBLEBUFFER | AGL_WINDOWED | AGL_COLOR_DEPTH);
 
-	if (set_gfx_mode (GFX_OPENGL, RESX, RESY, 0, 0) != 0)
+	if (set_gfx_mode (GFX_OPENGL, res_x, res_y, 0, 0) != 0)
 	{
-		allegro_message ("Error setting OpenGL graphics mode:\n%s\nAllegro GL error : %s\n",allegro_error, allegro_gl_error);
-		std::cerr << "Blad inicjowania trybu graficznego!";
-		return 1;
+		std::cerr << "Blad inicjowania trybu graficznego!"<<std::endl;
+		return 2;
 	}
 	
 	set_window_title ("Tytul okna"); // ustawia tytuł okna
 	
 	clear_keybuf ();
 	
-	Camera cam(5392000, 0.0, 0.0, 0, 0, 0, deg2rad(90), deg2rad(50), 5906423131.0, screen, RESX, RESY);
+	Camera cam(5392000, 0.0, 0.0, 0, 0, 0, fov_x, fov_y, 5906423131.0, screen, res_x, res_y);
 	std::vector<Renderable*> renderables;
 	renderables.reserve(2*8192);
 	for(int i=0;i<2*8191;i++)
 	{
-		renderables.push_back(new Star(2*rnd0_1()*PI-PI,rnd0_1()*PI-PI05, std::rand()%64+64,std::rand()%64+64,std::rand()%64+64));
+		renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%64+64,std::rand()%64+64,std::rand()%64+64));
 	}
 	renderables.push_back(new Orb(1989100000, 1392000.0));
 	
@@ -67,29 +90,29 @@ int main(void)
 	while (!key[KEY_ESC]&&!key[KEY_Q])
 	{
 		//readkey();
-		if(key[KEY_UP])
+		if(key[KEY_UP]||key[KEY_8_PAD])
 		{
 			cam.rotate_pitch(deg2rad(-0.5*cos(cam.get_roll())));
 			cam.rotate_yaw(deg2rad(-0.5*sin(cam.get_roll())));
 		}	
-		if(key[KEY_DOWN])
+		if(key[KEY_DOWN]||key[KEY_2_PAD])
 		{
 			cam.rotate_pitch(deg2rad(0.5*cos(cam.get_roll())));
 			cam.rotate_yaw(deg2rad(0.5*sin(cam.get_roll())));
 		}
-		if(key[KEY_LEFT])
+		if(key[KEY_LEFT]||key[KEY_4_PAD])
 		{
 			cam.rotate_yaw(deg2rad(-0.5*cos(cam.get_roll())));
 			cam.rotate_pitch(deg2rad(0.5*sin(cam.get_roll())));
 		}	
-		if(key[KEY_RIGHT])
+		if(key[KEY_RIGHT]||key[KEY_6_PAD])
 		{
 			cam.rotate_yaw(deg2rad(0.5*cos(cam.get_roll())));
 			cam.rotate_pitch(deg2rad(-0.5*sin(cam.get_roll())));
 		}
-		if(key[KEY_A])
+		if(key[KEY_A]||key[KEY_7_PAD])
 			cam.rotate_roll(deg2rad(-0.5));	
-		if(key[KEY_D])
+		if(key[KEY_D]||key[KEY_9_PAD])
 			cam.rotate_roll(deg2rad(0.5));
 		render(&cam,&renderables);	
 	}
