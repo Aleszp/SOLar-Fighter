@@ -14,21 +14,44 @@ SimpleObject::SimpleObject(Object* object)
 void SimpleObject::rotate_yaw(double Dyaw)
 {
 	yaw_+=Dyaw;
-	overflow(&yaw_);
+	if(Dyaw>0)
+		if(yaw_>PI)
+			yaw_-=PI2;
+	if(Dyaw<0)
+		if(yaw_<-PI)
+			yaw_+=PI2;
 	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
 }
 
 void SimpleObject::rotate_pitch(double Dpitch)
 {
 	pitch_+=Dpitch;
-	overflow2(&pitch_,&roll_, &yaw_);
+	if(Dpitch>0)
+		if(pitch_>PI05)
+		{
+			pitch_=PI-pitch_;
+			rotate_roll(PI);
+			rotate_yaw(PI);
+		}
+	if(Dpitch<0)
+		if(pitch_<-PI05)
+		{
+			pitch_=-PI-pitch_;
+			rotate_roll(PI);
+			rotate_yaw(PI);
+		}
 	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
 }
 
 void SimpleObject::rotate_roll(double Droll)
 {
 	roll_+=Droll;
-	overflow(&roll_);
+	if(Droll>0)
+		if(roll_>PI)
+			roll_-=PI2;
+	if(Droll<0)
+		if(roll_<-PI)
+			roll_+=PI2;
 	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
 }
 

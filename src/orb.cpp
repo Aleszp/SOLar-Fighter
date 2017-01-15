@@ -45,17 +45,19 @@ void Orb::render(const Camera* camera)
 	double r=sqrt(x*x+y*y);
 	double R=sqrt(r*r+z*z);
 	
-	double alfa=atan2(y,x)-camera->get_yaw();
-	double beta=atan2(r,z)-camera->get_pitch();
+	double Dalfa=atan2(y,x)-camera->get_yaw();
+	if(copysign(1,cos(Dalfa))<0)
+		return;
+	double Dbeta=atan2(r,z)-camera->get_pitch();
 	
-	x=camera->get_x_sin_fov_const()*sin(alfa-camera->get_yaw());
-	y=camera->get_y_sin_fov_const()*sin(beta-camera->get_pitch());
+	x=camera->get_x_sin_fov_const()*sin(Dalfa);
+	y=camera->get_y_sin_fov_const()*sin(Dbeta);
 
 	r=sqrt(x*x+y*y);
 	double theta=atan2(y,x);
 	
 	x=r*cos(theta+camera->get_roll());
-	y=r*sin(theta+camera->get_roll());
+	y=copysign(1,cos(Dbeta))*r*sin(theta+camera->get_roll());
 	
 	int xx=round(x+camera->get_res_x()/2);
 	int yy=round(y+camera->get_res_y()/2);
@@ -68,11 +70,11 @@ void Orb::render(const Camera* camera)
 	//fprintf(stderr,"(%lf,%lf)    ",rad2deg(alfa), rad2deg(beta));
 	
 	double sigma=atan2(radius_,R);
-	if(!((abs(overflow(alfa))<=camera->get_fov_x2())&&(abs(overflow(beta))<=camera->get_fov_y2())))
+	/*if(!((abs(overflow(Dalfa))<=camera->get_fov_x2())&&(abs(overflow(Dbeta))<=camera->get_fov_y2())))
 	{	
 		//fprintf(stderr,"\n");
 		//return;
-	}
+	}*/
 	double rad_x=sigma*camera->get_res_x()/camera->get_fov_x2() *cos(x/camera->get_res_x()*camera->get_fov_x2());
 	double rad_y=sigma*camera->get_res_y()/camera->get_fov_y2() *cos(y/camera->get_res_y()*camera->get_fov_y2());
 	

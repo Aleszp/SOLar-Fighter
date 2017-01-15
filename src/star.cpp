@@ -6,27 +6,65 @@
 #include "math.hpp"
 
 Star::Star(double alfa, double beta)
-:alfa_(alfa), beta_(beta){r_=192;g_=192;b_=255;}
+:alfa_(alfa), beta_(beta){r_=192;g_=192;b_=192;}
 
 Star::Star(double alfa, double beta, uint_fast8_t r, uint_fast8_t g, uint_fast8_t b)
 :alfa_(alfa), beta_(beta), r_(r),g_(g),b_(b){}
 
 bool Star::is_visible(const Camera* camera)
 {
-	if((abs(overflow(alfa_-camera->get_yaw()))<=camera->get_fov_x2())&&(abs(overflow(beta_-camera->get_pitch()))<=camera->get_fov_y2()))
+	double alfa=alfa_, beta=beta_-camera->get_pitch();
+	overflow2(&beta,&alfa);
+	//if((abs(overflow(alfa-camera->get_yaw()))<=camera->get_fov_x2())&&(abs(overflow(beta))<=camera->get_fov_y2()))
 		return true;
 	return false;
 }
 
 void Star::render(const Camera* camera)
 {
-	double x=camera->get_x_sin_fov_const()*sin(alfa_-camera->get_yaw());
-	double y=camera->get_y_sin_fov_const()*sin(beta_-camera->get_pitch());
+	/*double Dalfa=alfa_-camera->get_yaw();
+	double Dbeta=beta_; //-camera->get_pitch();
+	//overflow2(&Dbeta,&Dalfa);
+	if(abs(overflow(Dalfa))>camera->get_fov_x2())
+		return;
+	
+	Dbeta-=camera->get_pitch();
+	
+	double x=camera->get_x_sin_fov_const()*sin(Dalfa);
+	double y=copysign(1,cos(Dalfa))*camera->get_y_sin_fov_const()*sin(Dbeta);
 
 	double r=sqrt(x*x+y*y);
 	double theta=atan2(y,x);
-	unsigned xx=round(r*cos(theta+camera->get_roll())+camera->get_res_x()/2.0);
-	unsigned yy=round(r*sin(theta+camera->get_roll())+camera->get_res_y()/2.0);
+	unsigned xx=round(r*cos(theta+camera->get_roll())+camera->get_res_x2());
+	unsigned yy=round(copysign(1,cos(Dbeta))*r*sin(theta+camera->get_roll())+camera->get_res_y2());*/
+	
+	double Dalfa=alfa_-camera->get_yaw();
+	double Dbeta;
+	if(copysign(1,cos(overflow(Dalfa)))>0)
+	{
+		Dbeta=beta_-camera->get_pitch();
+		//if(copysign(1,cos(Dbeta))>0)
+		//	return;
+	}
+	else
+	{
+		Dbeta=PI-beta_-camera->get_pitch();
+		//if(copysign(1,cos(Dbeta))>0)
+		//	return;
+	}
+	
+	double x=camera->get_x_sin_fov_const()*sin(Dalfa);
+	double y=camera->get_y_sin_fov_const()*sin(Dbeta);
+
+	double r=sqrt(x*x+y*y);
+	double theta=atan2(y,x);
+	
+	x=copysign(1,cos(Dalfa))*r*cos(theta+camera->get_roll());
+	y=copysign(1,cos(Dbeta))*r*sin(theta+camera->get_roll());
+	
+	int xx=round(x+camera->get_res_x()/2);
+	int yy=round(y+camera->get_res_y()/2);
+	
 	uint_fast8_t col_r,col_g,col_b;
 	col_r=r_+std::rand()%64;
 	col_g=g_+std::rand()%64;
@@ -39,7 +77,4 @@ void Star::render(const Camera* camera)
 	camera->putpixel(xx,yy+1,makecol(col_r>>1,col_g>>1,col_b>>1));
 	camera->putpixel(xx,yy-1,makecol(col_r>>1,col_g>>1,col_b>>1));
 	camera->putpixel(xx,yy-1,makecol(col_r>>1,col_g>>1,col_b>>1));
-	//ellipsefill(camera->scr_,xx,yy,1.5, 1.5, makecol(std::rand()%256,std::rand()%256,std::rand()%256));
-	//ellipsefill(camera->scr_,xx,yy,1.8, 1.8, makecol(r_+std::rand()%64,g_+std::rand()%64,b_+std::rand()%64));
-
 }

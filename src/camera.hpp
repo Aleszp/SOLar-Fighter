@@ -13,6 +13,8 @@ class Camera: public SimpleObject
 		BITMAP* scr_;
 		unsigned res_x_;
 		unsigned res_y_;
+		unsigned res_x2_;
+		unsigned res_y2_;
 		double x_sin_fov_const_;
 		double y_sin_fov_const_;
 	public:
@@ -23,6 +25,8 @@ class Camera: public SimpleObject
 		inline double get_render_dist() const {return render_dist_;}
 		inline unsigned get_res_x() const {return res_x_;}
 		inline unsigned get_res_y() const {return res_y_;}
+		inline unsigned get_res_x2() const {return res_x2_;}
+		inline unsigned get_res_y2() const {return res_y2_;}
 		inline double get_fov_x2() const {return fov_x2_;}
 		inline double get_fov_y2() const {return fov_y2_;}
 		inline void putpixel(int xx, int yy, int col) const {::putpixel(scr_,xx,yy,col);}

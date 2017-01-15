@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
+#include <thread>
 
 #include "object.hpp"
 #include "camera.hpp"
@@ -17,7 +18,7 @@
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.1.4
+* @version pre-alfa 1.1.5
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
@@ -36,13 +37,14 @@ int main(void)
 	}
 	
 	int res_x=1920;
-	int res_y=1080;
+	int res_y=768;
+	bool autodetect=false;
 	bool windowed=true;
 	bool dbl_buff=1;
 	int_fast8_t depth=32;
 	
-	double fov_x=deg2rad(90);
-	double fov_y=deg2rad(59);
+	double fov_x=deg2rad(180);	//90
+	double fov_y=deg2rad(180);	//59
 	
 	if ((depth = desktop_color_depth())==0) 
     {
@@ -50,15 +52,18 @@ int main(void)
 		std::cerr << "Nie można wykryć głębi koloru, ładowanie ustawień zgodnościowych."<<std::endl;
 	}
 	
-	if (get_desktop_resolution(&res_x, &res_y) != 0) 
+	if(autodetect)
 	{
-        res_x=640;
-        res_y=480;
-        windowed=true;
-        fov_x=deg2rad(70);
-		fov_y=deg2rad(56);
-        std::cerr << "Nie można wykryć rozdzielczości pulpitu, ładowanie ustawień zgodnościowych."<<std::endl;
-    }
+		if (get_desktop_resolution(&res_x, &res_y) != 0) 
+		{
+			res_x=640;
+			res_y=480;
+			windowed=true;
+			fov_x=deg2rad(70);
+			fov_y=deg2rad(56);
+			std::cerr << "Nie można wykryć rozdzielczości pulpitu, ładowanie ustawień zgodnościowych."<<std::endl;
+		}
+	}
 	
 	set_color_depth (depth);
 	allegro_gl_set(AGL_DOUBLEBUFFER, dbl_buff);
@@ -78,10 +83,12 @@ int main(void)
 	
 	Camera cam(5392000, 0.0, 0.0, 0, 0, 0, fov_x, fov_y, 5906423131.0, screen, res_x, res_y);
 	std::vector<Renderable*> renderables;
-	renderables.reserve(2*8192);
-	for(int i=0;i<2*8191;i++)
+	unsigned obj_count=8192;	//2*8192
+	renderables.reserve(obj_count);
+	for(unsigned i=0;i<obj_count-1;i++)
 	{
-		renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%64+64,std::rand()%64+64,std::rand()%64+64));
+		//renderables.push_back(new Star(rnd0_1()*PI2-PI,tmp_rnd*PI-PI05, 0, round(tmp_rnd*255),0));
+		renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%128+64,std::rand()%128+64,std::rand()%128+64));
 	}
 	renderables.push_back(new Orb(1989100000, 1392000.0));
 	
@@ -125,7 +132,8 @@ int main(void)
 			cam.move_z(1e5*cos(cam.get_pitch()));
 			fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
 		}
-		render(&cam,&renderables);	
+		render(&cam,&renderables);
+		std::this_thread::yield();	
 	}
 	allegro_gl_unset_allegro_mode();
 	allegro_exit ();
