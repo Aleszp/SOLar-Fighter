@@ -8,6 +8,7 @@ _OBJ = main.o  object.o simple_object.o star.o camera.o math.o orb.o mobile_obje
 
 #bibiloteki
 LIBS=`allegro-config --libs` -lm -lalleggl
+SETUPLIBS=-lncurses
 
 IDIR =src
 CXX=g++
@@ -27,9 +28,15 @@ $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	echo Kompiluję $<...
 	@$(CXX) -c -o $@ $< $(CFLAGS)
 
+all:  $(BDIR)/test	$(BDIR)/setup
+
 $(BDIR)/test: $(OBJ)
 	echo Buduję program...
 	@$(CXX) -o $@ $^ $(CFLAGS) $(LIBS)
+
+$(BDIR)/setup: $(SDIR)/setup.cpp
+	echo Buduję program konfiguracyjny...
+	@$(CXX) -o $(BDIR)/setup $(SDIR)/setup.cpp $(CFLAGS) $(SETUPLIBS)
 
 .PHONY: clean
 

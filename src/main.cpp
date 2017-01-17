@@ -37,14 +37,14 @@ int main(void)
 	}
 	
 	int res_x=1920;
-	int res_y=768;
+	int res_y=1080;
 	bool autodetect=false;
-	bool windowed=true;
+	bool windowed=false;
 	bool dbl_buff=1;
 	int_fast8_t depth=32;
 	
-	double fov_x=deg2rad(180);	//90
-	double fov_y=deg2rad(180);	//59
+	double fov_x=deg2rad(90);	//90
+	double fov_y=deg2rad(59);	//59
 	
 	if ((depth = desktop_color_depth())==0) 
     {
@@ -88,7 +88,7 @@ int main(void)
 	for(unsigned i=0;i<obj_count-1;i++)
 	{
 		//renderables.push_back(new Star(rnd0_1()*PI2-PI,tmp_rnd*PI-PI05, 0, round(tmp_rnd*255),0));
-		renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%128+64,std::rand()%128+64,std::rand()%128+64));
+		renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%128+32,std::rand()%128+32,std::rand()%128+32));
 	}
 	renderables.push_back(new Orb(1989100000, 1392000.0));
 	
