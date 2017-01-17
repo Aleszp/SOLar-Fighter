@@ -18,12 +18,12 @@
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.1.5
+* @version pre-alfa 1.2.0
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
 
-int main(void)
+int main(int argc, char** argv)
 {
 	srand(time(NULL));
 	
@@ -41,15 +41,40 @@ int main(void)
 	bool autodetect=false;
 	bool windowed=false;
 	bool dbl_buff=1;
-	int_fast8_t depth=32;
+	int depth=32;
 	
 	double fov_x=deg2rad(90);	//90
 	double fov_y=deg2rad(59);	//59
 	
-	if ((depth = desktop_color_depth())==0) 
-    {
-		depth=8;
-		std::cerr << "Nie można wykryć głębi koloru, ładowanie ustawień zgodnościowych."<<std::endl;
+	FILE* config;
+	
+	if(argc==1)
+		config=fopen("config.ini","r");
+	else
+		config=fopen(argv[1],"r");
+		
+	int tmp_int;
+	
+	if(!config)
+	{
+		std::cerr <<"Nie znaleziono pliku konfiguracyjnego :(. Program spróbuje dopasować ustawienia."<<std::endl;
+		autodetect=true;
+	}
+	else
+	{
+		int a=0;
+		a+=fscanf(config,"%i",&res_x);
+		a+=fscanf(config,"%i",&res_y);
+		a+=fscanf(config,"%i",&depth);
+		a+=fscanf(config,"%i",&tmp_int);
+		if(tmp_int==0) autodetect=false; else autodetect=true;
+		a+=fscanf(config,"%i",&tmp_int);
+		if(tmp_int==0) windowed=false; else windowed=true;
+		a+=fscanf(config,"%i",&tmp_int);
+		if(tmp_int==0) dbl_buff=false; else dbl_buff=true;
+		if(a==0)
+			autodetect=true;	//dzięki temu nie czepia się o nieużyte wyniki fscanfa bez wyłączania flagi o nieużytych wynikach funkcji//
+		fclose(config);
 	}
 	
 	if(autodetect)
@@ -62,6 +87,11 @@ int main(void)
 			fov_x=deg2rad(70);
 			fov_y=deg2rad(56);
 			std::cerr << "Nie można wykryć rozdzielczości pulpitu, ładowanie ustawień zgodnościowych."<<std::endl;
+		}
+		if ((depth = desktop_color_depth())==0) 
+		{
+			depth=8;
+			std::cerr << "Nie można wykryć głębi koloru, ładowanie ustawień zgodnościowych."<<std::endl;
 		}
 	}
 	
