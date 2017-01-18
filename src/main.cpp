@@ -19,7 +19,7 @@
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.2.2
+* @version pre-alfa 1.2.3
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
@@ -48,8 +48,8 @@ int main(int argc, char** argv)
 	bool dbl_buff=1;
 	int depth=32;
 	
-	double fov_x=deg2rad(180);	//90
-	double fov_y=deg2rad(180);	//59
+	double fov_x=deg2rad(90);	//90
+	double fov_y=deg2rad(59);	//59
 	
 	FILE* config;
 	
@@ -77,6 +77,10 @@ int main(int argc, char** argv)
 		if(tmp_int==0) windowed=false; else windowed=true;
 		a+=fscanf(config,"%i",&tmp_int);
 		if(tmp_int==0) dbl_buff=false; else dbl_buff=true;
+		a+=fscanf(config,"%i",&tmp_int);
+		fov_x=deg2rad((double)tmp_int);
+		a+=fscanf(config,"%i",&tmp_int);
+		fov_y=deg2rad((double)tmp_int);
 		if(a==0)
 			autodetect=true;	//dzięki temu nie czepia się o nieużyte wyniki fscanfa bez wyłączania flagi o nieużytych wynikach funkcji//
 		fclose(config);
@@ -116,7 +120,7 @@ int main(int argc, char** argv)
 	
 	clear_keybuf ();
 	
-	Camera cam(0.0, 0.0, -5392000.0, 0, 0, 0, fov_x, fov_y, 5906423131.0, screen, res_x, res_y);
+	Camera cam(5392000.0, 0.0, 0.0, 0, 0, 0, fov_x, fov_y, 5906423131.0, screen, res_x, res_y);
 	std::vector<Renderable*> renderables;
 	unsigned obj_count=8192;	//2*8192
 	renderables.reserve(obj_count);

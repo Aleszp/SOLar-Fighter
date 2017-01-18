@@ -48,7 +48,7 @@ void Orb::render(const Camera* camera)
 	double Dalfa=atan2(y,x)-camera->get_yaw();
 	//if(copysign(1,cos(Dalfa))<0)
 	//	return;
-	double Dbeta=atan2(r,z)-camera->get_pitch();
+	double Dbeta=atan2(z,r)-camera->get_pitch();
 	
 	x=camera->get_x_sin_fov_const()*sin(Dalfa);
 	y=camera->get_y_sin_fov_const()*sin(Dbeta);
