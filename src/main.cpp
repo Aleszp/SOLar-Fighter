@@ -19,7 +19,7 @@
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.2.1
+* @version pre-alfa 1.2.2
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
@@ -48,8 +48,8 @@ int main(int argc, char** argv)
 	bool dbl_buff=1;
 	int depth=32;
 	
-	double fov_x=deg2rad(90);	//90
-	double fov_y=deg2rad(59);	//59
+	double fov_x=deg2rad(180);	//90
+	double fov_y=deg2rad(180);	//59
 	
 	FILE* config;
 	
@@ -116,7 +116,7 @@ int main(int argc, char** argv)
 	
 	clear_keybuf ();
 	
-	Camera cam(5392000, 0.0, 0.0, 0, 0, 0, fov_x, fov_y, 5906423131.0, screen, res_x, res_y);
+	Camera cam(0.0, 0.0, -5392000.0, 0, 0, 0, fov_x, fov_y, 5906423131.0, screen, res_x, res_y);
 	std::vector<Renderable*> renderables;
 	unsigned obj_count=8192;	//2*8192
 	renderables.reserve(obj_count);
@@ -129,15 +129,23 @@ int main(int argc, char** argv)
 	Orb* SOL=new Orb(19891e5, 1392e3/2.0,makecol(0xFF,0xFF,0x00));
 	renderables.push_back(SOL);	//Słońce
 	
-	renderables.push_back(new Orb( 330.2,  4879.0/2.0,makecol(0xFF,0x0A,0x0A),5790917.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(87.969*86400)));	//Mercury
-	renderables.push_back(new Orb(4868.5, 12104.0/2.0,makecol(0xAA,0xFF,0xCC),108208926.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(224.701*86400)));	//Wenus
-	renderables.push_back(new Orb(5974.2, 12756.0/2.0,makecol(0xAA,0xCC,0xFF),149597887.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(365.256*86400)));	//Ziemia
+	//Planety:
+	renderables.push_back(new Orb( 330.2,  4879.0/2.0,makecol(0xFF,0x0A,0x0A),  5790917.0,0.0,0.0,0.0,0.0,0.0,0,PI2/( 87.969*86400)));		//Merkury
+	renderables.push_back(new Orb(4868.5, 12104.0/2.0,makecol(0xAA,0xFF,0xCC),108208926.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(224.701*86400)));		//Wenus
+	renderables.push_back(new Orb(5974.2, 12756.0/2.0,makecol(0xAA,0xCC,0xFF),149597887.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(365.256*86400)));		//Ziemia
+	renderables.push_back(new Orb( 641.9,  6805.0/2.0,makecol(0xCC,0x0A,0x0A),227936637.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(686.960*86400)));		//Mars
+		//Planety - gazowe oblrzymy
+	renderables.push_back(new Orb(1898600,8, 142984.0/2.0,makecol(0xBB,0xAA,0x0A),778412027.0,0.0,0.0,0.0,0.0,0.0,0,PI2/( 4333.287*86400)));//Jowisz
+	renderables.push_back(new Orb(568516.8, 120536.0/2.0,makecol(0xBB,0xBB,0xDD),1426725413.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(10756.200*86400)));//Saturn
+	renderables.push_back(new Orb(86841.0,  51118.0/2.0,makecol(0x0A,0xBB,0xEE),2870972220.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(30707.490*86400)));	//Uran
+	renderables.push_back(new Orb(102439.6, 49528.0/2.0,makecol(0x0A,0x0A,0xFF),4498252900.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(60223.353*86400)));	//Neptun
+	
 	
 	allegro_gl_set_allegro_mode();
 	render(&cam,&renderables);
 	
 	double tmp=0;
-	double time_compression=1e5;
+	double time_compression=1e6;
 	
 	auto t0 = Time::now();
     auto t1 = Time::now();
