@@ -22,6 +22,7 @@ class SimpleObject: public Renderable	//prosty obiekt - punkt w przestrzeni kart
 		
 		virtual bool is_visible(const Camera* camera){return false;}
 		virtual void render(const Camera* camera){};
+		virtual void update(double dt)=0;
 		
 		virtual void rotate_yaw(double Dyaw);
 		virtual void rotate_pitch(double Dpitch);

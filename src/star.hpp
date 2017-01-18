@@ -18,6 +18,7 @@ class Star: public Renderable
 		Star(double alfa, double beta);
 		Star(double alfa, double beta, uint_fast8_t r,uint_fast8_t g_,uint_fast8_t b_);
 		virtual ~Star(){}
+		virtual void update(double dt){}
 		virtual bool is_visible(const Camera* camera);
 		virtual void render(const Camera* camera);
 };

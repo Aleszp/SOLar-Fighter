@@ -10,6 +10,8 @@ class Orb: public Renderable
 		double m_;		//masa
 		double radius_; //promień kuli
 		
+		int color_;	//zastąpi się teksturą?
+		
 		double r_;		//układ walcowy
 		double alfa_;
 		double z_;
@@ -27,8 +29,10 @@ class Orb: public Renderable
 		double vpitch_;	//obrót w osi y - obrót "przód/tył"
 		double vroll_; 	//obrót w osi x - pochylenie w "lewo/prawo"
 		
+		
+		
 	public:
-		Orb(double m, double radius, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0);
+		Orb(double m, double radius, int color, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0);
 		Orb(const Orb &src);
 		virtual ~Orb(){}
 		
@@ -36,6 +40,13 @@ class Orb: public Renderable
 		virtual bool is_visible(const Camera* camera);
 		virtual void render(const Camera* camera);
 		
+		inline double get_r()	{return r_;}
+		inline double get_alfa(){return alfa_;}
+		inline double get_z()	{return z_;}
+		
+		inline void move_r(double dr) {r_+=dr;}
+		void move_alfa(double Dalfa);
+		inline void move_z(double dz) {z_+=dz;}
 };
 
 #endif

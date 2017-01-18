@@ -31,5 +31,6 @@ class Camera: public SimpleObject
 		inline double get_fov_y2() const {return fov_y2_;}
 		inline void putpixel(int xx, int yy, int col) const {::putpixel(scr_,xx,yy,col);}
 		inline void ellipsefill(int xx,int yy,int rad_x, int rad_y, int col) const {::ellipsefill(scr_,xx,yy,rad_x, rad_y, col);}
+		virtual void update(double dt){}
 };
 #endif

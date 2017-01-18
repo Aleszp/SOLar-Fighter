@@ -69,7 +69,7 @@ void Star::render(const Camera* camera)
 	col_r=r_+std::rand()%96;
 	col_g=g_+std::rand()%96;
 	col_b=b_+std::rand()%96;
-	if(xx>=camera->get_res_x()||yy>=camera->get_res_y()||xx<0||yy<0)
+	if(xx>=(int)camera->get_res_x()||yy>=(int)camera->get_res_y()||xx<0||yy<0)
 		return;
 	camera->putpixel(xx,yy,makecol(col_r,col_g,col_b));
 	camera->putpixel(xx+1,yy,makecol(col_r>>1,col_g>>1,col_b>>1));

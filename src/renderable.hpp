@@ -10,6 +10,7 @@ class Renderable
 		virtual ~Renderable(){}
 		virtual bool is_visible(const Camera* camera)=0;
 		virtual void render(const Camera* camera)=0;
+		virtual void update(double dt)=0;
 };
 
 #endif

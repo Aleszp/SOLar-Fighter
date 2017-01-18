@@ -6,6 +6,7 @@
 #include <ctime>
 #include <cmath>
 #include <thread>
+#include <chrono>
 
 #include "object.hpp"
 #include "camera.hpp"
@@ -18,14 +19,18 @@
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.2.0
+* @version pre-alfa 1.2.1
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
+void update(std::vector<Renderable*>* renderables_, double dt);
 
 int main(int argc, char** argv)
 {
 	srand(time(NULL));
+	
+	typedef std::chrono::high_resolution_clock Time;
+    typedef std::chrono::duration<float> fsec;
 	
 	allegro_init ();
 	install_keyboard ();
@@ -115,21 +120,36 @@ int main(int argc, char** argv)
 	std::vector<Renderable*> renderables;
 	unsigned obj_count=8192;	//2*8192
 	renderables.reserve(obj_count);
-	for(unsigned i=0;i<obj_count-1;i++)
+	for(unsigned i=0;i<obj_count-4;i++)
 	{
 		//renderables.push_back(new Star(rnd0_1()*PI2-PI,tmp_rnd*PI-PI05, 0, round(tmp_rnd*255),0));
-		renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%128+32,std::rand()%128+32,std::rand()%128+32));
+		//renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%128+32,std::rand()%128+32,std::rand()%128+32));
 	}
-	renderables.push_back(new Orb(1989100000, 1392000.0));
+	//promienie dzielone przez 2, bo z tablic wzięto średnice
+	Orb* SOL=new Orb(19891e5, 1392e3/2.0,makecol(0xFF,0xFF,0x00));
+	renderables.push_back(SOL);	//Słońce
+	
+	renderables.push_back(new Orb( 330.2,  4879.0/2.0,makecol(0xFF,0x0A,0x0A),5790917.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(87.969*86400)));	//Mercury
+	renderables.push_back(new Orb(4868.5, 12104.0/2.0,makecol(0xAA,0xFF,0xCC),108208926.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(224.701*86400)));	//Wenus
+	renderables.push_back(new Orb(5974.2, 12756.0/2.0,makecol(0xAA,0xCC,0xFF),149597887.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(365.256*86400)));	//Ziemia
 	
 	allegro_gl_set_allegro_mode();
 	render(&cam,&renderables);
 	
 	double tmp=0;
+	double time_compression=1e5;
+	
+	auto t0 = Time::now();
+    auto t1 = Time::now();
+    
+    fsec dt = t1 - t0;
 	
 	while (!key[KEY_ESC]&&!key[KEY_Q])
 	{
-		//readkey();
+		t1=Time::now();
+		dt = t1 - t0;
+		t0=Time::now();
+		
 		if(key[KEY_UP]||key[KEY_8_PAD])
 		{
 			cam.rotate_pitch(deg2rad(-0.5*cos(cam.get_roll())));
@@ -154,15 +174,29 @@ int main(int argc, char** argv)
 			cam.rotate_roll(deg2rad(-0.5));	
 		if(key[KEY_D]||key[KEY_9_PAD])
 			cam.rotate_roll(deg2rad(0.5));
-		if(key[KEY_SPACE]||key[KEY_5_PAD])
+		if(key[KEY_5_PAD])
 		{
 			tmp=1e5*sin(cam.get_pitch());
 			cam.move_x(tmp*cos(cam.get_yaw()));
 			cam.move_y(tmp*sin(cam.get_yaw()));
 			cam.move_z(1e5*cos(cam.get_pitch()));
-			fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
+			//fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
+			fprintf(stderr,"dist to SOL = %lf\n",cam_orb_dist(&cam,SOL));
+			
+		}
+		if(key[KEY_SPACE])
+		{
+			tmp=-1e5*sin(cam.get_pitch());
+			cam.move_x(tmp*cos(cam.get_yaw()));
+			cam.move_y(tmp*sin(cam.get_yaw()));
+			cam.move_z(-1e5*cos(cam.get_pitch()));
+			//fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
+			fprintf(stderr,"dist to SOL = %lf\n",cam_orb_dist(&cam,SOL));
 		}
 		render(&cam,&renderables);
+		update(&renderables, dt.count()*time_compression);
+		//fprintf(stderr,"FPS: %lf\n",1.0/dt.count());
+		
 		std::this_thread::yield();	
 	}
 	allegro_gl_unset_allegro_mode();
@@ -180,4 +214,10 @@ void render(Camera* cam_, std::vector<Renderable*>* renderables_)
 			it[0]->render(cam_);
 	
 	allegro_gl_flip();	
+}
+
+void update(std::vector<Renderable*>* renderables_, double dt)
+{
+	for(std::vector<Renderable*>::const_iterator it = renderables_->begin();it != renderables_->end(); ++it)
+		it[0]->update(dt);
 }

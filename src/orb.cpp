@@ -3,22 +3,23 @@
 #include "orb.hpp"
 #include "math.hpp"
 
-Orb::Orb(double m, double radius, double r, double alfa, double z, double yaw, double pitch, double roll, double vr, double valfa, double vz, double vyaw, double vpitch, double vroll)
-:m_(m), radius_(radius), r_(r), alfa_(alfa), z_(z), yaw_(yaw), pitch_(pitch), roll_(roll), vr_(vr), valfa_(valfa), vz_(vz), vyaw_(vyaw), vpitch_(vpitch), vroll_(vroll){}
+Orb::Orb(double m, double radius, int color, double r, double alfa, double z, double yaw, double pitch, double roll, double vr, double valfa, double vz, double vyaw, double vpitch, double vroll)
+:m_(m), radius_(radius), color_(color), r_(r), alfa_(alfa), z_(z), yaw_(yaw), pitch_(pitch), roll_(roll), vr_(vr), valfa_(valfa), vz_(vz), vyaw_(vyaw), vpitch_(vpitch), vroll_(vroll){}
 
 Orb::Orb(const Orb &src)
-:m_(src.m_), radius_(src.radius_), r_(src.r_), alfa_(src.alfa_), z_(src.z_), yaw_(src.yaw_), pitch_(src.pitch_), roll_(src.roll_), vr_(src.vr_), valfa_(src.valfa_), vz_(src.vz_), vyaw_(src.vyaw_), vpitch_(src.vpitch_), vroll_(src.vroll_){}
+:m_(src.m_), radius_(src.radius_), color_(src.color_), r_(src.r_), alfa_(src.alfa_), z_(src.z_), yaw_(src.yaw_), pitch_(src.pitch_), roll_(src.roll_), vr_(src.vr_), valfa_(src.valfa_), vz_(src.vz_), vyaw_(src.vyaw_), vpitch_(src.vpitch_), vroll_(src.vroll_){}
 
 
 void Orb::update(double dt)
 {
-	r_+=vr_*dt;
-	alfa_+=valfa_*dt;
-	z_+=vz_*dt;
+	move_r(vr_*dt);
+	move_alfa(valfa_*dt);
+	move_z(vz_*dt);
 	
-	//yaw_+=vyaw_*dt;
-	//pitch_+=pitch_*dt;
-	//roll_+=roll_*dt;
+	yaw_+=vyaw_*dt;
+	pitch_+=pitch_*dt;
+	roll_+=roll_*dt;
+	//fprintf(stderr,"alfa= %.2lf\tvalfa=%e\n",rad2deg(alfa_), rad2deg(valfa_));
 }
 
 bool Orb::is_visible(const Camera* camera)
@@ -32,7 +33,6 @@ bool Orb::is_visible(const Camera* camera)
 	double dist=sqrt(xx*xx+yy*yy+zz*zz);
 	if(dist<camera->get_render_dist())
 		return true;
-	
 	return false;
 }
 
@@ -46,8 +46,8 @@ void Orb::render(const Camera* camera)
 	double R=sqrt(r*r+z*z);
 	
 	double Dalfa=atan2(y,x)-camera->get_yaw();
-	if(copysign(1,cos(Dalfa))<0)
-		return;
+	//if(copysign(1,cos(Dalfa))<0)
+	//	return;
 	double Dbeta=atan2(r,z)-camera->get_pitch();
 	
 	x=camera->get_x_sin_fov_const()*sin(Dalfa);
@@ -83,7 +83,7 @@ void Orb::render(const Camera* camera)
 	//if(xx-rad_x>=camera->get_res_x()||yy-rad_y>=camera->get_res_y()||xx<-rad_x||yy<-rad_y)
 	//if(abs((xx-camera->get_res_x()/2)+rad_x>camera->get_res_x()/2)||abs((yy-camera->get_res_y()/2)+rad_y>camera->get_res_y()/2))
 		//return;
-	camera->ellipsefill(xx,yy,rad_x, rad_y, makecol(0xFF,0xFF,0x00));
+	camera->ellipsefill(xx,yy,rad_x, rad_y, color_);
 	
 	//pewnie się przyda 
 	//void masked_stretch_blit(BITMAP *source, BITMAP *dest, int source_x, source_y, source_w, source_h, int dest_x, dest_y, dest_w, dest_h);
@@ -96,4 +96,15 @@ void Orb::render(const Camera* camera)
 	//renderuj piklel po pikselu
 	//pewnie wolniejsze
 	//ale łatwo zaimplementować bufor z
+}
+
+void Orb::move_alfa(double Dalfa)
+{
+	alfa_+=Dalfa;
+	if(Dalfa>0)
+		if(alfa_>PI)
+			alfa_-=PI2;
+	if(Dalfa<0)
+		if(alfa_<-PI)
+			alfa_+=PI2;
 }
