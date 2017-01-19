@@ -19,7 +19,7 @@
 * 		Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * 		@author Aleksander Szpakiewicz-Szatan
 * 		@date 2016.12.29
-* 		@version alfa 1.0.2
+* 		@version alfa 1.0.3
 */
 
 
@@ -157,7 +157,7 @@ int main(int argc, char** argv)
 	render(&cam,&renderables);
 	
 	double tmp=0;
-	double time_compression=1e1;
+	double time_compression=1e3;
 	
 	auto t0 = Time::now();
     auto t1 = Time::now();
@@ -173,27 +173,18 @@ int main(int argc, char** argv)
 		if(key[KEY_UP]||key[KEY_8_PAD])
 		{
 			cam.accel_deg(0,deg2rad(-0.5));
-			//cam.rotate_yaw(deg2rad(-0.5*sin(cam.get_roll())));
-			//cam.rotate_pitch(deg2rad(-0.5*cos(cam.get_roll())));
 		}	
 		if(key[KEY_DOWN]||key[KEY_2_PAD])
 		{
 			cam.accel_deg(0,deg2rad(0.5));
-			//cam.rotate_yaw(deg2rad(0.5*sin(cam.get_roll())));
-			//cam.rotate_pitch(deg2rad(0.5*cos(cam.get_roll())));
-			
 		}
 		if(key[KEY_LEFT]||key[KEY_4_PAD])
 		{
 			cam.accel_deg(deg2rad(-0.5),0);
-			//cam.rotate_yaw(deg2rad(-0.5*cos(cam.get_roll())));
-			//cam.rotate_pitch(deg2rad(0.5*sin(cam.get_roll())));
 		}	
 		if(key[KEY_RIGHT]||key[KEY_6_PAD])
 		{
 			cam.accel_deg(deg2rad(0.5),0);
-			//cam.rotate_yaw(deg2rad(0.5*cos(cam.get_roll())));
-			//cam.rotate_pitch(deg2rad(-0.5*sin(cam.get_roll())));
 		}
 		if(key[KEY_A]||key[KEY_7_PAD])
 			cam.accel_roll(deg2rad(-0.5));	
@@ -202,23 +193,10 @@ int main(int argc, char** argv)
 		if(key[KEY_1_PAD])
 		{
 			cam.accel_line(1);
-			/*tmp=1e5*sin(cam.get_pitch());
-			cam.move_x(tmp*cos(cam.get_yaw()));
-			cam.move_y(tmp*sin(cam.get_yaw()));
-			cam.move_z(1e5*cos(cam.get_pitch()));*/
-			//fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
-			//fprintf(stderr,"dist to SOL = %lf\n",cam_orb_dist(&cam,SOL));
-			
 		}
 		if(key[KEY_3_PAD])
 		{
 			cam.accel_line(-1);
-			/*tmp=-1e5*sin(cam.get_pitch());
-			cam.move_x(tmp*cos(cam.get_yaw()));
-			cam.move_y(tmp*sin(cam.get_yaw()));
-			cam.move_z(-1e5*cos(cam.get_pitch()));*/
-			//fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
-			//fprintf(stderr,"dist to SOL = %lf\n",cam_orb_dist(&cam,SOL));
 		}
 		render(&cam,&renderables);
 		update(&renderables, dt.count()*time_compression);
