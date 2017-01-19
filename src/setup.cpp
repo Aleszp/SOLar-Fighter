@@ -9,7 +9,7 @@ enum pos {AUTODETECT=1, RES_X=2, RES_Y=3,DEPTH=4,WINDOWED=5,FOV_X=6,FOV_Y=7,SAVE
 
 
 /**
-* Program konfigurujący ustawienia gry SOLar-Fighter
+* Program konfigurujący ustawienia gry SOLar-Fighter. Można mu podać jako parametr linii komend alternatywną lokalizację pliku ustawień.
 */
 int main(int argc, char** argv)
 {
@@ -20,8 +20,6 @@ int main(int argc, char** argv)
 	keypad(stdscr, TRUE);	
 	
 	char file_name[255];
-	strcpy(file_name,getenv("HOME"));
-	strcat(file_name,"/.SOLar-Fighter/config.ini");
 	
 	init_pair(1, COLOR_WHITE, COLOR_BLUE);
 	wbkgd(stdscr, COLOR_PAIR(1));
@@ -41,7 +39,11 @@ int main(int argc, char** argv)
 	FILE* config;
 	
 	if(argc==1)
+	{
+		strcpy(file_name,getenv("HOME"));
+		strcat(file_name,"/.SOLar-Fighter/config.ini");
 		config=fopen(file_name,"r");
+	}
 	else
 		config=fopen(argv[1],"r");
 		

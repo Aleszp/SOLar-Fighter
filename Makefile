@@ -31,25 +31,42 @@ $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 all:  $(BDIR)/SOLar_Fighter	$(BDIR)/SOLar_Setup
 
 $(BDIR)/SOLar_Fighter: $(OBJ)
-	echo Buduję program...
+	echo "Buduję program..."
 	@$(CXX) -o $@ $^ $(CFLAGS) $(LIBS)
 
 $(BDIR)/SOLar_Setup: $(SDIR)/setup.cpp
-	echo Buduję program konfiguracyjny...
+	echo "Buduję program konfiguracyjny..."
 	@$(CXX) -o $(BDIR)/SOLar_Setup $(SDIR)/setup.cpp $(CFLAGS) $(SETUPLIBS)
+	
+	echo "Gotowe :)"
+	echo "Aby zainstalować program wydaj komendę make install (poprosi o uprawnienia sudo do zapisu w katalogu /usr/games"
 
 .PHONY: clean
 
 clean:
-	echo Usuwam pliki wynikowe...
+	echo "Usuwam pliki wynikowe..."
 	rm -f $(ODIR)/*.o *~ core $(IDIR)/*~ $(BDIR)/*
 
 .PHONY: install
 
 install:
-	echo Tworzę katalog plików konfiguracyjnych...
+	echo "Tworzę katalog plików konfiguracyjnych..."
 	mkdir -p ~/.SOLar-Fighter
-	echo Kopiuję pliki gry...
+	echo "Kopiuję wykonywalne pliki gry..."
+	sudo mkdir -p /usr/games
 	sudo cp ./bin/SOLar_Fighter /usr/games/SOLar_Fighter
 	sudo cp ./bin/SOLar_Setup /usr/games/SOLar_Setup
+	echo "Gotowe :)"
+	echo "Aby usunąć pliki tymczasowe wywołaj komendę make clean"
+	echo "Aby uruchomić program konfiguracyjny wywołaj komendę SOLar_Setup (inaczej gra będzie używać ustawień domyślnych)"
+	echo "Aby uruchomić grę wywołaj komendę SOLar_Fighter"
+	echo "Aby odinstalować grę wywołaj komendę make uninstall"
+	
+uninstall:
+	echo "Usuwam katalog plików konfiguracyjnych gry"
+	rm -r ~/.SOLar-Fighter
+	echo "Usuwam wykonywalne pliki gry..."
+	sudo mkdir -p /usr/games
+	sudo rm /usr/games/SOLar_Fighter
+	sudo rm /usr/games/SOLar_Setup
 	echo "Gotowe :)"
