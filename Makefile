@@ -28,7 +28,7 @@ $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	echo Kompiluję $<...
 	@$(CXX) -c -o $@ $< $(CFLAGS)
 
-all:  $(BDIR)/SOLar_Fighter	$(BDIR)/SOLar_Setup
+all:  $(BDIR)/SOLar_Fighter	$(BDIR)/SOLar_Setup dokumentacja
 
 $(BDIR)/SOLar_Fighter: $(OBJ)
 	echo "Buduję program..."
@@ -38,6 +38,7 @@ $(BDIR)/SOLar_Setup: $(SDIR)/setup.cpp
 	echo "Buduję program konfiguracyjny..."
 	@$(CXX) -o $(BDIR)/SOLar_Setup $(SDIR)/setup.cpp $(CFLAGS) $(SETUPLIBS)
 	
+dokumentacja:	
 	echo "Tworzę dokumentację..."
 	doxygen tmp/dokumentacja.conf
 	echo "Gotowe :)"

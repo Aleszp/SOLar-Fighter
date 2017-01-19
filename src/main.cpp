@@ -15,7 +15,7 @@
 #include "orb.hpp"
 
 /** 
-* @mainpage
+* \mainpage
 * 		Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * 		@author Aleksander Szpakiewicz-Szatan
 * 		@date 2016.12.29
