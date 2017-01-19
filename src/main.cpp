@@ -134,7 +134,6 @@ int main(int argc, char** argv)
 	renderables.reserve(obj_count);
 	for(unsigned i=0;i<obj_count-4;i++)
 	{
-		//renderables.push_back(new Star(rnd0_1()*PI2-PI,tmp_rnd*PI-PI05, 0, round(tmp_rnd*255),0));
 		renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%128+32,std::rand()%128+32,std::rand()%128+32));
 	}
 	//promienie dzielone przez 2, bo z tablic wzięto średnice
@@ -148,6 +147,7 @@ int main(int argc, char** argv)
 	renderables.push_back(new Orb( 641.9,  6805.0/2.0,makecol(0xCC,0x0A,0x0A),227936637.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(686.960*86400)));		//Mars
 		//Planety - gazowe oblrzymy
 	renderables.push_back(new Orb(1898600,8, 142984.0/2.0,makecol(0xBB,0xAA,0x0A),778412027.0,0.0,0.0,0.0,0.0,0.0,0,PI2/( 4333.287*86400)));//Jowisz
+	//renderables.push_back(new Orb(1898600,8, 142984.0/2.0,makecol(0xBB,0xAA,0x0A),10790917.0,0.0,0.0,0.0,0.0,0.0,0,PI2/( 4333.287*86400)));//Jowisz
 	renderables.push_back(new Orb(568516.8, 120536.0/2.0,makecol(0xBB,0xBB,0xDD),1426725413.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(10756.200*86400)));//Saturn
 	renderables.push_back(new Orb(86841.0,  51118.0/2.0,makecol(0x0A,0xBB,0xEE),2870972220.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(30707.490*86400)));	//Uran
 	renderables.push_back(new Orb(102439.6, 49528.0/2.0,makecol(0x0A,0x0A,0xFF),4498252900.0,0.0,0.0,0.0,0.0,0.0,0,PI2/(60223.353*86400)));	//Neptun
@@ -157,7 +157,7 @@ int main(int argc, char** argv)
 	render(&cam,&renderables);
 	
 	double tmp=0;
-	double time_compression=1e3;
+	double time_compression=1e1;
 	
 	auto t0 = Time::now();
     auto t1 = Time::now();
