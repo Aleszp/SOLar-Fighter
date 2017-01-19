@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['simpleobject',['SimpleObject',['../class_simple_object.html#ac3546137e54ecbd63af642987ed7c3e1',1,'SimpleObject::SimpleObject(double x, double y, double z, double yaw, double pitch, double roll)'],['../class_simple_object.html#aa5c0c6312bf39207eccbe3816218c16c',1,'SimpleObject::SimpleObject(const Object *object)']]],
-  ['simulator',['Simulator',['../class_simulator.html#a597385e2e9f501fbbd936e3b281cd2b1',1,'Simulator']]],
-  ['star',['Star',['../class_star.html#ac79a6fb3556d6735f063cbc28fb73397',1,'Star::Star(double alfa=0, double beta=0)'],['../class_star.html#a125afff584b315791b7345151f978c99',1,'Star::Star(double alfa, double beta, uint_fast8_t r, uint_fast8_t g_, uint_fast8_t b_)']]]
+  ['render',['render',['../class_orb.html#ade7e6c6c2a991d91c2420581996e0b17',1,'Orb::render()'],['../class_star.html#af0cb257b2c6e44cd26d75113e5e6675d',1,'Star::render()']]],
+  ['rotate_5fpitch',['rotate_pitch',['../class_simple_object.html#aaf69740e2c939f7e0b51924a89422f0c',1,'SimpleObject']]],
+  ['rotate_5froll',['rotate_roll',['../class_simple_object.html#ae2df7e8abff1303b55f559102b08a2c5',1,'SimpleObject']]],
+  ['rotate_5fyaw',['rotate_yaw',['../class_simple_object.html#a87202d586ed9a3c115dedcad2911f7b7',1,'SimpleObject']]]
 ];

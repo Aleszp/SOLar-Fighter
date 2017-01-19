@@ -1,4 +1,4 @@
-\hypertarget{class_orb}{}\section{Dokumentacja klasy Orb}
+\hypertarget{class_orb}{}\section{Orb Class Reference}
 \label{class_orb}\index{Orb@{Orb}}
 
 
@@ -6,8 +6,7 @@
 
 
 
-Diagram dziedziczenia dla Orb
-\nopagebreak
+Inheritance diagram for Orb\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,15 +15,14 @@ Diagram dziedziczenia dla Orb
 \end{figure}
 
 
-Diagram współpracy dla Orb\+:
-\nopagebreak
+Collaboration diagram for Orb\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=146pt]{class_orb__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Metody publiczne}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_orb_a3407825c339b82eaff3b59738670350a}{Orb} (double m, double radius, int color, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0)
@@ -52,7 +50,7 @@ void {\bfseries move\+\_\+z} (double dz)\hypertarget{class_orb_af25337025d9e1698
 \item 
 double \hyperlink{class_orb_ab960dd2ce7a33bc4ec53a84780885085}{dist\+\_\+to\+\_\+cam} (const \hyperlink{class_camera}{Camera} $\ast$cam)
 \end{DoxyCompactItemize}
-\subsection*{Atrybuty chronione}
+\subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 double {\bfseries m\+\_\+}\hypertarget{class_orb_af831efd6e6975007b7e7d49ce169eb1f}{}\label{class_orb_af831efd6e6975007b7e7d49ce169eb1f}
@@ -102,10 +100,10 @@ double {\bfseries vroll\+\_\+}\hypertarget{class_orb_a78b287c4625470fba356017276
 \end{DoxyCompactItemize}
 
 
-\subsection{Opis szczegółowy}
+\subsection{Detailed Description}
 Klasa odpowiedzialna za ciała niebieskie (Słońce, planety, księżyce, meteory, komety, planetoidy...) 
 
-\subsection{Dokumentacja konstruktora i destruktora}
+\subsection{Constructor \& Destructor Documentation}
 \index{Orb@{Orb}!Orb@{Orb}}
 \index{Orb@{Orb}!Orb@{Orb}}
 \subsubsection[{\texorpdfstring{Orb(double m, double radius, int color, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0)}{Orb(double m, double radius, int color, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Orb\+::\+Orb (
@@ -128,7 +126,7 @@ Klasa odpowiedzialna za ciała niebieskie (Słońce, planety, księżyce, meteor
 \end{DoxyParamCaption}
 )}\hypertarget{class_orb_a3407825c339b82eaff3b59738670350a}{}\label{class_orb_a3407825c339b82eaff3b59738670350a}
 Konstruktor klasy \hyperlink{class_orb}{Orb} 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em m} & -\/ masa ciała \\
 \hline
 {\em radius} & -\/ promień ciała \\
@@ -158,7 +156,7 @@ Konstruktor klasy \hyperlink{class_orb}{Orb}
 {\em vroll} & -\/ prędkość obrotu wokół własnej osi \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 obiekt typu \hyperlink{class_orb}{Orb} 
 \end{DoxyReturn}
 \index{Orb@{Orb}!Orb@{Orb}}
@@ -169,16 +167,16 @@ obiekt typu \hyperlink{class_orb}{Orb}
 \end{DoxyParamCaption}
 )}\hypertarget{class_orb_adeeb210501049c0d1a2e1a5c4761c8c8}{}\label{class_orb_adeeb210501049c0d1a2e1a5c4761c8c8}
 Konstruktor kopiujący klasy \hyperlink{class_orb}{Orb} 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em src} & -\/ referencja do oryginalnego obiektu \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 obiekt typu \hyperlink{class_orb}{Orb} 
 \end{DoxyReturn}
 
 
-\subsection{Dokumentacja funkcji składowych}
+\subsection{Member Function Documentation}
 \index{Orb@{Orb}!dist\+\_\+to\+\_\+cam@{dist\+\_\+to\+\_\+cam}}
 \index{dist\+\_\+to\+\_\+cam@{dist\+\_\+to\+\_\+cam}!Orb@{Orb}}
 \subsubsection[{\texorpdfstring{dist\+\_\+to\+\_\+cam(const Camera $\ast$cam)}{dist_to_cam(const Camera *cam)}}]{\setlength{\rightskip}{0pt plus 5cm}double Orb\+::dist\+\_\+to\+\_\+cam (
@@ -187,16 +185,16 @@ obiekt typu \hyperlink{class_orb}{Orb}
 \end{DoxyParamCaption}
 )}\hypertarget{class_orb_ab960dd2ce7a33bc4ec53a84780885085}{}\label{class_orb_ab960dd2ce7a33bc4ec53a84780885085}
 Przesuwa wzdłuż osi z 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em dz} & -\/ wartość przesunięcia\\
 \hline
 \end{DoxyParams}
 Oblicza odległość między kamerą a ciałem niebieskim 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em wskaźnik} & na kamerę \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 odległość w kilometrach 
 \end{DoxyReturn}
 \index{Orb@{Orb}!get\+\_\+alfa@{get\+\_\+alfa}}
@@ -206,7 +204,7 @@ odległość w kilometrach
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_orb_a2da0c0c6302143398ae204ad2a13d17f}{}\label{class_orb_a2da0c0c6302143398ae204ad2a13d17f}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 kąt (położenie we współrzędnych walcowych) 
 \end{DoxyReturn}
 \index{Orb@{Orb}!get\+\_\+r@{get\+\_\+r}}
@@ -216,7 +214,7 @@ kąt (położenie we współrzędnych walcowych)
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_orb_a5b6bfbf0f482b6876458c208c762c5f6}{}\label{class_orb_a5b6bfbf0f482b6876458c208c762c5f6}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 promień (położenie we współrzędnych sferycznych) 
 \end{DoxyReturn}
 \index{Orb@{Orb}!get\+\_\+z@{get\+\_\+z}}
@@ -226,7 +224,7 @@ promień (położenie we współrzędnych sferycznych)
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_orb_a01147493b605751d3176faf78ec97f0d}{}\label{class_orb_a01147493b605751d3176faf78ec97f0d}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 położenie w osi z (we spółrzędnych walcowych) 
 \end{DoxyReturn}
 \index{Orb@{Orb}!is\+\_\+visible@{is\+\_\+visible}}
@@ -237,16 +235,16 @@ położenie w osi z (we spółrzędnych walcowych)
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_orb_af96db026919a527193c96331444a04df}{}\label{class_orb_af96db026919a527193c96331444a04df}
 Sprawdza czy ciało niebieskie jest widoczne z punktu widzenia kamery 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em camera} & -\/ wskaźnik na kamerę \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 fałsz jeśli nie jest możliwe zobaczenie ciała 
 \end{DoxyReturn}
 
 
-Implementuje \hyperlink{class_renderable}{Renderable}.
+Implements \hyperlink{class_renderable}{Renderable}.
 
 \index{Orb@{Orb}!move\+\_\+alfa@{move\+\_\+alfa}}
 \index{move\+\_\+alfa@{move\+\_\+alfa}!Orb@{Orb}}
@@ -256,7 +254,7 @@ Implementuje \hyperlink{class_renderable}{Renderable}.
 \end{DoxyParamCaption}
 )}\hypertarget{class_orb_ada00a09e2184aff67aba54c5cbf9d276}{}\label{class_orb_ada00a09e2184aff67aba54c5cbf9d276}
 Przemieszcza kątowo we współrzędnych walcowych 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em Dalfa} & -\/ wartość przesunięcia \\
 \hline
 \end{DoxyParams}
@@ -268,7 +266,7 @@ Przemieszcza kątowo we współrzędnych walcowych
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_orb_a365261dff002736017e9fc0d346e2fbf}{}\label{class_orb_a365261dff002736017e9fc0d346e2fbf}
 Przesuwa radialnie 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em dr} & -\/ wartość przesunięcia \\
 \hline
 \end{DoxyParams}
@@ -280,13 +278,13 @@ Przesuwa radialnie
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_orb_ade7e6c6c2a991d91c2420581996e0b17}{}\label{class_orb_ade7e6c6c2a991d91c2420581996e0b17}
 Rysuje ciało niebieskie w bitmapie kamery 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em camera} & -\/ wskaźnik na kamerę \\
 \hline
 \end{DoxyParams}
 
 
-Implementuje \hyperlink{class_renderable}{Renderable}.
+Implements \hyperlink{class_renderable}{Renderable}.
 
 \index{Orb@{Orb}!update@{update}}
 \index{update@{update}!Orb@{Orb}}
@@ -296,17 +294,17 @@ Implementuje \hyperlink{class_renderable}{Renderable}.
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_orb_a23637b6caf496f4932e21935edbd1b74}{}\label{class_orb_a23637b6caf496f4932e21935edbd1b74}
 Aktualizuje położenie zmienne w czasie 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em dt} & -\/ krok czasowy \\
 \hline
 \end{DoxyParams}
 
 
-Implementuje \hyperlink{class_renderable}{Renderable}.
+Implements \hyperlink{class_renderable}{Renderable}.
 
 
 
-Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 src/orb.\+hpp\item 
 src/orb.\+cpp\end{DoxyCompactItemize}

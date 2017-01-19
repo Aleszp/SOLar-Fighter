@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dist_5fto_5fcam',['dist_to_cam',['../class_orb.html#ab960dd2ce7a33bc4ec53a84780885085',1,'Orb']]]
+  ['camera',['Camera',['../class_camera.html#aa4fab6c2c09702f8e70d0688ea90c0ae',1,'Camera']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['update',['update',['../class_camera.html#ab521598bed84988be95a89dfcdd9f1aa',1,'Camera::update()'],['../class_orb.html#a23637b6caf496f4932e21935edbd1b74',1,'Orb::update()']]],
-  ['update_5fbuffer',['update_buffer',['../class_simulator.html#a21d308aa878b8a23482a00d8939a9ada',1,'Simulator']]]
+  ['simpleobject',['SimpleObject',['../class_simple_object.html',1,'SimpleObject'],['../class_simple_object.html#ac3546137e54ecbd63af642987ed7c3e1',1,'SimpleObject::SimpleObject(double x, double y, double z, double yaw, double pitch, double roll)'],['../class_simple_object.html#aa5c0c6312bf39207eccbe3816218c16c',1,'SimpleObject::SimpleObject(const Object *object)']]],
+  ['simulator',['Simulator',['../class_simulator.html',1,'Simulator'],['../class_simulator.html#a597385e2e9f501fbbd936e3b281cd2b1',1,'Simulator::Simulator()']]],
+  ['star',['Star',['../class_star.html',1,'Star'],['../class_star.html#ac79a6fb3556d6735f063cbc28fb73397',1,'Star::Star(double alfa=0, double beta=0)'],['../class_star.html#a125afff584b315791b7345151f978c99',1,'Star::Star(double alfa, double beta, uint_fast8_t r, uint_fast8_t g_, uint_fast8_t b_)']]]
 ];

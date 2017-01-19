@@ -1,4 +1,4 @@
-\hypertarget{class_star}{}\section{Dokumentacja klasy Star}
+\hypertarget{class_star}{}\section{Star Class Reference}
 \label{class_star}\index{Star@{Star}}
 
 
@@ -6,8 +6,7 @@
 
 
 
-Diagram dziedziczenia dla Star
-\nopagebreak
+Inheritance diagram for Star\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,15 +15,14 @@ Diagram dziedziczenia dla Star
 \end{figure}
 
 
-Diagram współpracy dla Star\+:
-\nopagebreak
+Collaboration diagram for Star\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=146pt]{class_star__coll__graph}
 \end{center}
 \end{figure}
-\subsection*{Metody publiczne}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_star_ac79a6fb3556d6735f063cbc28fb73397}{Star} (double alfa=0, double beta=0)
@@ -38,7 +36,7 @@ virtual bool \hyperlink{class_star_ac196fa232107776abeddba91ccdc3374}{is\+\_\+vi
 \item 
 virtual void \hyperlink{class_star_af0cb257b2c6e44cd26d75113e5e6675d}{render} (const \hyperlink{class_camera}{Camera} $\ast$camera)
 \end{DoxyCompactItemize}
-\subsection*{Atrybuty chronione}
+\subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 double {\bfseries alfa\+\_\+}\hypertarget{class_star_acbc2ce5b635761779c628b82eebaa914}{}\label{class_star_acbc2ce5b635761779c628b82eebaa914}
@@ -58,10 +56,10 @@ uint\+\_\+fast8\+\_\+t {\bfseries b\+\_\+}\hypertarget{class_star_abd9108ee6d13e
 \end{DoxyCompactItemize}
 
 
-\subsection{Opis szczegółowy}
+\subsection{Detailed Description}
 Klasa odpowiedzialna za gwiazdy w tle 
 
-\subsection{Dokumentacja konstruktora i destruktora}
+\subsection{Constructor \& Destructor Documentation}
 \index{Star@{Star}!Star@{Star}}
 \index{Star@{Star}!Star@{Star}}
 \subsubsection[{\texorpdfstring{Star(double alfa=0, double beta=0)}{Star(double alfa=0, double beta=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Star\+::\+Star (
@@ -71,13 +69,13 @@ Klasa odpowiedzialna za gwiazdy w tle
 \end{DoxyParamCaption}
 )}\hypertarget{class_star_ac79a6fb3556d6735f063cbc28fb73397}{}\label{class_star_ac79a6fb3556d6735f063cbc28fb73397}
 Konstruktor domyślny klasy \hyperlink{class_star}{Star} przyjmuje kolor biały 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em alfa} & -\/ kąt alfa współrzędnych sferycznych \\
 \hline
 {\em beta} & -\/ kąt beta współrzędnych sferycznych \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 -\/ obiekt typu \hyperlink{class_star}{Star} koloru białego 
 \end{DoxyReturn}
 \index{Star@{Star}!Star@{Star}}
@@ -92,7 +90,7 @@ Konstruktor domyślny klasy \hyperlink{class_star}{Star} przyjmuje kolor biały
 \end{DoxyParamCaption}
 )}\hypertarget{class_star_a125afff584b315791b7345151f978c99}{}\label{class_star_a125afff584b315791b7345151f978c99}
 Konstruktor domyślny klasy \hyperlink{class_star}{Star} pozwalający podać składowe kolorów 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em alfa} & -\/ kąt alfa współrzędnych sferycznych \\
 \hline
 {\em beta} & -\/ kąt beta współrzędnych sferycznych \\
@@ -104,12 +102,12 @@ Konstruktor domyślny klasy \hyperlink{class_star}{Star} pozwalający podać sk�
 {\em b} & -\/ składowa niebieska koloru \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 -\/ obiekt typu \hyperlink{class_star}{Star} 
 \end{DoxyReturn}
 
 
-\subsection{Dokumentacja funkcji składowych}
+\subsection{Member Function Documentation}
 \index{Star@{Star}!is\+\_\+visible@{is\+\_\+visible}}
 \index{is\+\_\+visible@{is\+\_\+visible}!Star@{Star}}
 \subsubsection[{\texorpdfstring{is\+\_\+visible(const Camera $\ast$camera)}{is_visible(const Camera *camera)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Star\+::is\+\_\+visible (
@@ -118,16 +116,16 @@ Konstruktor domyślny klasy \hyperlink{class_star}{Star} pozwalający podać sk�
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_star_ac196fa232107776abeddba91ccdc3374}{}\label{class_star_ac196fa232107776abeddba91ccdc3374}
 Sprawdza czy gwiazda jest w polu widzenia kamery 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em camera} & -\/ wskaźnik na kamerę \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Zwraca}
+\begin{DoxyReturn}{Returns}
 fałsz -\/ jeśli gwiazda jest poza polem widzenia 
 \end{DoxyReturn}
 
 
-Implementuje \hyperlink{class_renderable}{Renderable}.
+Implements \hyperlink{class_renderable}{Renderable}.
 
 \index{Star@{Star}!render@{render}}
 \index{render@{render}!Star@{Star}}
@@ -137,17 +135,17 @@ Implementuje \hyperlink{class_renderable}{Renderable}.
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_star_af0cb257b2c6e44cd26d75113e5e6675d}{}\label{class_star_af0cb257b2c6e44cd26d75113e5e6675d}
 Rysuje gwiazdę w polu widzenia kamery 
-\begin{DoxyParams}{Parametry}
+\begin{DoxyParams}{Parameters}
 {\em camera} & -\/ wskaźnik na kamerę \\
 \hline
 \end{DoxyParams}
 
 
-Implementuje \hyperlink{class_renderable}{Renderable}.
+Implements \hyperlink{class_renderable}{Renderable}.
 
 
 
-Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 src/star.\+hpp\item 
 src/star.\+cpp\end{DoxyCompactItemize}

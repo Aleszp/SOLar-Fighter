@@ -31,6 +31,10 @@ Camera::Camera(double x, double y, double z, double yaw, double pitch, double ro
 	vroll_=0;
 }
 
+/**
+ * Przyspieszenie w kierunku liniowym
+ * @param a - wartość przyspieszenia
+ */ 
 void Camera::accel_line(double a)
 {
 	double tmp=a*sin(SimpleObject::pitch_);
@@ -39,6 +43,11 @@ void Camera::accel_line(double a)
 	vz_+=(a*cos(SimpleObject::pitch_));
 }
 
+/**
+ * Przyśpieszenie obrotu wokół osi z i xy
+ * @param ayaw - przyspieszenie wokół osi z
+ * @param apitch - przyspieszenie wokół osi xy
+ */
 void Camera::accel_deg(double ayaw, double apitch)
 {
 	vyaw_+=(ayaw*cos(SimpleObject::roll_));
@@ -47,6 +56,10 @@ void Camera::accel_deg(double ayaw, double apitch)
 	vpitch_+=(apitch*cos(SimpleObject::roll_));
 }		
 
+/**
+ * Przyśpieszenie obrotu wokół własnej osi
+ * @param aroll - wartość przyspieszenia
+ */ 
 void Camera::accel_roll(double aroll)
 {
 	vroll_+=aroll;

@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "cdegimoprsu",
+  0: "acdegimoprsu",
   1: "cmors",
-  2: "cdegimoprsu",
+  2: "acdegimoprsu",
   3: "c"
 };
 
@@ -17,8 +17,8 @@ var indexSectionNames =
 var indexSectionLabels =
 {
   0: "All",
-  1: "Struktury Danych",
-  2: "Funkcje",
-  3: "Przyjaciele"
+  1: "Classes",
+  2: "Functions",
+  3: "Friends"
 };
 

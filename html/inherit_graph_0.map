@@ -1,4 +1,4 @@
-<map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="node1" href="$class_renderable.html" title="Renderable" alt="" coords="5,56,93,83"/>
 <area shape="rect" id="node2" href="$class_orb.html" title="Orb" alt="" coords="170,5,213,32"/>
 <area shape="rect" id="node3" href="$class_simple_object.html" title="SimpleObject" alt="" coords="141,56,241,83"/>

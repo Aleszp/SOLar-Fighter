@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ellipsefill',['ellipsefill',['../class_camera.html#adfd2ffd6a173e3125a220164687d88b1',1,'Camera']]]
+  ['dist_5fto_5fcam',['dist_to_cam',['../class_orb.html#ab960dd2ce7a33bc4ec53a84780885085',1,'Orb']]]
 ];
