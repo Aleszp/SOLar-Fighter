@@ -3,13 +3,40 @@
 #include "orb.hpp"
 #include "math.hpp"
 
+/**
+ * Konstruktor klasy Orb
+ * @param m - masa ciała
+ * @param radius - promień ciała
+ * @param r - położenie radialne (wsp. walcowe)
+ * @param alfa - położenie kątowe (wsp. walcowe)
+ * @param z - położenie w osi z
+ * @param yaw - obrót w osi z
+ * @param pitch - obrót w osi xy
+ * @param roll - obrót wokół własnej osi
+ * @param vr - prędkość radialna
+ * @param valfa - prędkość kątowa
+ * @param vz - prędkość wzdłuż osi z
+ * @param vyaw - prędkość obrotu wokół osi z
+ * @param vpitch - prędkośćobrotu wokół osi xy
+ * @param vroll - prędkość obrotu wokół własnej osi
+ * @return obiekt typu Orb
+ */ 
 Orb::Orb(double m, double radius, int color, double r, double alfa, double z, double yaw, double pitch, double roll, double vr, double valfa, double vz, double vyaw, double vpitch, double vroll)
 :m_(m), radius_(radius), color_(color), r_(r), alfa_(alfa), z_(z), yaw_(yaw), pitch_(pitch), roll_(roll), vr_(vr), valfa_(valfa), vz_(vz), vyaw_(vyaw), vpitch_(vpitch), vroll_(vroll){}
 
+/**
+ * Konstruktor kopiujący klasy Orb
+ * @param src - referencja do oryginalnego obiektu
+ * @return obiekt typu Orb
+ */ 
 Orb::Orb(const Orb &src)
 :m_(src.m_), radius_(src.radius_), color_(src.color_), r_(src.r_), alfa_(src.alfa_), z_(src.z_), yaw_(src.yaw_), pitch_(src.pitch_), roll_(src.roll_), vr_(src.vr_), valfa_(src.valfa_), vz_(src.vz_), vyaw_(src.vyaw_), vpitch_(src.vpitch_), vroll_(src.vroll_){}
 
 
+/**
+ * Aktualizuje położenie zmienne w czasie
+ * @param dt - krok czasowy
+ */ 
 void Orb::update(double dt)
 {
 	move_r(vr_*dt);
@@ -22,20 +49,23 @@ void Orb::update(double dt)
 	//fprintf(stderr,"alfa= %.2lf\tvalfa=%e\n",rad2deg(alfa_), rad2deg(valfa_));
 }
 
+/**
+ * Sprawdza czy ciało niebieskie jest widoczne z punktu widzenia kamery
+ * @param camera - wskaźnik na kamerę
+ * @return fałsz jeśli nie jest możliwe zobaczenie ciała
+ */ 
 bool Orb::is_visible(const Camera* camera)
 {
-	double xx=r_*cos(alfa_);
-	double yy=xx*sin(alfa_);
-	xx-=camera->get_x();
-	yy-=camera->get_y();
-	double zz=z_-camera->get_z();
-	
-	double dist=sqrt(xx*xx+yy*yy+zz*zz);
+	double dist=dist_to_cam(camera);
 	if(dist<camera->get_render_dist())
 		return true;
 	return false;
 }
 
+/**
+ * Rysuje ciało niebieskie w bitmapie kamery
+ * @param camera - wskaźnik na kamerę
+ */ 
 void Orb::render(const Camera* camera)
 {
 	double x=r_*cos(alfa_)-camera->get_x();
@@ -91,13 +121,12 @@ void Orb::render(const Camera* camera)
 	//znajdź średnicę kuli na podstawie odległości
 	//narysuj w tymczasowej bitmapie
 	//blituj z wycinka bitmapy
-	
-	//wariant 2:
-	//renderuj piklel po pikselu
-	//pewnie wolniejsze
-	//ale łatwo zaimplementować bufor z
 }
 
+/**
+ * Przemieszcza kątowo we współrzędnych walcowych
+ * @param Dalfa - wartość przesunięcia
+ */ 
 void Orb::move_alfa(double Dalfa)
 {
 	alfa_+=Dalfa;
@@ -107,4 +136,22 @@ void Orb::move_alfa(double Dalfa)
 	if(Dalfa<0)
 		if(alfa_<-PI)
 			alfa_+=PI2;
+}
+
+/**
+ * Oblicza odległość między kamerą a ciałem niebieskim
+ * @param wskaźnik na kamerę
+ * @return odległość w kilometrach
+ */ 
+double Orb::dist_to_cam(const Camera* cam)
+{
+	double R=0;
+	double tmp;
+	tmp=cam->get_x()-r_*sin(alfa_);
+	R=+tmp*tmp;
+	tmp=cam->get_y()-r_*cos(alfa_);
+	R=+tmp*tmp;
+	tmp=cam->get_z()-z_;
+	R=+tmp*tmp;
+	return sqrt(R);
 }

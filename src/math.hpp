@@ -12,10 +12,23 @@ void overflow(double* deg);
 double overflow(double deg);
 void overflow2(double *deg1, double *deg2);
 
+/**
+ * @return liczba zmiennoprzecinkowa z zakresu <0;1> o rozkładzie równomiernym
+ */ 
 inline double rnd0_1(){return((double)std::rand()/RAND_MAX);}
-inline double deg2rad(double deg){return deg/180.0*PI;}
-inline double rad2deg(double rad){return rad/PI*180.0;}
 
-double cam_orb_dist(Camera* cam, Orb* orb);
+/**
+ * Przelicza kąty w stopniach na radiany
+ * @param kąt w stopniach
+ * @return kąt w radianach
+ */ 
+inline double deg2rad(double deg){return deg/180.0*PI;}
+
+/**
+ * Przelicza kąty w radianach na stopnie
+ * @param kąt w radianach
+ * @return kąt w stopniach
+ */ 
+inline double rad2deg(double rad){return rad/PI*180.0;}
 
 #endif

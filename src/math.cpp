@@ -1,6 +1,10 @@
 #include <cmath>
 #include "math.hpp"
 
+/**
+ * Przelicza kąt w radianach na jego odpowiednik w zakresie <-pi;pi> nadpisując jego wartość w wskaźniku
+ * @param wskaźnik na kąt do przeliczenia
+ */ 
 void overflow(double* deg)
 {
 	while(std::abs(*deg)>PI)
@@ -9,6 +13,11 @@ void overflow(double* deg)
 	}
 }
 
+/**
+ * Przelicza kąt w radianach na jego odpowiednik w zakresie <-pi;pi>
+ * @param kąt do przeliczenia
+ * @return przeliczony kąt
+ */ 
 double overflow(double deg)
 {
 	while(std::abs(deg)>PI)
@@ -18,6 +27,11 @@ double overflow(double deg)
 	return deg;
 }
 
+/**
+ * Przelicza kąt w radianach na jego odpowiednik w zakresie <-pi/2;pi/2> z wpływem na drugi kąt
+ * @param kąt do przeliczenia
+ * @param kąt który ma zostać obrócony o pi w razie przekroczenia zakresu przez przeliczany kąt
+ */ 
 void overflow2(double *deg1, double *deg2)
 {
 	while(std::abs(*deg1)>PI05)
@@ -25,17 +39,4 @@ void overflow2(double *deg1, double *deg2)
 		*deg1-=(-PI05*copysign(1,*deg1)+*deg1);
 		*deg2-=PI*copysign(1,*deg2);
 	}
-}
-
-double cam_orb_dist(Camera* cam, Orb* orb)
-{
-	double R=0;
-	double tmp;
-	tmp=cam->get_x()-orb->get_r()*sin(orb->get_alfa());
-	R=+tmp*tmp;
-	tmp=cam->get_y()-orb->get_r()*cos(orb->get_alfa());
-	R=+tmp*tmp;
-	tmp=cam->get_z()-orb->get_z();
-	R=+tmp*tmp;
-	return sqrt(R);
 }

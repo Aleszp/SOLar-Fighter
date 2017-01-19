@@ -15,6 +15,5 @@ class Object: public SimpleObject
 		virtual ~Object(){}
 		virtual bool is_visible(const Camera* camera);
 		virtual void render(const Camera* camera);
-		friend SimpleObject::SimpleObject(Object* object);
 };
 #endif

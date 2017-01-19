@@ -3,6 +3,9 @@
 
 class Camera;
 
+/**
+ * Klasa abstrakcyjna po której dziedziczą klasy SimpleObject, Star i Orb
+ */ 
 class Renderable
 {
 	public:

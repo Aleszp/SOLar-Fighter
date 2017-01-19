@@ -16,15 +16,19 @@
 
 /** 
 * @mainpage
-* Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
-* @author Aleksander Szpakiewicz-Szatan
-* @date 2016.12.29
-* @version alfa 1.0.1
+* 		Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
+* 		@author Aleksander Szpakiewicz-Szatan
+* 		@date 2016.12.29
+* 		@version alfa 1.0.2
 */
 
-void render(Camera* cam_, std::vector<Renderable*>* star_);
+
+void render(Camera* cam, std::vector<Renderable*>* renderables);
 void update(std::vector<Renderable*>* renderables_, double dt);
 
+/**
+* Główny plik wykonywalny.
+*/
 int main(int argc, char** argv)
 {
 	srand(time(NULL));
@@ -220,19 +224,29 @@ int main(int argc, char** argv)
 }
 END_OF_MAIN()
 
-void render(Camera* cam_, std::vector<Renderable*>* renderables_)
+/**
+* Renderuje wszystkie obiekty na ekranie z perspektywy kamery.
+* @param cam - wskaźnik na kamerę
+* @param renderables - wskaźnik na tablicę obiektów do renderowania
+*/
+void render(Camera* cam, std::vector<Renderable*>* renderables)
 {
 	clear_bitmap(screen);
 	
-	for(std::vector<Renderable*>::const_iterator it = renderables_->begin();it != renderables_->end(); ++it)
-		if(it[0]->is_visible(cam_))
-			it[0]->render(cam_);
+	for(std::vector<Renderable*>::const_iterator it = renderables->begin();it != renderables->end(); ++it)
+		if(it[0]->is_visible(cam))
+			it[0]->render(cam);
 	
 	allegro_gl_flip();	
 }
 
-void update(std::vector<Renderable*>* renderables_, double dt)
+/**
+* Symuluje zmiany we wszystkich obiektach które się poruszają
+* @param renderables - wskaźnik na tablicę wskaźników na obiekty typu Renderables (lub dziedziczących)
+* @param dt - krok czasowy
+*/
+void update(std::vector<Renderable*>* renderables, double dt)
 {
-	for(std::vector<Renderable*>::const_iterator it = renderables_->begin();it != renderables_->end(); ++it)
+	for(std::vector<Renderable*>::const_iterator it = renderables->begin();it != renderables->end(); ++it)
 		it[0]->update(dt);
 }

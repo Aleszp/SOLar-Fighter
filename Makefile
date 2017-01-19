@@ -15,7 +15,7 @@ CXX=g++
 CFLAGS=-I$(IDIR) -O3 -Wall -pedantic -std=c++11 -mtune=native -march=native
 
 #katalog na tymczasowe pliki obiektowe
-ODIR=obj
+ODIR=tmp
 #katalog z plikami źródłowymi
 SDIR=src
 #katalog na plik(i) wynikowe
@@ -38,6 +38,8 @@ $(BDIR)/SOLar_Setup: $(SDIR)/setup.cpp
 	echo "Buduję program konfiguracyjny..."
 	@$(CXX) -o $(BDIR)/SOLar_Setup $(SDIR)/setup.cpp $(CFLAGS) $(SETUPLIBS)
 	
+	echo "Tworzę dokumentację..."
+	doxygen tmp/dokumentacja.conf
 	echo "Gotowe :)"
 	echo "Aby zainstalować program wydaj komendę make install (poprosi o uprawnienia sudo do zapisu w katalogu /usr/games"
 
@@ -46,6 +48,8 @@ $(BDIR)/SOLar_Setup: $(SDIR)/setup.cpp
 clean:
 	echo "Usuwam pliki wynikowe..."
 	rm -f $(ODIR)/*.o *~ core $(IDIR)/*~ $(BDIR)/*
+	rm -r html
+	rm -r latex
 
 .PHONY: install
 

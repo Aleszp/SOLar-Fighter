@@ -6,6 +6,9 @@
 
 class simple_object;
 
+/**
+ * Klasa odpowiedzialna za gwiazdy w tle
+ */ 
 class Star: public Renderable
 {
 	protected:
@@ -15,7 +18,7 @@ class Star: public Renderable
 		uint_fast8_t g_;
 		uint_fast8_t b_;
 	public:
-		Star(double alfa, double beta);
+		Star(double alfa=0, double beta=0);
 		Star(double alfa, double beta, uint_fast8_t r,uint_fast8_t g_,uint_fast8_t b_);
 		virtual ~Star(){}
 		virtual void update(double dt){}
