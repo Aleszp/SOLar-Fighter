@@ -1,0 +1,312 @@
+\hypertarget{class_orb}{}\section{Dokumentacja klasy Orb}
+\label{class_orb}\index{Orb@{Orb}}
+
+
+{\ttfamily \#include $<$orb.\+hpp$>$}
+
+
+
+Diagram dziedziczenia dla Orb
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{class_orb__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Orb\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{class_orb__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_orb_a3407825c339b82eaff3b59738670350a}{Orb} (double m, double radius, int color, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0)
+\item 
+\hyperlink{class_orb_adeeb210501049c0d1a2e1a5c4761c8c8}{Orb} (const \hyperlink{class_orb}{Orb} \&src)
+\item 
+virtual void \hyperlink{class_orb_a23637b6caf496f4932e21935edbd1b74}{update} (double dt)
+\item 
+virtual bool \hyperlink{class_orb_af96db026919a527193c96331444a04df}{is\+\_\+visible} (const \hyperlink{class_camera}{Camera} $\ast$camera)
+\item 
+virtual void \hyperlink{class_orb_ade7e6c6c2a991d91c2420581996e0b17}{render} (const \hyperlink{class_camera}{Camera} $\ast$camera)
+\item 
+double \hyperlink{class_orb_a5b6bfbf0f482b6876458c208c762c5f6}{get\+\_\+r} ()
+\item 
+double \hyperlink{class_orb_a2da0c0c6302143398ae204ad2a13d17f}{get\+\_\+alfa} ()
+\item 
+double \hyperlink{class_orb_a01147493b605751d3176faf78ec97f0d}{get\+\_\+z} ()
+\item 
+void \hyperlink{class_orb_a365261dff002736017e9fc0d346e2fbf}{move\+\_\+r} (double dr)
+\item 
+void \hyperlink{class_orb_ada00a09e2184aff67aba54c5cbf9d276}{move\+\_\+alfa} (double Dalfa)
+\item 
+void {\bfseries move\+\_\+z} (double dz)\hypertarget{class_orb_af25337025d9e1698689d395e22bad4e8}{}\label{class_orb_af25337025d9e1698689d395e22bad4e8}
+
+\item 
+double \hyperlink{class_orb_ab960dd2ce7a33bc4ec53a84780885085}{dist\+\_\+to\+\_\+cam} (const \hyperlink{class_camera}{Camera} $\ast$cam)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries m\+\_\+}\hypertarget{class_orb_af831efd6e6975007b7e7d49ce169eb1f}{}\label{class_orb_af831efd6e6975007b7e7d49ce169eb1f}
+
+\item 
+double {\bfseries radius\+\_\+}\hypertarget{class_orb_a8668fe8396d42e4eff952a0a340751cc}{}\label{class_orb_a8668fe8396d42e4eff952a0a340751cc}
+
+\item 
+int {\bfseries color\+\_\+}\hypertarget{class_orb_a711114d896e38b7627ddfc6c0ba0666a}{}\label{class_orb_a711114d896e38b7627ddfc6c0ba0666a}
+
+\item 
+double {\bfseries r\+\_\+}\hypertarget{class_orb_a6bda794dbd4c9f17b245cab3c287fe15}{}\label{class_orb_a6bda794dbd4c9f17b245cab3c287fe15}
+
+\item 
+double {\bfseries alfa\+\_\+}\hypertarget{class_orb_a15cdeb4a8dfd011ba311ccd3b95111bd}{}\label{class_orb_a15cdeb4a8dfd011ba311ccd3b95111bd}
+
+\item 
+double {\bfseries z\+\_\+}\hypertarget{class_orb_a3e83499b11c245a656f0fcbf6eb4c538}{}\label{class_orb_a3e83499b11c245a656f0fcbf6eb4c538}
+
+\item 
+double {\bfseries yaw\+\_\+}\hypertarget{class_orb_ab9d65b2a65d5a507edd440fe37171523}{}\label{class_orb_ab9d65b2a65d5a507edd440fe37171523}
+
+\item 
+double {\bfseries pitch\+\_\+}\hypertarget{class_orb_a06d9775e124b0cd6f7d3a70f4aafdb5a}{}\label{class_orb_a06d9775e124b0cd6f7d3a70f4aafdb5a}
+
+\item 
+double {\bfseries roll\+\_\+}\hypertarget{class_orb_a17b20eaacba3073347c91e63186c5acf}{}\label{class_orb_a17b20eaacba3073347c91e63186c5acf}
+
+\item 
+double {\bfseries vr\+\_\+}\hypertarget{class_orb_a92482a1423a5f50ad5cd88a0126c2261}{}\label{class_orb_a92482a1423a5f50ad5cd88a0126c2261}
+
+\item 
+double {\bfseries valfa\+\_\+}\hypertarget{class_orb_ad21a6b350baf08f2a0674f7f370abbed}{}\label{class_orb_ad21a6b350baf08f2a0674f7f370abbed}
+
+\item 
+double {\bfseries vz\+\_\+}\hypertarget{class_orb_a1179f690e6cbf52d4da73456730d36cd}{}\label{class_orb_a1179f690e6cbf52d4da73456730d36cd}
+
+\item 
+double {\bfseries vyaw\+\_\+}\hypertarget{class_orb_a83a8feef3eccee3b8977685c0228f855}{}\label{class_orb_a83a8feef3eccee3b8977685c0228f855}
+
+\item 
+double {\bfseries vpitch\+\_\+}\hypertarget{class_orb_abbc25532d1d10ad83e9fbd0f5c0c3d87}{}\label{class_orb_abbc25532d1d10ad83e9fbd0f5c0c3d87}
+
+\item 
+double {\bfseries vroll\+\_\+}\hypertarget{class_orb_a78b287c4625470fba356017276a8e300}{}\label{class_orb_a78b287c4625470fba356017276a8e300}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa odpowiedzialna za ciała niebieskie (Słońce, planety, księżyce, meteory, komety, planetoidy...) 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\index{Orb@{Orb}!Orb@{Orb}}
+\index{Orb@{Orb}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{Orb(double m, double radius, int color, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0)}{Orb(double m, double radius, int color, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Orb\+::\+Orb (
+\begin{DoxyParamCaption}
+\item[{double}]{m, }
+\item[{double}]{radius, }
+\item[{int}]{color, }
+\item[{double}]{r = {\ttfamily 0}, }
+\item[{double}]{alfa = {\ttfamily 0}, }
+\item[{double}]{z = {\ttfamily 0}, }
+\item[{double}]{yaw = {\ttfamily 0}, }
+\item[{double}]{pitch = {\ttfamily 0}, }
+\item[{double}]{roll = {\ttfamily 0}, }
+\item[{double}]{vr = {\ttfamily 0}, }
+\item[{double}]{valfa = {\ttfamily 0}, }
+\item[{double}]{vz = {\ttfamily 0}, }
+\item[{double}]{vyaw = {\ttfamily 0}, }
+\item[{double}]{vpitch = {\ttfamily 0}, }
+\item[{double}]{vroll = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_orb_a3407825c339b82eaff3b59738670350a}{}\label{class_orb_a3407825c339b82eaff3b59738670350a}
+Konstruktor klasy \hyperlink{class_orb}{Orb} 
+\begin{DoxyParams}{Parametry}
+{\em m} & -\/ masa ciała \\
+\hline
+{\em radius} & -\/ promień ciała \\
+\hline
+{\em r} & -\/ położenie radialne (wsp. walcowe) \\
+\hline
+{\em alfa} & -\/ położenie kątowe (wsp. walcowe) \\
+\hline
+{\em z} & -\/ położenie w osi z \\
+\hline
+{\em yaw} & -\/ obrót w osi z \\
+\hline
+{\em pitch} & -\/ obrót w osi xy \\
+\hline
+{\em roll} & -\/ obrót wokół własnej osi \\
+\hline
+{\em vr} & -\/ prędkość radialna \\
+\hline
+{\em valfa} & -\/ prędkość kątowa \\
+\hline
+{\em vz} & -\/ prędkość wzdłuż osi z \\
+\hline
+{\em vyaw} & -\/ prędkość obrotu wokół osi z \\
+\hline
+{\em vpitch} & -\/ prędkośćobrotu wokół osi xy \\
+\hline
+{\em vroll} & -\/ prędkość obrotu wokół własnej osi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+obiekt typu \hyperlink{class_orb}{Orb} 
+\end{DoxyReturn}
+\index{Orb@{Orb}!Orb@{Orb}}
+\index{Orb@{Orb}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{Orb(const Orb \&src)}{Orb(const Orb &src)}}]{\setlength{\rightskip}{0pt plus 5cm}Orb\+::\+Orb (
+\begin{DoxyParamCaption}
+\item[{const {\bf Orb} \&}]{src}
+\end{DoxyParamCaption}
+)}\hypertarget{class_orb_adeeb210501049c0d1a2e1a5c4761c8c8}{}\label{class_orb_adeeb210501049c0d1a2e1a5c4761c8c8}
+Konstruktor kopiujący klasy \hyperlink{class_orb}{Orb} 
+\begin{DoxyParams}{Parametry}
+{\em src} & -\/ referencja do oryginalnego obiektu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+obiekt typu \hyperlink{class_orb}{Orb} 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\index{Orb@{Orb}!dist\+\_\+to\+\_\+cam@{dist\+\_\+to\+\_\+cam}}
+\index{dist\+\_\+to\+\_\+cam@{dist\+\_\+to\+\_\+cam}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{dist\+\_\+to\+\_\+cam(const Camera $\ast$cam)}{dist_to_cam(const Camera *cam)}}]{\setlength{\rightskip}{0pt plus 5cm}double Orb\+::dist\+\_\+to\+\_\+cam (
+\begin{DoxyParamCaption}
+\item[{const {\bf Camera} $\ast$}]{cam}
+\end{DoxyParamCaption}
+)}\hypertarget{class_orb_ab960dd2ce7a33bc4ec53a84780885085}{}\label{class_orb_ab960dd2ce7a33bc4ec53a84780885085}
+Przesuwa wzdłuż osi z 
+\begin{DoxyParams}{Parametry}
+{\em dz} & -\/ wartość przesunięcia\\
+\hline
+\end{DoxyParams}
+Oblicza odległość między kamerą a ciałem niebieskim 
+\begin{DoxyParams}{Parametry}
+{\em wskaźnik} & na kamerę \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+odległość w kilometrach 
+\end{DoxyReturn}
+\index{Orb@{Orb}!get\+\_\+alfa@{get\+\_\+alfa}}
+\index{get\+\_\+alfa@{get\+\_\+alfa}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{get\+\_\+alfa()}{get_alfa()}}]{\setlength{\rightskip}{0pt plus 5cm}double Orb\+::get\+\_\+alfa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_orb_a2da0c0c6302143398ae204ad2a13d17f}{}\label{class_orb_a2da0c0c6302143398ae204ad2a13d17f}
+\begin{DoxyReturn}{Zwraca}
+kąt (położenie we współrzędnych walcowych) 
+\end{DoxyReturn}
+\index{Orb@{Orb}!get\+\_\+r@{get\+\_\+r}}
+\index{get\+\_\+r@{get\+\_\+r}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{get\+\_\+r()}{get_r()}}]{\setlength{\rightskip}{0pt plus 5cm}double Orb\+::get\+\_\+r (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_orb_a5b6bfbf0f482b6876458c208c762c5f6}{}\label{class_orb_a5b6bfbf0f482b6876458c208c762c5f6}
+\begin{DoxyReturn}{Zwraca}
+promień (położenie we współrzędnych sferycznych) 
+\end{DoxyReturn}
+\index{Orb@{Orb}!get\+\_\+z@{get\+\_\+z}}
+\index{get\+\_\+z@{get\+\_\+z}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{get\+\_\+z()}{get_z()}}]{\setlength{\rightskip}{0pt plus 5cm}double Orb\+::get\+\_\+z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_orb_a01147493b605751d3176faf78ec97f0d}{}\label{class_orb_a01147493b605751d3176faf78ec97f0d}
+\begin{DoxyReturn}{Zwraca}
+położenie w osi z (we spółrzędnych walcowych) 
+\end{DoxyReturn}
+\index{Orb@{Orb}!is\+\_\+visible@{is\+\_\+visible}}
+\index{is\+\_\+visible@{is\+\_\+visible}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{is\+\_\+visible(const Camera $\ast$camera)}{is_visible(const Camera *camera)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Orb\+::is\+\_\+visible (
+\begin{DoxyParamCaption}
+\item[{const {\bf Camera} $\ast$}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_orb_af96db026919a527193c96331444a04df}{}\label{class_orb_af96db026919a527193c96331444a04df}
+Sprawdza czy ciało niebieskie jest widoczne z punktu widzenia kamery 
+\begin{DoxyParams}{Parametry}
+{\em camera} & -\/ wskaźnik na kamerę \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+fałsz jeśli nie jest możliwe zobaczenie ciała 
+\end{DoxyReturn}
+
+
+Implementuje \hyperlink{class_renderable}{Renderable}.
+
+\index{Orb@{Orb}!move\+\_\+alfa@{move\+\_\+alfa}}
+\index{move\+\_\+alfa@{move\+\_\+alfa}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{move\+\_\+alfa(double Dalfa)}{move_alfa(double Dalfa)}}]{\setlength{\rightskip}{0pt plus 5cm}void Orb\+::move\+\_\+alfa (
+\begin{DoxyParamCaption}
+\item[{double}]{Dalfa}
+\end{DoxyParamCaption}
+)}\hypertarget{class_orb_ada00a09e2184aff67aba54c5cbf9d276}{}\label{class_orb_ada00a09e2184aff67aba54c5cbf9d276}
+Przemieszcza kątowo we współrzędnych walcowych 
+\begin{DoxyParams}{Parametry}
+{\em Dalfa} & -\/ wartość przesunięcia \\
+\hline
+\end{DoxyParams}
+\index{Orb@{Orb}!move\+\_\+r@{move\+\_\+r}}
+\index{move\+\_\+r@{move\+\_\+r}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{move\+\_\+r(double dr)}{move_r(double dr)}}]{\setlength{\rightskip}{0pt plus 5cm}void Orb\+::move\+\_\+r (
+\begin{DoxyParamCaption}
+\item[{double}]{dr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_orb_a365261dff002736017e9fc0d346e2fbf}{}\label{class_orb_a365261dff002736017e9fc0d346e2fbf}
+Przesuwa radialnie 
+\begin{DoxyParams}{Parametry}
+{\em dr} & -\/ wartość przesunięcia \\
+\hline
+\end{DoxyParams}
+\index{Orb@{Orb}!render@{render}}
+\index{render@{render}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{render(const Camera $\ast$camera)}{render(const Camera *camera)}}]{\setlength{\rightskip}{0pt plus 5cm}void Orb\+::render (
+\begin{DoxyParamCaption}
+\item[{const {\bf Camera} $\ast$}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_orb_ade7e6c6c2a991d91c2420581996e0b17}{}\label{class_orb_ade7e6c6c2a991d91c2420581996e0b17}
+Rysuje ciało niebieskie w bitmapie kamery 
+\begin{DoxyParams}{Parametry}
+{\em camera} & -\/ wskaźnik na kamerę \\
+\hline
+\end{DoxyParams}
+
+
+Implementuje \hyperlink{class_renderable}{Renderable}.
+
+\index{Orb@{Orb}!update@{update}}
+\index{update@{update}!Orb@{Orb}}
+\subsubsection[{\texorpdfstring{update(double dt)}{update(double dt)}}]{\setlength{\rightskip}{0pt plus 5cm}void Orb\+::update (
+\begin{DoxyParamCaption}
+\item[{double}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_orb_a23637b6caf496f4932e21935edbd1b74}{}\label{class_orb_a23637b6caf496f4932e21935edbd1b74}
+Aktualizuje położenie zmienne w czasie 
+\begin{DoxyParams}{Parametry}
+{\em dt} & -\/ krok czasowy \\
+\hline
+\end{DoxyParams}
+
+
+Implementuje \hyperlink{class_renderable}{Renderable}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+src/orb.\+hpp\item 
+src/orb.\+cpp\end{DoxyCompactItemize}

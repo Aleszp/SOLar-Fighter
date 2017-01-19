@@ -1,0 +1,74 @@
+\hypertarget{class_simulator}{}\section{Dokumentacja klasy Simulator}
+\label{class_simulator}\index{Simulator@{Simulator}}
+
+
+{\ttfamily \#include $<$multi.\+hpp$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_simulator_a597385e2e9f501fbbd936e3b281cd2b1}{Simulator} (std\+::vector$<$ \hyperlink{class_renderable}{Renderable} $\ast$ $>$ simulatables, double dt)
+\item 
+void \hyperlink{class_simulator_ab844c2061cc955301bd63016e67ed2e0}{operator()} ()
+\item 
+void \hyperlink{class_simulator_a21d308aa878b8a23482a00d8939a9ada}{update\+\_\+buffer} ()
+\item 
+std\+::vector$<$ \hyperlink{class_renderable}{Renderable} $\ast$ $>$ \hyperlink{class_simulator_a276673b4c7124e93d037f8b0e857ea11}{get\+\_\+buffer} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa odpowiedzialna za prowadzenie symulacji w osobnym wątku (T\+BA). 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\index{Simulator@{Simulator}!Simulator@{Simulator}}
+\index{Simulator@{Simulator}!Simulator@{Simulator}}
+\subsubsection[{\texorpdfstring{Simulator(std\+::vector$<$ Renderable $\ast$ $>$ simulatables, double dt)}{Simulator(std::vector< Renderable * > simulatables, double dt)}}]{\setlength{\rightskip}{0pt plus 5cm}Simulator\+::\+Simulator (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Renderable} $\ast$ $>$}]{simulatables, }
+\item[{double}]{dt}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simulator_a597385e2e9f501fbbd936e3b281cd2b1}{}\label{class_simulator_a597385e2e9f501fbbd936e3b281cd2b1}
+Konstruktor klasy \hyperlink{class_simulator}{Simulator} 
+\begin{DoxyParams}{Parametry}
+{\em simulatables} & -\/ tablica wskaźników na obiekty które mają być symulowane \\
+\hline
+{\em dt} & -\/ krok czasowy symulacji \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+obiekt klasy \hyperlink{class_simulator}{Simulator} 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\index{Simulator@{Simulator}!get\+\_\+buffer@{get\+\_\+buffer}}
+\index{get\+\_\+buffer@{get\+\_\+buffer}!Simulator@{Simulator}}
+\subsubsection[{\texorpdfstring{get\+\_\+buffer()}{get_buffer()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Renderable}$\ast$$>$ Simulator\+::get\+\_\+buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simulator_a276673b4c7124e93d037f8b0e857ea11}{}\label{class_simulator_a276673b4c7124e93d037f8b0e857ea11}
+Zwraca bufor dla wątku renderującego \begin{DoxyReturn}{Zwraca}
+kopia bufora 
+\end{DoxyReturn}
+\index{Simulator@{Simulator}!operator()@{operator()}}
+\index{operator()@{operator()}!Simulator@{Simulator}}
+\subsubsection[{\texorpdfstring{operator()()}{operator()()}}]{\setlength{\rightskip}{0pt plus 5cm}void Simulator\+::operator() (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simulator_ab844c2061cc955301bd63016e67ed2e0}{}\label{class_simulator_ab844c2061cc955301bd63016e67ed2e0}
+Wątek w którym trwa symulacja \index{Simulator@{Simulator}!update\+\_\+buffer@{update\+\_\+buffer}}
+\index{update\+\_\+buffer@{update\+\_\+buffer}!Simulator@{Simulator}}
+\subsubsection[{\texorpdfstring{update\+\_\+buffer()}{update_buffer()}}]{\setlength{\rightskip}{0pt plus 5cm}void Simulator\+::update\+\_\+buffer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simulator_a21d308aa878b8a23482a00d8939a9ada}{}\label{class_simulator_a21d308aa878b8a23482a00d8939a9ada}
+Aktualizuje bufor do zwracania do wątku renderującego 
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+src/multi.\+hpp\item 
+src/multi.\+cpp\end{DoxyCompactItemize}

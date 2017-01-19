@@ -1,0 +1,311 @@
+\hypertarget{class_simple_object}{}\section{Dokumentacja klasy Simple\+Object}
+\label{class_simple_object}\index{Simple\+Object@{Simple\+Object}}
+
+
+{\ttfamily \#include $<$simple\+\_\+object.\+hpp$>$}
+
+
+
+Diagram dziedziczenia dla Simple\+Object
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{class_simple_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Simple\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{class_simple_object__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_simple_object_ac3546137e54ecbd63af642987ed7c3e1}{Simple\+Object} (double x, double y, double z, double yaw, double pitch, double roll)
+\item 
+\hyperlink{class_simple_object_aa5c0c6312bf39207eccbe3816218c16c}{Simple\+Object} (const \hyperlink{class_object}{Object} $\ast$object)
+\item 
+virtual bool {\bfseries is\+\_\+visible} (const \hyperlink{class_camera}{Camera} $\ast$camera)\hypertarget{class_simple_object_a1ecfe7d2d9f54db74b5add72bde4722f}{}\label{class_simple_object_a1ecfe7d2d9f54db74b5add72bde4722f}
+
+\item 
+virtual void {\bfseries render} (const \hyperlink{class_camera}{Camera} $\ast$camera)\hypertarget{class_simple_object_a3a27ab5c46fb29fe77bd7e8bd6a3f363}{}\label{class_simple_object_a3a27ab5c46fb29fe77bd7e8bd6a3f363}
+
+\item 
+virtual void {\bfseries update} (double dt)=0\hypertarget{class_simple_object_ae6172a3cb957cb595fd77effbb051bde}{}\label{class_simple_object_ae6172a3cb957cb595fd77effbb051bde}
+
+\item 
+virtual void \hyperlink{class_simple_object_a87202d586ed9a3c115dedcad2911f7b7}{rotate\+\_\+yaw} (double Dyaw)
+\item 
+virtual void \hyperlink{class_simple_object_aaf69740e2c939f7e0b51924a89422f0c}{rotate\+\_\+pitch} (double Dpitch)
+\item 
+virtual void \hyperlink{class_simple_object_ae2df7e8abff1303b55f559102b08a2c5}{rotate\+\_\+roll} (double Droll)
+\item 
+double \hyperlink{class_simple_object_a41bbdfe52dc20d88ba6511208867d908}{get\+\_\+x} () const 
+\item 
+double \hyperlink{class_simple_object_ac1f8fa29e45089a4110848ddaf440322}{get\+\_\+y} () const 
+\item 
+double \hyperlink{class_simple_object_a4a7931d70d156e0254d3ccfa1a6f2f4d}{get\+\_\+z} () const 
+\item 
+void \hyperlink{class_simple_object_a4c07cb27c02089325fd65dee3218563c}{move\+\_\+x} (double dx)
+\item 
+void \hyperlink{class_simple_object_acb544eaea6d132ddf29db57ada174920}{move\+\_\+y} (double dy)
+\item 
+void \hyperlink{class_simple_object_a9d5854c99305702d0b1ceaf7a24907fc}{move\+\_\+z} (double dz)
+\item 
+double \hyperlink{class_simple_object_a5fdb2d7aa58fcad8acb1fcaf906dce15}{get\+\_\+yaw} () const 
+\item 
+double \hyperlink{class_simple_object_a5fdf130ef90fe9a645887f6735f2ce70}{get\+\_\+pitch} () const 
+\item 
+double \hyperlink{class_simple_object_adf120ce1354dbbaed33b437206936541}{get\+\_\+roll} () const 
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries x\+\_\+}\hypertarget{class_simple_object_a5ef9c7a8f7fb8ac661bff5dcb33983a7}{}\label{class_simple_object_a5ef9c7a8f7fb8ac661bff5dcb33983a7}
+
+\item 
+double {\bfseries y\+\_\+}\hypertarget{class_simple_object_ac80d26a13b1c0bd55403a947745b5f03}{}\label{class_simple_object_ac80d26a13b1c0bd55403a947745b5f03}
+
+\item 
+double {\bfseries z\+\_\+}\hypertarget{class_simple_object_a7adae5ef28bc1101e6a0341f1b97f4cd}{}\label{class_simple_object_a7adae5ef28bc1101e6a0341f1b97f4cd}
+
+\item 
+double {\bfseries yaw\+\_\+}\hypertarget{class_simple_object_a2223327221cd21410ac4d60fa1ad479a}{}\label{class_simple_object_a2223327221cd21410ac4d60fa1ad479a}
+
+\item 
+double {\bfseries pitch\+\_\+}\hypertarget{class_simple_object_aa4966ef233fe74cc77c0a75e97729221}{}\label{class_simple_object_aa4966ef233fe74cc77c0a75e97729221}
+
+\item 
+double {\bfseries roll\+\_\+}\hypertarget{class_simple_object_ae253b25a26259913b424129021885911}{}\label{class_simple_object_ae253b25a26259913b424129021885911}
+
+\end{DoxyCompactItemize}
+\subsection*{Przyjaciele}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_simple_object_adbeedfd57e99d5aeab512c85ee1b6849}{calculate\+\_\+distance} (const \hyperlink{class_simple_object}{Simple\+Object} $\ast$o1, const \hyperlink{class_simple_object}{Simple\+Object} $\ast$o2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa abstrakcyjna po której dziedziczą klasy \hyperlink{class_object}{Object} i \hyperlink{class_camera}{Camera} 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\index{Simple\+Object@{Simple\+Object}!Simple\+Object@{Simple\+Object}}
+\index{Simple\+Object@{Simple\+Object}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{Simple\+Object(double x, double y, double z, double yaw, double pitch, double roll)}{SimpleObject(double x, double y, double z, double yaw, double pitch, double roll)}}]{\setlength{\rightskip}{0pt plus 5cm}Simple\+Object\+::\+Simple\+Object (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{z, }
+\item[{double}]{yaw = {\ttfamily 0.0}, }
+\item[{double}]{pitch = {\ttfamily 0.0}, }
+\item[{double}]{roll = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simple_object_ac3546137e54ecbd63af642987ed7c3e1}{}\label{class_simple_object_ac3546137e54ecbd63af642987ed7c3e1}
+Konstruktor klasy \hyperlink{class_simple_object}{Simple\+Object} 
+\begin{DoxyParams}{Parametry}
+{\em x} & -\/ położenie w osi x \\
+\hline
+{\em y} & -\/ położenie w osi y \\
+\hline
+{\em z} & -\/ położenie w osi z \\
+\hline
+{\em yaw} & -\/ obrót w osi z \\
+\hline
+{\em pitch} & -\/ obrót w osi xy \\
+\hline
+{\em roll} & -\/ obrót wokół własnej osi \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+obiekt typu \hyperlink{class_simple_object}{Simple\+Object} 
+\end{DoxyReturn}
+\index{Simple\+Object@{Simple\+Object}!Simple\+Object@{Simple\+Object}}
+\index{Simple\+Object@{Simple\+Object}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{Simple\+Object(const Object $\ast$object)}{SimpleObject(const Object *object)}}]{\setlength{\rightskip}{0pt plus 5cm}Simple\+Object\+::\+Simple\+Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf Object} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\hypertarget{class_simple_object_aa5c0c6312bf39207eccbe3816218c16c}{}\label{class_simple_object_aa5c0c6312bf39207eccbe3816218c16c}
+Konstruktor kopiujący klasy \hyperlink{class_simple_object}{Simple\+Object} z klasy \hyperlink{class_object}{Object} 
+\begin{DoxyParams}{Parametry}
+{\em object} & -\/ referencja na obiekt z którego są kopiowane fane \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+obiekt typu \hyperlink{class_simple_object}{Simple\+Object} 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\index{Simple\+Object@{Simple\+Object}!get\+\_\+pitch@{get\+\_\+pitch}}
+\index{get\+\_\+pitch@{get\+\_\+pitch}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{get\+\_\+pitch() const }{get_pitch() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Object\+::get\+\_\+pitch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_a5fdf130ef90fe9a645887f6735f2ce70}{}\label{class_simple_object_a5fdf130ef90fe9a645887f6735f2ce70}
+Zwraca kąt obrotu w osi xy 
+\begin{DoxyParams}{Parametry}
+{\em wartość} & kąta w radianach $<$-\/pi/2;pi/2$>$ \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Object@{Simple\+Object}!get\+\_\+roll@{get\+\_\+roll}}
+\index{get\+\_\+roll@{get\+\_\+roll}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{get\+\_\+roll() const }{get_roll() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Object\+::get\+\_\+roll (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_adf120ce1354dbbaed33b437206936541}{}\label{class_simple_object_adf120ce1354dbbaed33b437206936541}
+Zwraca kąt obrotu wokół własnej osi 
+\begin{DoxyParams}{Parametry}
+{\em wartość} & kąta w radianach $<$-\/pi;pi$>$ \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Object@{Simple\+Object}!get\+\_\+x@{get\+\_\+x}}
+\index{get\+\_\+x@{get\+\_\+x}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{get\+\_\+x() const }{get_x() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Object\+::get\+\_\+x (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_a41bbdfe52dc20d88ba6511208867d908}{}\label{class_simple_object_a41bbdfe52dc20d88ba6511208867d908}
+zwraca wartość składowej x \begin{DoxyReturn}{Zwraca}
+składowa x 
+\end{DoxyReturn}
+\index{Simple\+Object@{Simple\+Object}!get\+\_\+y@{get\+\_\+y}}
+\index{get\+\_\+y@{get\+\_\+y}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{get\+\_\+y() const }{get_y() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Object\+::get\+\_\+y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_ac1f8fa29e45089a4110848ddaf440322}{}\label{class_simple_object_ac1f8fa29e45089a4110848ddaf440322}
+zwraca wartość składowej y \begin{DoxyReturn}{Zwraca}
+składowa y 
+\end{DoxyReturn}
+\index{Simple\+Object@{Simple\+Object}!get\+\_\+yaw@{get\+\_\+yaw}}
+\index{get\+\_\+yaw@{get\+\_\+yaw}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{get\+\_\+yaw() const }{get_yaw() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Object\+::get\+\_\+yaw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_a5fdb2d7aa58fcad8acb1fcaf906dce15}{}\label{class_simple_object_a5fdb2d7aa58fcad8acb1fcaf906dce15}
+Zwraca kąt obrotu w osi z 
+\begin{DoxyParams}{Parametry}
+{\em wartość} & kąta w radianach $<$-\/pi;pi$>$ \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Object@{Simple\+Object}!get\+\_\+z@{get\+\_\+z}}
+\index{get\+\_\+z@{get\+\_\+z}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{get\+\_\+z() const }{get_z() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Simple\+Object\+::get\+\_\+z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_a4a7931d70d156e0254d3ccfa1a6f2f4d}{}\label{class_simple_object_a4a7931d70d156e0254d3ccfa1a6f2f4d}
+zwraca wartość składowej z \begin{DoxyReturn}{Zwraca}
+składowa z 
+\end{DoxyReturn}
+\index{Simple\+Object@{Simple\+Object}!move\+\_\+x@{move\+\_\+x}}
+\index{move\+\_\+x@{move\+\_\+x}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{move\+\_\+x(double dx)}{move_x(double dx)}}]{\setlength{\rightskip}{0pt plus 5cm}void Simple\+Object\+::move\+\_\+x (
+\begin{DoxyParamCaption}
+\item[{double}]{dx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_a4c07cb27c02089325fd65dee3218563c}{}\label{class_simple_object_a4c07cb27c02089325fd65dee3218563c}
+Przesuwa w osi x 
+\begin{DoxyParams}{Parametry}
+{\em dx} & -\/ wartość przesunięcia \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Object@{Simple\+Object}!move\+\_\+y@{move\+\_\+y}}
+\index{move\+\_\+y@{move\+\_\+y}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{move\+\_\+y(double dy)}{move_y(double dy)}}]{\setlength{\rightskip}{0pt plus 5cm}void Simple\+Object\+::move\+\_\+y (
+\begin{DoxyParamCaption}
+\item[{double}]{dy}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_acb544eaea6d132ddf29db57ada174920}{}\label{class_simple_object_acb544eaea6d132ddf29db57ada174920}
+Przesuwa w osi y 
+\begin{DoxyParams}{Parametry}
+{\em dy} & -\/ wartość przesunięcia \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Object@{Simple\+Object}!move\+\_\+z@{move\+\_\+z}}
+\index{move\+\_\+z@{move\+\_\+z}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{move\+\_\+z(double dz)}{move_z(double dz)}}]{\setlength{\rightskip}{0pt plus 5cm}void Simple\+Object\+::move\+\_\+z (
+\begin{DoxyParamCaption}
+\item[{double}]{dz}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_simple_object_a9d5854c99305702d0b1ceaf7a24907fc}{}\label{class_simple_object_a9d5854c99305702d0b1ceaf7a24907fc}
+Przesuwa w osi z 
+\begin{DoxyParams}{Parametry}
+{\em dx=z} & -\/ wartość przesunięcia \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Object@{Simple\+Object}!rotate\+\_\+pitch@{rotate\+\_\+pitch}}
+\index{rotate\+\_\+pitch@{rotate\+\_\+pitch}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{rotate\+\_\+pitch(double Dpitch)}{rotate_pitch(double Dpitch)}}]{\setlength{\rightskip}{0pt plus 5cm}void Simple\+Object\+::rotate\+\_\+pitch (
+\begin{DoxyParamCaption}
+\item[{double}]{Dpitch}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_object_aaf69740e2c939f7e0b51924a89422f0c}{}\label{class_simple_object_aaf69740e2c939f7e0b51924a89422f0c}
+Obraca w osi xy o zadany kąt i przelicza go na wartość z zakresu $<$-\/pi/2;pi/2$>$ uwzględniając wpływ na obrót w pozostałych dwóch osiach 
+\begin{DoxyParams}{Parametry}
+{\em Dpitch} & -\/ wartość przesunięcia \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Object@{Simple\+Object}!rotate\+\_\+roll@{rotate\+\_\+roll}}
+\index{rotate\+\_\+roll@{rotate\+\_\+roll}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{rotate\+\_\+roll(double Droll)}{rotate_roll(double Droll)}}]{\setlength{\rightskip}{0pt plus 5cm}void Simple\+Object\+::rotate\+\_\+roll (
+\begin{DoxyParamCaption}
+\item[{double}]{Droll}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_object_ae2df7e8abff1303b55f559102b08a2c5}{}\label{class_simple_object_ae2df7e8abff1303b55f559102b08a2c5}
+Obraca w osi obiektu o zadany kąt i przelicza go na wartość z zakresu $<$-\/pi;pi$>$ 
+\begin{DoxyParams}{Parametry}
+{\em Droll} & -\/ wartość przesunięcia \\
+\hline
+\end{DoxyParams}
+\index{Simple\+Object@{Simple\+Object}!rotate\+\_\+yaw@{rotate\+\_\+yaw}}
+\index{rotate\+\_\+yaw@{rotate\+\_\+yaw}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{rotate\+\_\+yaw(double Dyaw)}{rotate_yaw(double Dyaw)}}]{\setlength{\rightskip}{0pt plus 5cm}void Simple\+Object\+::rotate\+\_\+yaw (
+\begin{DoxyParamCaption}
+\item[{double}]{Dyaw}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simple_object_a87202d586ed9a3c115dedcad2911f7b7}{}\label{class_simple_object_a87202d586ed9a3c115dedcad2911f7b7}
+Obraca w osi z o zadany kąt i przelicza go na wartość z zakresu $<$-\/pi;pi$>$ 
+\begin{DoxyParams}{Parametry}
+{\em Dyaw} & -\/ wartość przesunięcia \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentacja przyjaciół i funkcji związanych}
+\index{Simple\+Object@{Simple\+Object}!calculate\+\_\+distance@{calculate\+\_\+distance}}
+\index{calculate\+\_\+distance@{calculate\+\_\+distance}!Simple\+Object@{Simple\+Object}}
+\subsubsection[{\texorpdfstring{calculate\+\_\+distance}{calculate_distance}}]{\setlength{\rightskip}{0pt plus 5cm}double calculate\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{const {\bf Simple\+Object} $\ast$}]{o1, }
+\item[{const {\bf Simple\+Object} $\ast$}]{o2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{class_simple_object_adbeedfd57e99d5aeab512c85ee1b6849}{}\label{class_simple_object_adbeedfd57e99d5aeab512c85ee1b6849}
+Oblicza odległość między dwoma obiektami 
+\begin{DoxyParams}{Parametry}
+{\em o1} & -\/ wskaźnik na pierwszy obiekt \\
+\hline
+{\em o2} & -\/ wskaźnik na drugi obiekt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+odległość w kilometrach 
+\end{DoxyReturn}
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+src/simple\+\_\+object.\+hpp\item 
+src/simple\+\_\+object.\+cpp\end{DoxyCompactItemize}

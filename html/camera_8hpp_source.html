@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>SOLar-Fighter: Plik źródłowy src/camera.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SOLar-Fighter
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&#160;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">camera.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _CAMERA_HPP_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _CAMERA_HPP_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;allegro.h&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;simple_object.hpp&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_camera.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_camera.html">Camera</a>: <span class="keyword">public</span> <a class="code" href="class_simple_object.html">SimpleObject</a></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">double</span> fov_x2_; </div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">double</span> fov_y2_; </div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">double</span> render_dist_;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        BITMAP* scr_;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">unsigned</span> res_x_;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">unsigned</span> res_y_;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">unsigned</span> res_x2_;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">unsigned</span> res_y2_;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">double</span> x_sin_fov_const_;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">double</span> y_sin_fov_const_;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        </div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//Prędkości</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">double</span> vx_; </div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">double</span> vy_;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">double</span> vz_;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">double</span> vyaw_;   <span class="comment">//obrót w osi z - obrót &quot;lewo/prawo&quot;</span></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">double</span> vpitch_; <span class="comment">//obrót w osi y - obrót &quot;przód/tył&quot;</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">double</span> vroll_;  <span class="comment">//obrót w osi x - pochylenie w &quot;lewo/prawo&quot;</span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="class_camera.html#aa4fab6c2c09702f8e70d0688ea90c0ae">Camera</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z, <span class="keywordtype">double</span> yaw, <span class="keywordtype">double</span> pitch, <span class="keywordtype">double</span> roll, <span class="keywordtype">double</span> fov_x, <span class="keywordtype">double</span> fov_y, <span class="keywordtype">double</span> render_dist, BITMAP* scr, <span class="keywordtype">double</span> res_x, <span class="keywordtype">double</span> res_y);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_camera.html">Camera</a>(){}</div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_camera.html#ad85cea48af89cad24edc3eb2bdcdf7ee">   38</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_camera.html#ad85cea48af89cad24edc3eb2bdcdf7ee">get_x_sin_fov_const</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> x_sin_fov_const_;}</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_camera.html#a87266e92e70522c3d0e1c397b4ada1af">   42</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_camera.html#a87266e92e70522c3d0e1c397b4ada1af">get_y_sin_fov_const</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> y_sin_fov_const_;}</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_camera.html#a1bda457bae36f6a8d0ecf29bd0ec19a9">   46</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_camera.html#a1bda457bae36f6a8d0ecf29bd0ec19a9">get_render_dist</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> render_dist_;}</div><div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_camera.html#a744c0732cff592644a4f0e62654d1d10">   50</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <a class="code" href="class_camera.html#a744c0732cff592644a4f0e62654d1d10">get_res_x</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> res_x_;}</div><div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_camera.html#a7d62c7d80c97dc2e703544e7280a5208">   54</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <a class="code" href="class_camera.html#a7d62c7d80c97dc2e703544e7280a5208">get_res_y</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> res_y_;}</div><div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_camera.html#aa106361d6bab194723cb746c22df8cbe">   58</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <a class="code" href="class_camera.html#aa106361d6bab194723cb746c22df8cbe">get_res_x2</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> res_x2_;}</div><div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_camera.html#af0d5d16f478c68fdc8f3bfda7db0ad72">   62</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <a class="code" href="class_camera.html#af0d5d16f478c68fdc8f3bfda7db0ad72">get_res_y2</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> res_y2_;}</div><div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_camera.html#a3537564f96a44b3480d5581c7fec5576">   66</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_camera.html#a3537564f96a44b3480d5581c7fec5576">get_fov_x2</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> fov_x2_;}</div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_camera.html#a160845f2c2da8ef18459b4fc1d5c3929">   70</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_camera.html#a160845f2c2da8ef18459b4fc1d5c3929">get_fov_y2</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> fov_y2_;}</div><div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_camera.html#a02a92079d7a27b0801611c280b17002b">   74</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_camera.html#a02a92079d7a27b0801611c280b17002b">putpixel</a>(<span class="keywordtype">int</span> xx, <span class="keywordtype">int</span> yy, <span class="keywordtype">int</span> col)<span class="keyword"> const </span>{<a class="code" href="class_camera.html#a02a92079d7a27b0801611c280b17002b">::putpixel</a>(scr_,xx,yy,col);}</div><div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_camera.html#adfd2ffd6a173e3125a220164687d88b1">   78</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_camera.html#adfd2ffd6a173e3125a220164687d88b1">ellipsefill</a>(<span class="keywordtype">int</span> xx,<span class="keywordtype">int</span> yy,<span class="keywordtype">int</span> rad_x, <span class="keywordtype">int</span> rad_y, <span class="keywordtype">int</span> col)<span class="keyword"> const </span>{<a class="code" href="class_camera.html#adfd2ffd6a173e3125a220164687d88b1">::ellipsefill</a>(scr_,xx,yy,rad_x, rad_y, col);}</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_camera.html#ab521598bed84988be95a89dfcdd9f1aa">update</a>(<span class="keywordtype">double</span> dt);</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        </div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> accel_line(<span class="keywordtype">double</span> a);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">void</span> accel_deg(<span class="keywordtype">double</span> ayaw, <span class="keywordtype">double</span> apitch);</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">void</span> accel_roll(<span class="keywordtype">double</span> aroll);</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_camera_html_ab521598bed84988be95a89dfcdd9f1aa"><div class="ttname"><a href="class_camera.html#ab521598bed84988be95a89dfcdd9f1aa">Camera::update</a></div><div class="ttdeci">virtual void update(double dt)</div><div class="ttdef"><b>Definition:</b> camera.cpp:59</div></div>
+<div class="ttc" id="class_camera_html_a744c0732cff592644a4f0e62654d1d10"><div class="ttname"><a href="class_camera.html#a744c0732cff592644a4f0e62654d1d10">Camera::get_res_x</a></div><div class="ttdeci">unsigned get_res_x() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:50</div></div>
+<div class="ttc" id="class_camera_html_af0d5d16f478c68fdc8f3bfda7db0ad72"><div class="ttname"><a href="class_camera.html#af0d5d16f478c68fdc8f3bfda7db0ad72">Camera::get_res_y2</a></div><div class="ttdeci">unsigned get_res_y2() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:62</div></div>
+<div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.hpp:10</div></div>
+<div class="ttc" id="class_simple_object_html"><div class="ttname"><a href="class_simple_object.html">SimpleObject</a></div><div class="ttdef"><b>Definition:</b> simple_object.hpp:12</div></div>
+<div class="ttc" id="class_camera_html_aa4fab6c2c09702f8e70d0688ea90c0ae"><div class="ttname"><a href="class_camera.html#aa4fab6c2c09702f8e70d0688ea90c0ae">Camera::Camera</a></div><div class="ttdeci">Camera(double x, double y, double z, double yaw, double pitch, double roll, double fov_x, double fov_y, double render_dist, BITMAP *scr, double res_x, double res_y)</div><div class="ttdef"><b>Definition:</b> camera.cpp:21</div></div>
+<div class="ttc" id="class_camera_html_a02a92079d7a27b0801611c280b17002b"><div class="ttname"><a href="class_camera.html#a02a92079d7a27b0801611c280b17002b">Camera::putpixel</a></div><div class="ttdeci">void putpixel(int xx, int yy, int col) const </div><div class="ttdef"><b>Definition:</b> camera.hpp:74</div></div>
+<div class="ttc" id="class_camera_html_adfd2ffd6a173e3125a220164687d88b1"><div class="ttname"><a href="class_camera.html#adfd2ffd6a173e3125a220164687d88b1">Camera::ellipsefill</a></div><div class="ttdeci">void ellipsefill(int xx, int yy, int rad_x, int rad_y, int col) const </div><div class="ttdef"><b>Definition:</b> camera.hpp:78</div></div>
+<div class="ttc" id="class_camera_html_aa106361d6bab194723cb746c22df8cbe"><div class="ttname"><a href="class_camera.html#aa106361d6bab194723cb746c22df8cbe">Camera::get_res_x2</a></div><div class="ttdeci">unsigned get_res_x2() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:58</div></div>
+<div class="ttc" id="class_camera_html_a7d62c7d80c97dc2e703544e7280a5208"><div class="ttname"><a href="class_camera.html#a7d62c7d80c97dc2e703544e7280a5208">Camera::get_res_y</a></div><div class="ttdeci">unsigned get_res_y() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:54</div></div>
+<div class="ttc" id="class_camera_html_a87266e92e70522c3d0e1c397b4ada1af"><div class="ttname"><a href="class_camera.html#a87266e92e70522c3d0e1c397b4ada1af">Camera::get_y_sin_fov_const</a></div><div class="ttdeci">double get_y_sin_fov_const() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:42</div></div>
+<div class="ttc" id="class_camera_html_a1bda457bae36f6a8d0ecf29bd0ec19a9"><div class="ttname"><a href="class_camera.html#a1bda457bae36f6a8d0ecf29bd0ec19a9">Camera::get_render_dist</a></div><div class="ttdeci">double get_render_dist() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:46</div></div>
+<div class="ttc" id="class_camera_html_ad85cea48af89cad24edc3eb2bdcdf7ee"><div class="ttname"><a href="class_camera.html#ad85cea48af89cad24edc3eb2bdcdf7ee">Camera::get_x_sin_fov_const</a></div><div class="ttdeci">double get_x_sin_fov_const() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:38</div></div>
+<div class="ttc" id="class_camera_html_a160845f2c2da8ef18459b4fc1d5c3929"><div class="ttname"><a href="class_camera.html#a160845f2c2da8ef18459b4fc1d5c3929">Camera::get_fov_y2</a></div><div class="ttdeci">double get_fov_y2() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:70</div></div>
+<div class="ttc" id="class_camera_html_a3537564f96a44b3480d5581c7fec5576"><div class="ttname"><a href="class_camera.html#a3537564f96a44b3480d5581c7fec5576">Camera::get_fov_x2</a></div><div class="ttdeci">double get_fov_x2() const </div><div class="ttdef"><b>Definition:</b> camera.hpp:66</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

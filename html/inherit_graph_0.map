@@ -1,0 +1,9 @@
+<map id="Graficzna hierarchia klas" name="Graficzna hierarchia klas">
+<area shape="rect" id="node1" href="$class_renderable.html" title="Renderable" alt="" coords="5,56,93,83"/>
+<area shape="rect" id="node2" href="$class_orb.html" title="Orb" alt="" coords="170,5,213,32"/>
+<area shape="rect" id="node3" href="$class_simple_object.html" title="SimpleObject" alt="" coords="141,56,241,83"/>
+<area shape="rect" id="node7" href="$class_star.html" title="Star" alt="" coords="168,107,215,133"/>
+<area shape="rect" id="node4" href="$class_camera.html" title="Camera" alt="" coords="289,31,357,57"/>
+<area shape="rect" id="node5" href="$class_object.html" title="Object" alt="" coords="293,81,353,108"/>
+<area shape="rect" id="node6" href="$class_mobile_object.html" title="MobileObject" alt="" coords="405,81,504,108"/>
+</map>

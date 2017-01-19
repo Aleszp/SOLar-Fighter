@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>SOLar-Fighter: Plik źródłowy src/orb.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SOLar-Fighter
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&#160;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">orb.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _ORB_HPP_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _ORB_HPP_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;camera.hpp&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_orb.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_orb.html">Orb</a>: <span class="keyword">public</span> <a class="code" href="class_renderable.html">Renderable</a></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">double</span> m_;      <span class="comment">//masa</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">double</span> radius_; <span class="comment">//promień kuli</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        </div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">int</span> color_; <span class="comment">//zastąpi się teksturą?</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        </div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">double</span> r_;      <span class="comment">//układ walcowy</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">double</span> alfa_;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">double</span> z_;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">double</span> yaw_;    <span class="comment">//obrót w osi z - obrót &quot;lewo/prawo&quot;</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">double</span> pitch_;  <span class="comment">//obrót w osi y - obrót &quot;przód/tył&quot;</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">double</span> roll_;   <span class="comment">//obrót w osi x - pochylenie w &quot;lewo/prawo&quot;</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        </div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">//Prędkości</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">double</span> vr_;     <span class="comment">//układ walcowy</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">double</span> valfa_;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">double</span> vz_;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">double</span> vyaw_;   <span class="comment">//obrót w osi z - obrót &quot;lewo/prawo&quot;</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">double</span> vpitch_; <span class="comment">//obrót w osi y - obrót &quot;przód/tył&quot;</span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">double</span> vroll_;  <span class="comment">//obrót w osi x - pochylenie w &quot;lewo/prawo&quot;</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            </div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="class_orb.html#a3407825c339b82eaff3b59738670350a">Orb</a>(<span class="keywordtype">double</span> m, <span class="keywordtype">double</span> radius, <span class="keywordtype">int</span> color, <span class="keywordtype">double</span> r=0, <span class="keywordtype">double</span> alfa=0, <span class="keywordtype">double</span> z=0, <span class="keywordtype">double</span> yaw=0, <span class="keywordtype">double</span> pitch=0, <span class="keywordtype">double</span> roll=0, <span class="keywordtype">double</span> vr=0, <span class="keywordtype">double</span> valfa=0, <span class="keywordtype">double</span> vz=0, <span class="keywordtype">double</span> vyaw=0, <span class="keywordtype">double</span> vpitch=0, <span class="keywordtype">double</span> vroll=0);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_orb.html#a3407825c339b82eaff3b59738670350a">Orb</a>(<span class="keyword">const</span> <a class="code" href="class_orb.html">Orb</a> &amp;src);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_orb.html">Orb</a>(){}</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        </div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_orb.html#a23637b6caf496f4932e21935edbd1b74">update</a>(<span class="keywordtype">double</span> dt);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_orb.html#af96db026919a527193c96331444a04df">is_visible</a>(<span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>* camera);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_orb.html#ade7e6c6c2a991d91c2420581996e0b17">render</a>(<span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>* camera);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        </div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_orb.html#a5b6bfbf0f482b6876458c208c762c5f6">   46</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_orb.html#a5b6bfbf0f482b6876458c208c762c5f6">get_r</a>()   {<span class="keywordflow">return</span> r_;}</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div><div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_orb.html#a2da0c0c6302143398ae204ad2a13d17f">   51</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_orb.html#a2da0c0c6302143398ae204ad2a13d17f">get_alfa</a>(){<span class="keywordflow">return</span> alfa_;}</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        </div><div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_orb.html#a01147493b605751d3176faf78ec97f0d">   56</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_orb.html#a01147493b605751d3176faf78ec97f0d">get_z</a>()   {<span class="keywordflow">return</span> z_;}</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        </div><div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_orb.html#a365261dff002736017e9fc0d346e2fbf">   62</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_orb.html#a365261dff002736017e9fc0d346e2fbf">move_r</a>(<span class="keywordtype">double</span> dr) {r_+=dr;}</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_orb.html#ada00a09e2184aff67aba54c5cbf9d276">move_alfa</a>(<span class="keywordtype">double</span> Dalfa);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        </div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> move_z(<span class="keywordtype">double</span> dz) {z_+=dz;}</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_orb.html#ab960dd2ce7a33bc4ec53a84780885085">dist_to_cam</a>(<span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>* cam);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_orb_html_a5b6bfbf0f482b6876458c208c762c5f6"><div class="ttname"><a href="class_orb.html#a5b6bfbf0f482b6876458c208c762c5f6">Orb::get_r</a></div><div class="ttdeci">double get_r()</div><div class="ttdef"><b>Definition:</b> orb.hpp:46</div></div>
+<div class="ttc" id="class_orb_html_a3407825c339b82eaff3b59738670350a"><div class="ttname"><a href="class_orb.html#a3407825c339b82eaff3b59738670350a">Orb::Orb</a></div><div class="ttdeci">Orb(double m, double radius, int color, double r=0, double alfa=0, double z=0, double yaw=0, double pitch=0, double roll=0, double vr=0, double valfa=0, double vz=0, double vyaw=0, double vpitch=0, double vroll=0)</div><div class="ttdef"><b>Definition:</b> orb.cpp:24</div></div>
+<div class="ttc" id="class_orb_html"><div class="ttname"><a href="class_orb.html">Orb</a></div><div class="ttdef"><b>Definition:</b> orb.hpp:9</div></div>
+<div class="ttc" id="class_orb_html_a01147493b605751d3176faf78ec97f0d"><div class="ttname"><a href="class_orb.html#a01147493b605751d3176faf78ec97f0d">Orb::get_z</a></div><div class="ttdeci">double get_z()</div><div class="ttdef"><b>Definition:</b> orb.hpp:56</div></div>
+<div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.hpp:10</div></div>
+<div class="ttc" id="class_orb_html_af96db026919a527193c96331444a04df"><div class="ttname"><a href="class_orb.html#af96db026919a527193c96331444a04df">Orb::is_visible</a></div><div class="ttdeci">virtual bool is_visible(const Camera *camera)</div><div class="ttdef"><b>Definition:</b> orb.cpp:57</div></div>
+<div class="ttc" id="class_renderable_html"><div class="ttname"><a href="class_renderable.html">Renderable</a></div><div class="ttdef"><b>Definition:</b> renderable.hpp:9</div></div>
+<div class="ttc" id="class_orb_html_ade7e6c6c2a991d91c2420581996e0b17"><div class="ttname"><a href="class_orb.html#ade7e6c6c2a991d91c2420581996e0b17">Orb::render</a></div><div class="ttdeci">virtual void render(const Camera *camera)</div><div class="ttdef"><b>Definition:</b> orb.cpp:69</div></div>
+<div class="ttc" id="class_orb_html_a2da0c0c6302143398ae204ad2a13d17f"><div class="ttname"><a href="class_orb.html#a2da0c0c6302143398ae204ad2a13d17f">Orb::get_alfa</a></div><div class="ttdeci">double get_alfa()</div><div class="ttdef"><b>Definition:</b> orb.hpp:51</div></div>
+<div class="ttc" id="class_orb_html_a365261dff002736017e9fc0d346e2fbf"><div class="ttname"><a href="class_orb.html#a365261dff002736017e9fc0d346e2fbf">Orb::move_r</a></div><div class="ttdeci">void move_r(double dr)</div><div class="ttdef"><b>Definition:</b> orb.hpp:62</div></div>
+<div class="ttc" id="class_orb_html_a23637b6caf496f4932e21935edbd1b74"><div class="ttname"><a href="class_orb.html#a23637b6caf496f4932e21935edbd1b74">Orb::update</a></div><div class="ttdeci">virtual void update(double dt)</div><div class="ttdef"><b>Definition:</b> orb.cpp:40</div></div>
+<div class="ttc" id="class_orb_html_ab960dd2ce7a33bc4ec53a84780885085"><div class="ttname"><a href="class_orb.html#ab960dd2ce7a33bc4ec53a84780885085">Orb::dist_to_cam</a></div><div class="ttdeci">double dist_to_cam(const Camera *cam)</div><div class="ttdef"><b>Definition:</b> orb.cpp:146</div></div>
+<div class="ttc" id="class_orb_html_ada00a09e2184aff67aba54c5cbf9d276"><div class="ttname"><a href="class_orb.html#ada00a09e2184aff67aba54c5cbf9d276">Orb::move_alfa</a></div><div class="ttdeci">void move_alfa(double Dalfa)</div><div class="ttdef"><b>Definition:</b> orb.cpp:130</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

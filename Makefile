@@ -28,7 +28,7 @@ $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	echo Kompiluję $<...
 	@$(CXX) -c -o $@ $< $(CFLAGS)
 
-all:  $(BDIR)/SOLar_Fighter	$(BDIR)/SOLar_Setup dokumentacja
+all:  $(BDIR)/SOLar_Fighter	$(BDIR)/SOLar_Setup
 
 $(BDIR)/SOLar_Fighter: $(OBJ)
 	echo "Buduję program..."
@@ -37,10 +37,6 @@ $(BDIR)/SOLar_Fighter: $(OBJ)
 $(BDIR)/SOLar_Setup: $(SDIR)/setup.cpp
 	echo "Buduję program konfiguracyjny..."
 	@$(CXX) -o $(BDIR)/SOLar_Setup $(SDIR)/setup.cpp $(CFLAGS) $(SETUPLIBS)
-	
-dokumentacja:	
-	echo "Tworzę dokumentację..."
-	doxygen tmp/dokumentacja.conf
 	echo "Gotowe :)"
 	echo "Aby zainstalować program wydaj komendę make install (poprosi o uprawnienia sudo do zapisu w katalogu /usr/games"
 

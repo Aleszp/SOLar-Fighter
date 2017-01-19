@@ -1,0 +1,310 @@
+\hypertarget{class_camera}{}\section{Dokumentacja klasy Camera}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+{\ttfamily \#include $<$camera.\+hpp$>$}
+
+
+
+Diagram dziedziczenia dla Camera
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{class_camera__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Camera\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{class_camera__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_camera_aa4fab6c2c09702f8e70d0688ea90c0ae}{Camera} (double x, double y, double z, double yaw, double pitch, double roll, double fov\+\_\+x, double fov\+\_\+y, double render\+\_\+dist, B\+I\+T\+M\+AP $\ast$scr, double res\+\_\+x, double res\+\_\+y)
+\item 
+double \hyperlink{class_camera_ad85cea48af89cad24edc3eb2bdcdf7ee}{get\+\_\+x\+\_\+sin\+\_\+fov\+\_\+const} () const 
+\item 
+double \hyperlink{class_camera_a87266e92e70522c3d0e1c397b4ada1af}{get\+\_\+y\+\_\+sin\+\_\+fov\+\_\+const} () const 
+\item 
+double \hyperlink{class_camera_a1bda457bae36f6a8d0ecf29bd0ec19a9}{get\+\_\+render\+\_\+dist} () const 
+\item 
+unsigned \hyperlink{class_camera_a744c0732cff592644a4f0e62654d1d10}{get\+\_\+res\+\_\+x} () const 
+\item 
+unsigned \hyperlink{class_camera_a7d62c7d80c97dc2e703544e7280a5208}{get\+\_\+res\+\_\+y} () const 
+\item 
+unsigned \hyperlink{class_camera_aa106361d6bab194723cb746c22df8cbe}{get\+\_\+res\+\_\+x2} () const 
+\item 
+unsigned \hyperlink{class_camera_af0d5d16f478c68fdc8f3bfda7db0ad72}{get\+\_\+res\+\_\+y2} () const 
+\item 
+double \hyperlink{class_camera_a3537564f96a44b3480d5581c7fec5576}{get\+\_\+fov\+\_\+x2} () const 
+\item 
+double \hyperlink{class_camera_a160845f2c2da8ef18459b4fc1d5c3929}{get\+\_\+fov\+\_\+y2} () const 
+\item 
+void \hyperlink{class_camera_a02a92079d7a27b0801611c280b17002b}{putpixel} (int xx, int yy, int col) const 
+\item 
+void \hyperlink{class_camera_adfd2ffd6a173e3125a220164687d88b1}{ellipsefill} (int xx, int yy, int rad\+\_\+x, int rad\+\_\+y, int col) const 
+\item 
+virtual void \hyperlink{class_camera_ab521598bed84988be95a89dfcdd9f1aa}{update} (double dt)
+\item 
+void {\bfseries accel\+\_\+line} (double a)\hypertarget{class_camera_aa8322375b803f39cb2071be302de4d6e}{}\label{class_camera_aa8322375b803f39cb2071be302de4d6e}
+
+\item 
+void {\bfseries accel\+\_\+deg} (double ayaw, double apitch)\hypertarget{class_camera_a301f57ac80bd72485ba854cc08133a82}{}\label{class_camera_a301f57ac80bd72485ba854cc08133a82}
+
+\item 
+void {\bfseries accel\+\_\+roll} (double aroll)\hypertarget{class_camera_a7cdb0dd64bb945b4505bc9e8f3ceb980}{}\label{class_camera_a7cdb0dd64bb945b4505bc9e8f3ceb980}
+
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries fov\+\_\+x2\+\_\+}\hypertarget{class_camera_ad6f9e802013ee6a2b213b9d10c98486d}{}\label{class_camera_ad6f9e802013ee6a2b213b9d10c98486d}
+
+\item 
+double {\bfseries fov\+\_\+y2\+\_\+}\hypertarget{class_camera_ad7cca2cccd8e80f609b4286b80790a32}{}\label{class_camera_ad7cca2cccd8e80f609b4286b80790a32}
+
+\item 
+double {\bfseries render\+\_\+dist\+\_\+}\hypertarget{class_camera_afa21bbf24f05d8de6f627c69c9483f51}{}\label{class_camera_afa21bbf24f05d8de6f627c69c9483f51}
+
+\item 
+B\+I\+T\+M\+AP $\ast$ {\bfseries scr\+\_\+}\hypertarget{class_camera_a894521c08c09d8aceafadb9e936f6078}{}\label{class_camera_a894521c08c09d8aceafadb9e936f6078}
+
+\item 
+unsigned {\bfseries res\+\_\+x\+\_\+}\hypertarget{class_camera_a2802feb57ae1946b07bbdba556fcbeb7}{}\label{class_camera_a2802feb57ae1946b07bbdba556fcbeb7}
+
+\item 
+unsigned {\bfseries res\+\_\+y\+\_\+}\hypertarget{class_camera_a03472c7407e3cc29e7c4b5917bfcd6ee}{}\label{class_camera_a03472c7407e3cc29e7c4b5917bfcd6ee}
+
+\item 
+unsigned {\bfseries res\+\_\+x2\+\_\+}\hypertarget{class_camera_a42e9c3892b3afc9a24001a3c537da592}{}\label{class_camera_a42e9c3892b3afc9a24001a3c537da592}
+
+\item 
+unsigned {\bfseries res\+\_\+y2\+\_\+}\hypertarget{class_camera_a0a7acab770bd82600f504cd0325b3b00}{}\label{class_camera_a0a7acab770bd82600f504cd0325b3b00}
+
+\item 
+double {\bfseries x\+\_\+sin\+\_\+fov\+\_\+const\+\_\+}\hypertarget{class_camera_a7ffda0b88dafdbd3156d59bbec896bd0}{}\label{class_camera_a7ffda0b88dafdbd3156d59bbec896bd0}
+
+\item 
+double {\bfseries y\+\_\+sin\+\_\+fov\+\_\+const\+\_\+}\hypertarget{class_camera_a6489f19c9ae8cb252513bee7c76ea922}{}\label{class_camera_a6489f19c9ae8cb252513bee7c76ea922}
+
+\item 
+double {\bfseries vx\+\_\+}\hypertarget{class_camera_a7383b28a310ea2664874fbabe5e66e38}{}\label{class_camera_a7383b28a310ea2664874fbabe5e66e38}
+
+\item 
+double {\bfseries vy\+\_\+}\hypertarget{class_camera_aba5e551b383324cf19e4dfdff103229a}{}\label{class_camera_aba5e551b383324cf19e4dfdff103229a}
+
+\item 
+double {\bfseries vz\+\_\+}\hypertarget{class_camera_ae5770bf3fd53854d5dd9cdcbc18fdab3}{}\label{class_camera_ae5770bf3fd53854d5dd9cdcbc18fdab3}
+
+\item 
+double {\bfseries vyaw\+\_\+}\hypertarget{class_camera_af5a43904926f58b8fe1b3da391cdc9ea}{}\label{class_camera_af5a43904926f58b8fe1b3da391cdc9ea}
+
+\item 
+double {\bfseries vpitch\+\_\+}\hypertarget{class_camera_a0edd07cc2b7b294fddaf29dec22fc63a}{}\label{class_camera_a0edd07cc2b7b294fddaf29dec22fc63a}
+
+\item 
+double {\bfseries vroll\+\_\+}\hypertarget{class_camera_ad356a82282afe866ebf827eef7b9e1b3}{}\label{class_camera_ad356a82282afe866ebf827eef7b9e1b3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa kamery -\/ punktu widzenia gracza 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Camera(double x, double y, double z, double yaw, double pitch, double roll, double fov\+\_\+x, double fov\+\_\+y, double render\+\_\+dist, B\+I\+T\+M\+A\+P $\ast$scr, double res\+\_\+x, double res\+\_\+y)}{Camera(double x, double y, double z, double yaw, double pitch, double roll, double fov_x, double fov_y, double render_dist, BITMAP *scr, double res_x, double res_y)}}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{z, }
+\item[{double}]{yaw, }
+\item[{double}]{pitch, }
+\item[{double}]{roll, }
+\item[{double}]{fov\+\_\+x, }
+\item[{double}]{fov\+\_\+y, }
+\item[{double}]{render\+\_\+dist, }
+\item[{B\+I\+T\+M\+AP $\ast$}]{scr, }
+\item[{double}]{res\+\_\+x, }
+\item[{double}]{res\+\_\+y}
+\end{DoxyParamCaption}
+)}\hypertarget{class_camera_aa4fab6c2c09702f8e70d0688ea90c0ae}{}\label{class_camera_aa4fab6c2c09702f8e70d0688ea90c0ae}
+Konstruktor klasy \hyperlink{class_camera}{Camera} 
+\begin{DoxyParams}{Parametry}
+{\em x} & -\/ położenie w osi x \\
+\hline
+{\em y} & -\/ położenie w osi y \\
+\hline
+{\em z} & -\/ położenie w osi z \\
+\hline
+{\em yaw} & -\/ obrót w osi z \\
+\hline
+{\em pitch} & -\/ obrót w osi xy \\
+\hline
+{\em roll} & -\/ obrót wokół własnej osi \\
+\hline
+{\em fov\+\_\+x} & -\/ szerokość kątowa pola widzenia w poziomie \\
+\hline
+{\em fov\+\_\+y} & -\/ szerokość kątowa pola widzenia w pionie \\
+\hline
+{\em render\+\_\+dist} & -\/ zasięg rysowania \\
+\hline
+{\em scr} & -\/ bitmapa do której rysuje kamera (z założenia ekran) \\
+\hline
+{\em res\+\_\+x} & -\/ rozdzielczość pozioma bitmapy \\
+\hline
+{\em res\+\_\+y} & -\/ rozdzielczość pionowa bitmapy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+obiekt typu \hyperlink{class_camera}{Camera} 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\index{Camera@{Camera}!ellipsefill@{ellipsefill}}
+\index{ellipsefill@{ellipsefill}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{ellipsefill(int xx, int yy, int rad\+\_\+x, int rad\+\_\+y, int col) const }{ellipsefill(int xx, int yy, int rad_x, int rad_y, int col) const }}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::ellipsefill (
+\begin{DoxyParamCaption}
+\item[{int}]{xx, }
+\item[{int}]{yy, }
+\item[{int}]{rad\+\_\+x, }
+\item[{int}]{rad\+\_\+y, }
+\item[{int}]{col}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_adfd2ffd6a173e3125a220164687d88b1}{}\label{class_camera_adfd2ffd6a173e3125a220164687d88b1}
+\begin{DoxyReturn}{Zwraca}
+rysuje wypełnioną elipsę na ekranie bez bezpośredniego dostępu do prywatnej bitmapy 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+fov\+\_\+x2@{get\+\_\+fov\+\_\+x2}}
+\index{get\+\_\+fov\+\_\+x2@{get\+\_\+fov\+\_\+x2}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+fov\+\_\+x2() const }{get_fov_x2() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Camera\+::get\+\_\+fov\+\_\+x2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_a3537564f96a44b3480d5581c7fec5576}{}\label{class_camera_a3537564f96a44b3480d5581c7fec5576}
+\begin{DoxyReturn}{Zwraca}
+szerokość kątowa pola widzenia w poziomie 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+fov\+\_\+y2@{get\+\_\+fov\+\_\+y2}}
+\index{get\+\_\+fov\+\_\+y2@{get\+\_\+fov\+\_\+y2}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+fov\+\_\+y2() const }{get_fov_y2() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Camera\+::get\+\_\+fov\+\_\+y2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_a160845f2c2da8ef18459b4fc1d5c3929}{}\label{class_camera_a160845f2c2da8ef18459b4fc1d5c3929}
+\begin{DoxyReturn}{Zwraca}
+szerokość kątowa pola widzenia w pionie 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+render\+\_\+dist@{get\+\_\+render\+\_\+dist}}
+\index{get\+\_\+render\+\_\+dist@{get\+\_\+render\+\_\+dist}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+render\+\_\+dist() const }{get_render_dist() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Camera\+::get\+\_\+render\+\_\+dist (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_a1bda457bae36f6a8d0ecf29bd0ec19a9}{}\label{class_camera_a1bda457bae36f6a8d0ecf29bd0ec19a9}
+\begin{DoxyReturn}{Zwraca}
+zasięg renderowania 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+res\+\_\+x@{get\+\_\+res\+\_\+x}}
+\index{get\+\_\+res\+\_\+x@{get\+\_\+res\+\_\+x}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+res\+\_\+x() const }{get_res_x() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Camera\+::get\+\_\+res\+\_\+x (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_a744c0732cff592644a4f0e62654d1d10}{}\label{class_camera_a744c0732cff592644a4f0e62654d1d10}
+\begin{DoxyReturn}{Zwraca}
+rozdzielczość pozioma ekranu 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+res\+\_\+x2@{get\+\_\+res\+\_\+x2}}
+\index{get\+\_\+res\+\_\+x2@{get\+\_\+res\+\_\+x2}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+res\+\_\+x2() const }{get_res_x2() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Camera\+::get\+\_\+res\+\_\+x2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_aa106361d6bab194723cb746c22df8cbe}{}\label{class_camera_aa106361d6bab194723cb746c22df8cbe}
+\begin{DoxyReturn}{Zwraca}
+rozdzielczość pozioma połówki ekranu 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+res\+\_\+y@{get\+\_\+res\+\_\+y}}
+\index{get\+\_\+res\+\_\+y@{get\+\_\+res\+\_\+y}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+res\+\_\+y() const }{get_res_y() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Camera\+::get\+\_\+res\+\_\+y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_a7d62c7d80c97dc2e703544e7280a5208}{}\label{class_camera_a7d62c7d80c97dc2e703544e7280a5208}
+\begin{DoxyReturn}{Zwraca}
+rozdzielczość pionowa ekranu 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+res\+\_\+y2@{get\+\_\+res\+\_\+y2}}
+\index{get\+\_\+res\+\_\+y2@{get\+\_\+res\+\_\+y2}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+res\+\_\+y2() const }{get_res_y2() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Camera\+::get\+\_\+res\+\_\+y2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_af0d5d16f478c68fdc8f3bfda7db0ad72}{}\label{class_camera_af0d5d16f478c68fdc8f3bfda7db0ad72}
+\begin{DoxyReturn}{Zwraca}
+rozdzielczość pionowa połówki ekranu 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+x\+\_\+sin\+\_\+fov\+\_\+const@{get\+\_\+x\+\_\+sin\+\_\+fov\+\_\+const}}
+\index{get\+\_\+x\+\_\+sin\+\_\+fov\+\_\+const@{get\+\_\+x\+\_\+sin\+\_\+fov\+\_\+const}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+x\+\_\+sin\+\_\+fov\+\_\+const() const }{get_x_sin_fov_const() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Camera\+::get\+\_\+x\+\_\+sin\+\_\+fov\+\_\+const (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_ad85cea48af89cad24edc3eb2bdcdf7ee}{}\label{class_camera_ad85cea48af89cad24edc3eb2bdcdf7ee}
+\begin{DoxyReturn}{Zwraca}
+stała niezbędna do wyznaczania położeń gwiazd w osi poziomej ekranu 
+\end{DoxyReturn}
+\index{Camera@{Camera}!get\+\_\+y\+\_\+sin\+\_\+fov\+\_\+const@{get\+\_\+y\+\_\+sin\+\_\+fov\+\_\+const}}
+\index{get\+\_\+y\+\_\+sin\+\_\+fov\+\_\+const@{get\+\_\+y\+\_\+sin\+\_\+fov\+\_\+const}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+\_\+y\+\_\+sin\+\_\+fov\+\_\+const() const }{get_y_sin_fov_const() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Camera\+::get\+\_\+y\+\_\+sin\+\_\+fov\+\_\+const (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_a87266e92e70522c3d0e1c397b4ada1af}{}\label{class_camera_a87266e92e70522c3d0e1c397b4ada1af}
+\begin{DoxyReturn}{Zwraca}
+stała niezbędna do wyznaczania położeń gwiazd w osi pionowej ekranu 
+\end{DoxyReturn}
+\index{Camera@{Camera}!putpixel@{putpixel}}
+\index{putpixel@{putpixel}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{putpixel(int xx, int yy, int col) const }{putpixel(int xx, int yy, int col) const }}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::putpixel (
+\begin{DoxyParamCaption}
+\item[{int}]{xx, }
+\item[{int}]{yy, }
+\item[{int}]{col}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_camera_a02a92079d7a27b0801611c280b17002b}{}\label{class_camera_a02a92079d7a27b0801611c280b17002b}
+\begin{DoxyReturn}{Zwraca}
+umieszcza piksel na ekranie bez bezpośredniego dostępu do prywatnej bitmapy 
+\end{DoxyReturn}
+\index{Camera@{Camera}!update@{update}}
+\index{update@{update}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{update(double dt)}{update(double dt)}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::update (
+\begin{DoxyParamCaption}
+\item[{double}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_camera_ab521598bed84988be95a89dfcdd9f1aa}{}\label{class_camera_ab521598bed84988be95a89dfcdd9f1aa}
+Aktualizuje położenie zmienne w czasie 
+\begin{DoxyParams}{Parametry}
+{\em dt} & -\/ krok czasowy \\
+\hline
+\end{DoxyParams}
+
+
+Implementuje \hyperlink{class_simple_object}{Simple\+Object}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+src/camera.\+hpp\item 
+src/camera.\+cpp\end{DoxyCompactItemize}

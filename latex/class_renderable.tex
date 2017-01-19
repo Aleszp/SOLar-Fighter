@@ -1,0 +1,36 @@
+\hypertarget{class_renderable}{}\section{Dokumentacja klasy Renderable}
+\label{class_renderable}\index{Renderable@{Renderable}}
+
+
+{\ttfamily \#include $<$renderable.\+hpp$>$}
+
+
+
+Diagram dziedziczenia dla Renderable
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{class_renderable__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries is\+\_\+visible} (const \hyperlink{class_camera}{Camera} $\ast$camera)=0\hypertarget{class_renderable_a6a408454645cebdfde19ea048c488eb4}{}\label{class_renderable_a6a408454645cebdfde19ea048c488eb4}
+
+\item 
+virtual void {\bfseries render} (const \hyperlink{class_camera}{Camera} $\ast$camera)=0\hypertarget{class_renderable_ab96dd5662a667a725e7fbfeb261c9134}{}\label{class_renderable_ab96dd5662a667a725e7fbfeb261c9134}
+
+\item 
+virtual void {\bfseries update} (double dt)=0\hypertarget{class_renderable_af0588aa758ec2bf2dd476ca143167b0c}{}\label{class_renderable_af0588aa758ec2bf2dd476ca143167b0c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa abstrakcyjna po której dziedziczą klasy \hyperlink{class_simple_object}{Simple\+Object}, \hyperlink{class_star}{Star} i \hyperlink{class_orb}{Orb} 
+
+Dokumentacja dla tej klasy została wygenerowana z pliku\+:\begin{DoxyCompactItemize}
+\item 
+src/renderable.\+hpp\end{DoxyCompactItemize}

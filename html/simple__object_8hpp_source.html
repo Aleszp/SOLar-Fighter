@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>SOLar-Fighter: Plik źródłowy src/simple_object.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SOLar-Fighter
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="annotated.html"><span>Struktury&#160;Danych</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;plików</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">simple_object.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _SIMPLE_OBJECT_HPP_</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _SIMPLE_OBJECT_HPP_</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;renderable.hpp&quot;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">class </span><a class="code" href="class_object.html">Object</a>;           <span class="comment">//niezbędne dla przyjaźni</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_simple_object.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_simple_object.html">SimpleObject</a>: <span class="keyword">public</span> <a class="code" href="class_renderable.html">Renderable</a>   <span class="comment">//prosty obiekt - punkt w przestrzeni kartezjańskiej - trzy współrzędne xyz i kąty w trzech osiach</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">protected</span>:</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">double</span> x_;      <span class="comment">//współrzędna x</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">double</span> y_;      <span class="comment">//współrzędna y</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">double</span> z_;      <span class="comment">//współrzędna z</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">double</span> yaw_;    <span class="comment">//obrót w osi z - obrót &quot;lewo/prawo&quot;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">double</span> pitch_;  <span class="comment">//obrót w osi y - obrót &quot;przód/tył&quot;</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">double</span> roll_;   <span class="comment">//obrót w osi x - pochylenie w &quot;lewo/prawo&quot;</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_simple_object.html#ac3546137e54ecbd63af642987ed7c3e1">SimpleObject</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z, <span class="keywordtype">double</span> yaw, <span class="keywordtype">double</span> pitch, <span class="keywordtype">double</span> roll);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="class_simple_object.html#ac3546137e54ecbd63af642987ed7c3e1">SimpleObject</a>(<span class="keyword">const</span> <a class="code" href="class_object.html">Object</a>* <span class="keywordtype">object</span>);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_simple_object.html">SimpleObject</a>(){}</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> is_visible(<span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>* camera){<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> render(<span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>* camera){};</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> update(<span class="keywordtype">double</span> dt)=0;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_simple_object.html#a87202d586ed9a3c115dedcad2911f7b7">rotate_yaw</a>(<span class="keywordtype">double</span> Dyaw);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_simple_object.html#aaf69740e2c939f7e0b51924a89422f0c">rotate_pitch</a>(<span class="keywordtype">double</span> Dpitch);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_simple_object.html#ae2df7e8abff1303b55f559102b08a2c5">rotate_roll</a>(<span class="keywordtype">double</span> Droll);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        </div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_simple_object.html#a41bbdfe52dc20d88ba6511208867d908">   38</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_simple_object.html#a41bbdfe52dc20d88ba6511208867d908">get_x</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> x_;}</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_simple_object.html#ac1f8fa29e45089a4110848ddaf440322">   43</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_simple_object.html#ac1f8fa29e45089a4110848ddaf440322">get_y</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> y_;}</div><div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_simple_object.html#a4a7931d70d156e0254d3ccfa1a6f2f4d">   48</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_simple_object.html#a4a7931d70d156e0254d3ccfa1a6f2f4d">get_z</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> z_;}</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div><div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_simple_object.html#a4c07cb27c02089325fd65dee3218563c">   54</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_simple_object.html#a4c07cb27c02089325fd65dee3218563c">move_x</a>(<span class="keywordtype">double</span> dx) {x_+=dx;}</div><div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_simple_object.html#acb544eaea6d132ddf29db57ada174920">   59</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_simple_object.html#acb544eaea6d132ddf29db57ada174920">move_y</a>(<span class="keywordtype">double</span> dy) {y_+=dy;}</div><div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="class_simple_object.html#a9d5854c99305702d0b1ceaf7a24907fc">   64</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_simple_object.html#a9d5854c99305702d0b1ceaf7a24907fc">move_z</a>(<span class="keywordtype">double</span> dz) {z_+=dz;}</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div><div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="class_simple_object.html#a5fdb2d7aa58fcad8acb1fcaf906dce15">   70</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_simple_object.html#a5fdb2d7aa58fcad8acb1fcaf906dce15">get_yaw</a>()<span class="keyword">  const </span>{<span class="keywordflow">return</span> yaw_;}</div><div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_simple_object.html#a5fdf130ef90fe9a645887f6735f2ce70">   75</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_simple_object.html#a5fdf130ef90fe9a645887f6735f2ce70">get_pitch</a>()<span class="keyword">const </span>{<span class="keywordflow">return</span> pitch_;}</div><div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_simple_object.html#adf120ce1354dbbaed33b437206936541">   80</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="class_simple_object.html#adf120ce1354dbbaed33b437206936541">get_roll</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> roll_;}</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        </div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">double</span> <a class="code" href="class_simple_object.html#adbeedfd57e99d5aeab512c85ee1b6849">calculate_distance</a>(<span class="keyword">const</span> <a class="code" href="class_simple_object.html">SimpleObject</a>* o1,<span class="keyword">const</span> <a class="code" href="class_simple_object.html">SimpleObject</a>* o2);</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">double</span> <a class="code" href="class_simple_object.html#adbeedfd57e99d5aeab512c85ee1b6849">calculate_distance</a>(<span class="keyword">const</span> <a class="code" href="class_simple_object.html">SimpleObject</a>* o1,<span class="keyword">const</span> <a class="code" href="class_simple_object.html">SimpleObject</a>* o2);</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_simple_object_html_a5fdb2d7aa58fcad8acb1fcaf906dce15"><div class="ttname"><a href="class_simple_object.html#a5fdb2d7aa58fcad8acb1fcaf906dce15">SimpleObject::get_yaw</a></div><div class="ttdeci">double get_yaw() const </div><div class="ttdef"><b>Definition:</b> simple_object.hpp:70</div></div>
+<div class="ttc" id="class_simple_object_html_adf120ce1354dbbaed33b437206936541"><div class="ttname"><a href="class_simple_object.html#adf120ce1354dbbaed33b437206936541">SimpleObject::get_roll</a></div><div class="ttdeci">double get_roll() const </div><div class="ttdef"><b>Definition:</b> simple_object.hpp:80</div></div>
+<div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> camera.hpp:10</div></div>
+<div class="ttc" id="class_simple_object_html_acb544eaea6d132ddf29db57ada174920"><div class="ttname"><a href="class_simple_object.html#acb544eaea6d132ddf29db57ada174920">SimpleObject::move_y</a></div><div class="ttdeci">void move_y(double dy)</div><div class="ttdef"><b>Definition:</b> simple_object.hpp:59</div></div>
+<div class="ttc" id="class_simple_object_html"><div class="ttname"><a href="class_simple_object.html">SimpleObject</a></div><div class="ttdef"><b>Definition:</b> simple_object.hpp:12</div></div>
+<div class="ttc" id="class_simple_object_html_ae2df7e8abff1303b55f559102b08a2c5"><div class="ttname"><a href="class_simple_object.html#ae2df7e8abff1303b55f559102b08a2c5">SimpleObject::rotate_roll</a></div><div class="ttdeci">virtual void rotate_roll(double Droll)</div><div class="ttdef"><b>Definition:</b> simple_object.cpp:72</div></div>
+<div class="ttc" id="class_simple_object_html_a9d5854c99305702d0b1ceaf7a24907fc"><div class="ttname"><a href="class_simple_object.html#a9d5854c99305702d0b1ceaf7a24907fc">SimpleObject::move_z</a></div><div class="ttdeci">void move_z(double dz)</div><div class="ttdef"><b>Definition:</b> simple_object.hpp:64</div></div>
+<div class="ttc" id="class_simple_object_html_a5fdf130ef90fe9a645887f6735f2ce70"><div class="ttname"><a href="class_simple_object.html#a5fdf130ef90fe9a645887f6735f2ce70">SimpleObject::get_pitch</a></div><div class="ttdeci">double get_pitch() const </div><div class="ttdef"><b>Definition:</b> simple_object.hpp:75</div></div>
+<div class="ttc" id="class_simple_object_html_a41bbdfe52dc20d88ba6511208867d908"><div class="ttname"><a href="class_simple_object.html#a41bbdfe52dc20d88ba6511208867d908">SimpleObject::get_x</a></div><div class="ttdeci">double get_x() const </div><div class="ttdef"><b>Definition:</b> simple_object.hpp:38</div></div>
+<div class="ttc" id="class_simple_object_html_a4a7931d70d156e0254d3ccfa1a6f2f4d"><div class="ttname"><a href="class_simple_object.html#a4a7931d70d156e0254d3ccfa1a6f2f4d">SimpleObject::get_z</a></div><div class="ttdeci">double get_z() const </div><div class="ttdef"><b>Definition:</b> simple_object.hpp:48</div></div>
+<div class="ttc" id="class_renderable_html"><div class="ttname"><a href="class_renderable.html">Renderable</a></div><div class="ttdef"><b>Definition:</b> renderable.hpp:9</div></div>
+<div class="ttc" id="class_simple_object_html_ac1f8fa29e45089a4110848ddaf440322"><div class="ttname"><a href="class_simple_object.html#ac1f8fa29e45089a4110848ddaf440322">SimpleObject::get_y</a></div><div class="ttdeci">double get_y() const </div><div class="ttdef"><b>Definition:</b> simple_object.hpp:43</div></div>
+<div class="ttc" id="class_simple_object_html_adbeedfd57e99d5aeab512c85ee1b6849"><div class="ttname"><a href="class_simple_object.html#adbeedfd57e99d5aeab512c85ee1b6849">SimpleObject::calculate_distance</a></div><div class="ttdeci">friend double calculate_distance(const SimpleObject *o1, const SimpleObject *o2)</div><div class="ttdef"><b>Definition:</b> simple_object.cpp:90</div></div>
+<div class="ttc" id="class_simple_object_html_a87202d586ed9a3c115dedcad2911f7b7"><div class="ttname"><a href="class_simple_object.html#a87202d586ed9a3c115dedcad2911f7b7">SimpleObject::rotate_yaw</a></div><div class="ttdeci">virtual void rotate_yaw(double Dyaw)</div><div class="ttdef"><b>Definition:</b> simple_object.cpp:32</div></div>
+<div class="ttc" id="class_simple_object_html_aaf69740e2c939f7e0b51924a89422f0c"><div class="ttname"><a href="class_simple_object.html#aaf69740e2c939f7e0b51924a89422f0c">SimpleObject::rotate_pitch</a></div><div class="ttdeci">virtual void rotate_pitch(double Dpitch)</div><div class="ttdef"><b>Definition:</b> simple_object.cpp:48</div></div>
+<div class="ttc" id="class_simple_object_html_ac3546137e54ecbd63af642987ed7c3e1"><div class="ttname"><a href="class_simple_object.html#ac3546137e54ecbd63af642987ed7c3e1">SimpleObject::SimpleObject</a></div><div class="ttdeci">SimpleObject(double x, double y, double z, double yaw, double pitch, double roll)</div><div class="ttdef"><b>Definition:</b> simple_object.cpp:17</div></div>
+<div class="ttc" id="class_simple_object_html_a4c07cb27c02089325fd65dee3218563c"><div class="ttname"><a href="class_simple_object.html#a4c07cb27c02089325fd65dee3218563c">SimpleObject::move_x</a></div><div class="ttdeci">void move_x(double dx)</div><div class="ttdef"><b>Definition:</b> simple_object.hpp:54</div></div>
+<div class="ttc" id="class_object_html"><div class="ttname"><a href="class_object.html">Object</a></div><div class="ttdef"><b>Definition:</b> object.hpp:7</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

@@ -1,0 +1,153 @@
+\hypertarget{class_star}{}\section{Dokumentacja klasy Star}
+\label{class_star}\index{Star@{Star}}
+
+
+{\ttfamily \#include $<$star.\+hpp$>$}
+
+
+
+Diagram dziedziczenia dla Star
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{class_star__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagram współpracy dla Star\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{class_star__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_star_ac79a6fb3556d6735f063cbc28fb73397}{Star} (double alfa=0, double beta=0)
+\item 
+\hyperlink{class_star_a125afff584b315791b7345151f978c99}{Star} (double alfa, double beta, uint\+\_\+fast8\+\_\+t r, uint\+\_\+fast8\+\_\+t g\+\_\+, uint\+\_\+fast8\+\_\+t b\+\_\+)
+\item 
+virtual void {\bfseries update} (double dt)\hypertarget{class_star_a6329b84f6a4434f93f744475336758da}{}\label{class_star_a6329b84f6a4434f93f744475336758da}
+
+\item 
+virtual bool \hyperlink{class_star_ac196fa232107776abeddba91ccdc3374}{is\+\_\+visible} (const \hyperlink{class_camera}{Camera} $\ast$camera)
+\item 
+virtual void \hyperlink{class_star_af0cb257b2c6e44cd26d75113e5e6675d}{render} (const \hyperlink{class_camera}{Camera} $\ast$camera)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty chronione}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries alfa\+\_\+}\hypertarget{class_star_acbc2ce5b635761779c628b82eebaa914}{}\label{class_star_acbc2ce5b635761779c628b82eebaa914}
+
+\item 
+double {\bfseries beta\+\_\+}\hypertarget{class_star_ac560d7b5ff53fea9b4c816bd0104fe9a}{}\label{class_star_ac560d7b5ff53fea9b4c816bd0104fe9a}
+
+\item 
+uint\+\_\+fast8\+\_\+t {\bfseries r\+\_\+}\hypertarget{class_star_afc7dd12c9f1876daec0d8900310df9d3}{}\label{class_star_afc7dd12c9f1876daec0d8900310df9d3}
+
+\item 
+uint\+\_\+fast8\+\_\+t {\bfseries g\+\_\+}\hypertarget{class_star_afacfcae0967a657fe5764e78439c2e57}{}\label{class_star_afacfcae0967a657fe5764e78439c2e57}
+
+\item 
+uint\+\_\+fast8\+\_\+t {\bfseries b\+\_\+}\hypertarget{class_star_abd9108ee6d13e26ef4a220777c2f40fa}{}\label{class_star_abd9108ee6d13e26ef4a220777c2f40fa}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa odpowiedzialna za gwiazdy w tle 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\index{Star@{Star}!Star@{Star}}
+\index{Star@{Star}!Star@{Star}}
+\subsubsection[{\texorpdfstring{Star(double alfa=0, double beta=0)}{Star(double alfa=0, double beta=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Star\+::\+Star (
+\begin{DoxyParamCaption}
+\item[{double}]{alfa = {\ttfamily 0}, }
+\item[{double}]{beta = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_star_ac79a6fb3556d6735f063cbc28fb73397}{}\label{class_star_ac79a6fb3556d6735f063cbc28fb73397}
+Konstruktor domyślny klasy \hyperlink{class_star}{Star} przyjmuje kolor biały 
+\begin{DoxyParams}{Parametry}
+{\em alfa} & -\/ kąt alfa współrzędnych sferycznych \\
+\hline
+{\em beta} & -\/ kąt beta współrzędnych sferycznych \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+-\/ obiekt typu \hyperlink{class_star}{Star} koloru białego 
+\end{DoxyReturn}
+\index{Star@{Star}!Star@{Star}}
+\index{Star@{Star}!Star@{Star}}
+\subsubsection[{\texorpdfstring{Star(double alfa, double beta, uint\+\_\+fast8\+\_\+t r, uint\+\_\+fast8\+\_\+t g\+\_\+, uint\+\_\+fast8\+\_\+t b\+\_\+)}{Star(double alfa, double beta, uint_fast8_t r, uint_fast8_t g_, uint_fast8_t b_)}}]{\setlength{\rightskip}{0pt plus 5cm}Star\+::\+Star (
+\begin{DoxyParamCaption}
+\item[{double}]{alfa, }
+\item[{double}]{beta, }
+\item[{uint\+\_\+fast8\+\_\+t}]{r, }
+\item[{uint\+\_\+fast8\+\_\+t}]{g, }
+\item[{uint\+\_\+fast8\+\_\+t}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{class_star_a125afff584b315791b7345151f978c99}{}\label{class_star_a125afff584b315791b7345151f978c99}
+Konstruktor domyślny klasy \hyperlink{class_star}{Star} pozwalający podać składowe kolorów 
+\begin{DoxyParams}{Parametry}
+{\em alfa} & -\/ kąt alfa współrzędnych sferycznych \\
+\hline
+{\em beta} & -\/ kąt beta współrzędnych sferycznych \\
+\hline
+{\em r} & -\/ składowa czerwona koloru \\
+\hline
+{\em g} & -\/ składowa zielona koloru \\
+\hline
+{\em b} & -\/ składowa niebieska koloru \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+-\/ obiekt typu \hyperlink{class_star}{Star} 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\index{Star@{Star}!is\+\_\+visible@{is\+\_\+visible}}
+\index{is\+\_\+visible@{is\+\_\+visible}!Star@{Star}}
+\subsubsection[{\texorpdfstring{is\+\_\+visible(const Camera $\ast$camera)}{is_visible(const Camera *camera)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Star\+::is\+\_\+visible (
+\begin{DoxyParamCaption}
+\item[{const {\bf Camera} $\ast$}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_star_ac196fa232107776abeddba91ccdc3374}{}\label{class_star_ac196fa232107776abeddba91ccdc3374}
+Sprawdza czy gwiazda jest w polu widzenia kamery 
+\begin{DoxyParams}{Parametry}
+{\em camera} & -\/ wskaźnik na kamerę \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+fałsz -\/ jeśli gwiazda jest poza polem widzenia 
+\end{DoxyReturn}
+
+
+Implementuje \hyperlink{class_renderable}{Renderable}.
+
+\index{Star@{Star}!render@{render}}
+\index{render@{render}!Star@{Star}}
+\subsubsection[{\texorpdfstring{render(const Camera $\ast$camera)}{render(const Camera *camera)}}]{\setlength{\rightskip}{0pt plus 5cm}void Star\+::render (
+\begin{DoxyParamCaption}
+\item[{const {\bf Camera} $\ast$}]{camera}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_star_af0cb257b2c6e44cd26d75113e5e6675d}{}\label{class_star_af0cb257b2c6e44cd26d75113e5e6675d}
+Rysuje gwiazdę w polu widzenia kamery 
+\begin{DoxyParams}{Parametry}
+{\em camera} & -\/ wskaźnik na kamerę \\
+\hline
+\end{DoxyParams}
+
+
+Implementuje \hyperlink{class_renderable}{Renderable}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+src/star.\+hpp\item 
+src/star.\+cpp\end{DoxyCompactItemize}
