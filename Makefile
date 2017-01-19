@@ -1,10 +1,10 @@
 .SILENT:
 
 #nagłówki
-_DEPS = object.hpp simple_object.hpp renderable.hpp star.hpp camera.hpp math.hpp orb.hpp mobile_object.hpp
+_DEPS = object.hpp simple_object.hpp renderable.hpp star.hpp camera.hpp math.hpp orb.hpp mobile_object.hpp multi.hpp
 
 #pliki obiektowe (nazwa jak dla źródłowych .cpp)
-_OBJ = main.o  object.o simple_object.o star.o camera.o math.o orb.o mobile_object.o
+_OBJ = main.o  object.o simple_object.o star.o camera.o math.o orb.o mobile_object.o multi.o
 
 #bibiloteki
 LIBS=`allegro-config --libs` -lm -lalleggl
@@ -28,18 +28,28 @@ $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	echo Kompiluję $<...
 	@$(CXX) -c -o $@ $< $(CFLAGS)
 
-all:  $(BDIR)/test	$(BDIR)/setup
+all:  $(BDIR)/SOLar_Fighter	$(BDIR)/SOLar_Setup
 
-$(BDIR)/test: $(OBJ)
+$(BDIR)/SOLar_Fighter: $(OBJ)
 	echo Buduję program...
 	@$(CXX) -o $@ $^ $(CFLAGS) $(LIBS)
 
-$(BDIR)/setup: $(SDIR)/setup.cpp
+$(BDIR)/SOLar_Setup: $(SDIR)/setup.cpp
 	echo Buduję program konfiguracyjny...
-	@$(CXX) -o $(BDIR)/setup $(SDIR)/setup.cpp $(CFLAGS) $(SETUPLIBS)
+	@$(CXX) -o $(BDIR)/SOLar_Setup $(SDIR)/setup.cpp $(CFLAGS) $(SETUPLIBS)
 
 .PHONY: clean
 
 clean:
 	echo Usuwam pliki wynikowe...
 	rm -f $(ODIR)/*.o *~ core $(IDIR)/*~ $(BDIR)/*
+
+.PHONY: install
+
+install:
+	echo Tworzę katalog plików konfiguracyjnych...
+	mkdir -p ~/.SOLar-Fighter
+	echo Kopiuję pliki gry...
+	sudo cp ./bin/SOLar_Fighter /usr/games/SOLar_Fighter
+	sudo cp ./bin/SOLar_Setup /usr/games/SOLar_Setup
+	echo "Gotowe :)"

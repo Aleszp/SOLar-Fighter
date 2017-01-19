@@ -72,9 +72,9 @@ void Star::render(const Camera* camera)
 	if(xx>=(int)camera->get_res_x()||yy>=(int)camera->get_res_y()||xx<0||yy<0)
 		return;
 	camera->putpixel(xx,yy,makecol(col_r,col_g,col_b));
-	camera->putpixel(xx+1,yy,makecol(col_r>>1,col_g>>1,col_b>>1));
+	/*camera->putpixel(xx+1,yy,makecol(col_r>>1,col_g>>1,col_b>>1));
 	camera->putpixel(xx-1,yy,makecol(col_r>>1,col_g>>1,col_b>>1));
 	camera->putpixel(xx,yy+1,makecol(col_r>>1,col_g>>1,col_b>>1));
 	camera->putpixel(xx,yy-1,makecol(col_r>>1,col_g>>1,col_b>>1));
-	camera->putpixel(xx,yy-1,makecol(col_r>>1,col_g>>1,col_b>>1));
+	camera->putpixel(xx,yy-1,makecol(col_r>>1,col_g>>1,col_b>>1));*/
 }

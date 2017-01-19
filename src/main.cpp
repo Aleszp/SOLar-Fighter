@@ -19,7 +19,7 @@
 * Projekt zaliczeniowy z SZPC++ a zarazem odrobina dobrej zabawy - symulator lotu myśliwcem kosmicznym w 3D (na bazie allegro4 i alleggl).
 * @author Aleksander Szpakiewicz-Szatan
 * @date 2016.12.29
-* @version pre-alfa 1.2.3
+* @version alfa 1.0
 */
 
 void render(Camera* cam_, std::vector<Renderable*>* star_);
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 	int res_y=1080;
 	bool autodetect=false;
 	bool windowed=false;
-	bool dbl_buff=1;
+	bool dbl_buff=true;
 	int depth=32;
 	
 	double fov_x=deg2rad(90);	//90
@@ -53,8 +53,12 @@ int main(int argc, char** argv)
 	
 	FILE* config;
 	
+	char file_name[255];
+	strcpy(file_name,getenv("HOME"));
+	strcat(file_name,"/.SOLar-Fighter/config.ini");
+	
 	if(argc==1)
-		config=fopen("config.ini","r");
+		config=fopen(file_name,"r");
 	else
 		config=fopen(argv[1],"r");
 		
@@ -75,8 +79,6 @@ int main(int argc, char** argv)
 		if(tmp_int==0) autodetect=false; else autodetect=true;
 		a+=fscanf(config,"%i",&tmp_int);
 		if(tmp_int==0) windowed=false; else windowed=true;
-		a+=fscanf(config,"%i",&tmp_int);
-		if(tmp_int==0) dbl_buff=false; else dbl_buff=true;
 		a+=fscanf(config,"%i",&tmp_int);
 		fov_x=deg2rad((double)tmp_int);
 		a+=fscanf(config,"%i",&tmp_int);
@@ -127,7 +129,7 @@ int main(int argc, char** argv)
 	for(unsigned i=0;i<obj_count-4;i++)
 	{
 		//renderables.push_back(new Star(rnd0_1()*PI2-PI,tmp_rnd*PI-PI05, 0, round(tmp_rnd*255),0));
-		//renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%128+32,std::rand()%128+32,std::rand()%128+32));
+		renderables.push_back(new Star(rnd0_1()*PI2-PI,rnd0_1()*PI-PI05, std::rand()%128+32,std::rand()%128+32,std::rand()%128+32));
 	}
 	//promienie dzielone przez 2, bo z tablic wzięto średnice
 	Orb* SOL=new Orb(19891e5, 1392e3/2.0,makecol(0xFF,0xFF,0x00));
@@ -149,7 +151,7 @@ int main(int argc, char** argv)
 	render(&cam,&renderables);
 	
 	double tmp=0;
-	double time_compression=1e6;
+	double time_compression=1e5;
 	
 	auto t0 = Time::now();
     auto t1 = Time::now();
@@ -193,7 +195,7 @@ int main(int argc, char** argv)
 			cam.move_y(tmp*sin(cam.get_yaw()));
 			cam.move_z(1e5*cos(cam.get_pitch()));
 			//fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
-			fprintf(stderr,"dist to SOL = %lf\n",cam_orb_dist(&cam,SOL));
+			//fprintf(stderr,"dist to SOL = %lf\n",cam_orb_dist(&cam,SOL));
 			
 		}
 		if(key[KEY_SPACE])
@@ -203,11 +205,10 @@ int main(int argc, char** argv)
 			cam.move_y(tmp*sin(cam.get_yaw()));
 			cam.move_z(-1e5*cos(cam.get_pitch()));
 			//fprintf(stderr, "xyz = (%lf,%lf,%lf)\n",cam.get_x(),cam.get_y(),cam.get_z());
-			fprintf(stderr,"dist to SOL = %lf\n",cam_orb_dist(&cam,SOL));
+			//fprintf(stderr,"dist to SOL = %lf\n",cam_orb_dist(&cam,SOL));
 		}
 		render(&cam,&renderables);
 		update(&renderables, dt.count()*time_compression);
-		//fprintf(stderr,"FPS: %lf\n",1.0/dt.count());
 		
 		std::this_thread::yield();	
 	}

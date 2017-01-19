@@ -1,10 +1,9 @@
 #ifndef _SIMPLE_OBJECT_HPP_
 #define _SIMPLE_OBJECT_HPP_
 #include "renderable.hpp"
-#include <stdio.h>
+
 
 class Object;			//niezbędne dla przyjaźni
-class Star;
 
 class SimpleObject: public Renderable	//prosty obiekt - punkt w przestrzeni kartezjańskiej - trzy współrzędne xyz i kąty w trzech osiach
 {
@@ -41,7 +40,6 @@ class SimpleObject: public Renderable	//prosty obiekt - punkt w przestrzeni kart
 		inline double get_roll() const {return roll_;}
 		
 	friend double calculate_distance(const SimpleObject* o1,const SimpleObject* o2);
-	friend Star;
 };
 
 double calculate_distance(const SimpleObject* o1,const SimpleObject* o2);

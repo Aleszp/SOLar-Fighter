@@ -20,7 +20,7 @@ void SimpleObject::rotate_yaw(double Dyaw)
 	if(Dyaw<0)
 		if(yaw_<-PI)
 			yaw_+=PI2;
-	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
+	//fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
 }
 
 void SimpleObject::rotate_pitch(double Dpitch)
@@ -40,7 +40,7 @@ void SimpleObject::rotate_pitch(double Dpitch)
 			rotate_roll(PI);
 			rotate_yaw(PI);
 		}
-	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
+	//fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
 }
 
 void SimpleObject::rotate_roll(double Droll)
@@ -52,7 +52,7 @@ void SimpleObject::rotate_roll(double Droll)
 	if(Droll<0)
 		if(roll_<-PI)
 			roll_+=PI2;
-	fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
+	//fprintf(stderr, "YPR = (%lf,%lf,%lf)\n",rad2deg(yaw_),rad2deg(pitch_),rad2deg(roll_));
 }
 
 double calculate_distance(const SimpleObject* o1,const SimpleObject* o2)
