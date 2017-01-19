@@ -20,6 +20,15 @@ class Camera: public SimpleObject
 		unsigned res_y2_;
 		double x_sin_fov_const_;
 		double y_sin_fov_const_;
+		
+		//Prędkości
+		double vx_;	
+		double vy_;
+		double vz_;
+		
+		double vyaw_;	//obrót w osi z - obrót "lewo/prawo"
+		double vpitch_;	//obrót w osi y - obrót "przód/tył"
+		double vroll_; 	//obrót w osi x - pochylenie w "lewo/prawo"
 	public:
 		Camera(double x, double y, double z, double yaw, double pitch, double roll, double fov_x, double fov_y, double render_dist, BITMAP* scr, double res_x, double res_y);
 		virtual ~Camera(){}
@@ -67,6 +76,10 @@ class Camera: public SimpleObject
 		 * @return rysuje wypełnioną elipsę na ekranie bez bezpośredniego dostępu do prywatnej bitmapy
 		 */ 
 		inline void ellipsefill(int xx,int yy,int rad_x, int rad_y, int col) const {::ellipsefill(scr_,xx,yy,rad_x, rad_y, col);}
-		virtual void update(double dt){}
+		virtual void update(double dt);
+		
+		void accel_line(double a);
+		void accel_deg(double ayaw, double apitch);
+		void accel_roll(double aroll);
 };
 #endif

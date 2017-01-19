@@ -23,5 +23,46 @@ Camera::Camera(double x, double y, double z, double yaw, double pitch, double ro
 {
 	x_sin_fov_const_=res_x_/2.0/sin(fov_x2_);
 	y_sin_fov_const_=res_y_/2.0/sin(fov_y2_);
+	vx_=0;
+	vy_=0;
+	vz_=0;
+	vyaw_=0;
+	vpitch_=0;
+	vroll_=0;
 }
 
+void Camera::accel_line(double a)
+{
+	double tmp=a*sin(SimpleObject::pitch_);
+	vx_+=(tmp*cos(SimpleObject::yaw_));
+	vy_+=(tmp*sin(SimpleObject::yaw_));
+	vz_+=(a*cos(SimpleObject::pitch_));
+}
+
+void Camera::accel_deg(double ayaw, double apitch)
+{
+	vyaw_+=(ayaw*cos(SimpleObject::roll_));
+	vpitch_+=(ayaw*sin(SimpleObject::roll_));
+	vyaw_+=(apitch*sin(SimpleObject::roll_));
+	vpitch_+=(apitch*cos(SimpleObject::roll_));
+}		
+
+void Camera::accel_roll(double aroll)
+{
+	vroll_+=aroll;
+}
+
+/**
+ * Aktualizuje położenie zmienne w czasie
+ * @param dt - krok czasowy
+ */ 
+void Camera::update(double dt)
+{
+	x_+=vx_*dt;
+	y_+=vy_*dt;
+	z_+=vz_*dt;
+	
+	rotate_yaw(vyaw_*dt);
+	rotate_pitch(vpitch_*dt);
+	rotate_roll(vroll_*dt);
+}
